@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Lab catalog overlay (GPU/NIC local adds). Does not edit shipped JSON.
+set -e
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+root="$(dirname "$script_dir")"
+export PYTHONPATH="$root"
+exec python3 -m lsstack catalog "$@"

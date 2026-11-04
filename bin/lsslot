@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Deprecated name — use lsslots
+set -e
+echo "lsslot is deprecated; use lsslots" >&2
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec "$script_dir/lsslots" "$@"

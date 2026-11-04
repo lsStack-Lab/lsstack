@@ -1,0 +1,198 @@
+{
+  "_meta": {
+    "version": 1,
+    "description": "Educational findings catalog for lsstack. Detection stays in Python; this file supplies what/why/prompt templates. Structure inspired by DMTF Redfish Message Registries (Platform PCIe* messages); GPU link fields crosswalked to NVIDIA DCGM PCIE LINK/MAX gen+width; SMART seed paraphrased from Scrutiny-style attribute metadata. No learn/fix URL field."
+  },
+  "findings": {
+    "pcie.gen_mismatch": {
+      "id": "pcie.gen_mismatch",
+      "subsystem": "pcie",
+      "default_severity": "warn",
+      "title": "GPU PCIe generation exceeds platform root",
+      "what": "The card\u2019s rated PCIe generation is higher than this CPU root can run ({spec_gen_label} card on {root_max_gen_label} root; link now {cur_gen_label} x{cur_width}).",
+      "why": "A PCIe link trains to the oldest generation both ends support. The CPU root\u2019s max gen is a hard ceiling; a newer GPU cannot raise it. When the datasheet rating exceeds the platform, that is often by design, not a bad cable. Idle ASPM can still drop the displayed gen further (recheck under load).",
+      "prompt": "I'm building a GPU workstation. My GPU is rated {spec_gen_label}{spec_bus_suffix}, the CPU PCIe root maxes at {root_max_gen_label}, and the link is trained at {cur_gen_label} x{cur_width}{cur_gt_suffix}. Explain what bandwidth I should expect, what I cannot fix without new hardware, and what BIOS/slot checks are still worth doing. Note idle ASPM can drop the displayed gen further.",
+      "related_commands": [
+        "lstopology",
+        "lsgpu",
+        "lsslots",
+        "lsproc"
+      ],
+      "sources": [
+        "Redfish Platform.1.4.0 PCIeIncorrectLinkSpeed (structure/seed; educational rewrite)",
+        "DCGM DCGM_FI_DEV_PCIE_LINK_GEN / MAX_LINK_GEN"
+      ]
+    },
+    "pcie.trained_low": {
+      "id": "pcie.trained_low",
+      "subsystem": "pcie",
+      "default_severity": "warn",
+      "title": "PCIe link trained below path ceiling",
+      "what": "This device path can do {path_ceiling_gen_label}, but the link is trained at {cur_gen_label} x{cur_width}.",
+      "why": "Negotiated speed is below what this path allows. On idle Linux desktops, ASPM and power management often drop the link to Gen1; treat that as a false positive until you recheck under load. Other causes: BIOS PCIe gen cap, riser/cable, or a weak slot.",
+      "prompt": "My PCIe device can do {path_ceiling_gen_label} on this path but is trained at {cur_gen_label} x{cur_width}{cur_gt_suffix}. For a home/lab workstation, what should I check (ASPM, BIOS PCIe gen, riser/cable, idle vs load), and how do I confirm the link improved?",
+      "related_commands": [
+        "lstopology",
+        "lsgpu",
+        "lsslots"
+      ],
+      "sources": [
+        "Redfish Platform.1.4.0 PCIeIncorrectLinkSpeed",
+        "DCGM DCGM_FI_DEV_PCIE_LINK_GEN / MAX_LINK_GEN"
+      ]
+    },
+    "pcie.width_limited": {
+      "id": "pcie.width_limited",
+      "subsystem": "pcie",
+      "default_severity": "warn",
+      "title": "PCIe link width below CPU root max",
+      "what": "GPU width is x{cur_width} while this CPU root reports max x{root_max_w}.",
+      "why": "Fewer lanes than the root advertises. On a DIY board this is often bifurcation, a physically x8-wired \u201cx16\u201d slot, or lanes shared with NVMe/chipset\u2014not a bad GPU. Confirm against the motherboard manual before replacing parts.",
+      "prompt": "My GPU is at x{cur_width} but the CPU PCIe root reports max x{root_max_w}. Explain bifurcation, shared lanes, and motherboard slot wiring in plain language, and what to look up in my board manual.",
+      "related_commands": [
+        "lstopology",
+        "lsslots",
+        "lsgpu"
+      ],
+      "sources": [
+        "Redfish Platform.1.4.0 PCIeIncorrectLinkWidth",
+        "DCGM DCGM_FI_DEV_PCIE_LINK_WIDTH / MAX_LINK_WIDTH"
+      ]
+    },
+    "pcie.gpu_headroom": {
+      "id": "pcie.gpu_headroom",
+      "subsystem": "pcie",
+      "default_severity": "info",
+      "title": "GPU attached with unused root lane headroom",
+      "what": "CPU root has x{remaining} unused of x{max_w} while a GPU is linked at x{cur_w}.",
+      "why": "Unused root width with a GPU present usually means the slot is wired narrower, bifurcation took lanes, or the card trained to fewer lanes than the root advertises. Matters most for multi-GPU peer traffic and large host\u2194device copies; light inference may not care.",
+      "prompt": "My GPU is running at x{cur_w} on a CPU PCIe root that supports x{max_w} ({max_gen_label} max, currently {cur_gen_label}). Explain why a GPU might not use full x16 (bifurcation, slot wiring, chipset), what to check in the motherboard manual, and whether this usually matters for my workload.",
+      "related_commands": [
+        "lstopology",
+        "lsslots",
+        "lsgpu"
+      ],
+      "sources": [
+        "DCGM width fields (context)",
+        "lab-builder educational (no Redfish equivalent)"
+      ]
+    },
+    "pcie.oversub": {
+      "id": "pcie.oversub",
+      "subsystem": "pcie",
+      "default_severity": "fail",
+      "title": "CPU PCIe root lane oversubscription",
+      "what": "Direct cards on this root need about x{consumed_width} lanes but the root max is x{max_w}.",
+      "why": "PCIe lanes on one CPU root are a fixed pool. Plugging more width than the root has forces sharing or degraded links. Move cards to another root or a switch-backed slot, or reduce bifurcation consumers.",
+      "prompt": "On my workstation, devices on one CPU PCIe root need about x{consumed_width} lanes but the root only has x{max_w}. Explain PCIe lane oversubscription and practical ways to rebalance slots or reduce sharing for a home/lab build.",
+      "related_commands": [
+        "lstopology",
+        "lsslots",
+        "lsproc"
+      ],
+      "sources": [
+        "lab-builder educational (cross-check DCGM width sum vs platform design)"
+      ]
+    },
+    "pcie.root_gen_low": {
+      "id": "pcie.root_gen_low",
+      "subsystem": "pcie",
+      "default_severity": "warn",
+      "title": "CPU root trained below its max generation",
+      "what": "Root {bdf} supports {max_gen_label} but is trained at {cur_gen_label}.",
+      "why": "Child device capability, BIOS gen lock, or power saving (including idle ASPM) can hold the root link down. Recheck after a load that exercises the attached GPU or NVMe.",
+      "prompt": "A CPU PCIe root on my Linux box supports {max_gen_label} but is trained at {cur_gen_label}. What BIOS and software settings (PCIe generation, ASPM) should a home-lab builder try, and how do I verify the link came up higher?",
+      "related_commands": [
+        "lstopology",
+        "lsslots",
+        "lsgpu"
+      ],
+      "sources": [
+        "Redfish Platform.1.4.0 PCIeIncorrectLinkSpeed (root-side framing)"
+      ]
+    },
+    "pcie.link_ok": {
+      "id": "pcie.link_ok",
+      "subsystem": "pcie",
+      "default_severity": "info",
+      "title": "PCIe endpoint link looks consistent",
+      "what": "Link width and generation look consistent with this CPU root\u2019s capability.",
+      "why": "No speed/width mismatch on this endpoint. A healthy link can still limit bandwidth if the platform gen is older than the GPU datasheet; that shows up as gen_mismatch elsewhere.",
+      "prompt": "Briefly explain how to read PCIe link status (width, GT/s, generation) on a Linux workstation and when a healthy link can still limit GPU bandwidth.",
+      "related_commands": [
+        "lstopology",
+        "lsgpu"
+      ],
+      "sources": [
+        "DCGM link gen/width field pair (healthy baseline)"
+      ]
+    },
+    "pcie.root_ok": {
+      "id": "pcie.root_ok",
+      "subsystem": "pcie",
+      "default_severity": "info",
+      "title": "CPU root lane use looks consistent",
+      "what": "Root {bdf}: x{cur_w}/{max_w} at {cur_gen_label} \u2014 lane use looks consistent with this port.",
+      "why": "Available vs in-use vs remaining is the lane budget a builder should read before adding a second GPU or NVMe on the same root.",
+      "prompt": "Explain what a CPU PCIe root port is, how lane budget works for GPUs and NVMe, and how a builder should read available vs in-use vs remaining lanes.",
+      "related_commands": [
+        "lstopology",
+        "lsslots"
+      ],
+      "sources": [
+        "lab-builder educational"
+      ]
+    },
+    "power.psu_undersized": {
+      "id": "power.psu_undersized",
+      "subsystem": "power",
+      "default_severity": "fail",
+      "title": "PSU below design budget",
+      "what": "Configured PSU capacity is below the design load for this build ({budget_line}).",
+      "why": "This is design headroom, not a live PSU failure alarm. Lab inventory is the shared truth for rated watts; do not chase telemetry alone when the spreadsheet already says the brick is short.",
+      "prompt": "My lab inventory says PSU {psu_watts} W but the design budget for this GPU workstation is {budget_line}. Explain how to size a PSU for a home/college GPU lab (peak vs continuous, 12V rail, GPU spikes) and what to change in inventory vs hardware.",
+      "related_commands": [
+        "lspower",
+        "lslab",
+        "lsgpu"
+      ],
+      "sources": [
+        "Redfish Power registry (severity/taxonomy seed)",
+        "lab budget educational rewrite"
+      ]
+    },
+    "power.psu_unknown": {
+      "id": "power.psu_unknown",
+      "subsystem": "power",
+      "default_severity": "info",
+      "title": "No lab PSU capacity on file",
+      "what": "Design power budget has no PSU wattage from lab inventory for this host.",
+      "why": "Without a declared PSU, headroom cannot be judged. Enroll the system with lslab so lspower can compare estimated load to capacity.",
+      "prompt": "I'm using lsstack on a GPU lab host with no PSU watts in lab_inventory.json. Explain what fields to record for a shared lab inventory and how lspower uses them for a design budget.",
+      "related_commands": [
+        "lslab",
+        "lspower"
+      ],
+      "sources": [
+        "lab-builder educational"
+      ]
+    },
+    "disk.smart_reallocated": {
+      "id": "disk.smart_reallocated",
+      "subsystem": "disk",
+      "default_severity": "warn",
+      "title": "SMART reallocated sectors rising",
+      "what": "Drive reports reallocated (or pending) sectors above a quiet baseline.",
+      "why": "Reallocated sector count means the drive remapped sectors after read/write trouble. Rising counts are a wear/failure signal; a single static remap on an old drive is less urgent than growth over days.",
+      "prompt": "My Linux workstation SMART data shows reallocated or pending sectors on a lab drive. Explain what that means for a home/college builder, when to back up and replace, and which lsstack/smartctl fields to watch next.",
+      "related_commands": [
+        "lsdisk",
+        "lsnvme"
+      ],
+      "sources": [
+        "Scrutiny SMART attribute metadata (MIT; educational paraphrase)",
+        "ATA SMART common practice"
+      ]
+    }
+  }
+}

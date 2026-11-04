@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>lsStack</title>
+  <meta name="description" content="Concise, cleanly formatted reporting on Linux system components." />
+  <link rel="icon" href="brand/favicon/favicon.ico" sizes="16x16 32x32 48x48" />
+  <link rel="icon" type="image/png" href="brand/favicon/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="brand/icons/lsstack-180.png" />
+  <link rel="stylesheet" href="site.css?v=6" />
+</head>
+<body>
+  <header>
+    <img src="brand/logo-512.png" width="72" height="72" alt="" />
+    <div>
+      <h1>lsStack</h1>
+    </div>
+  </header>
+
+  <h2>Problem this solves</h2>
+  <p>Cryptic Linux tools delivering limited, poorly formatted, verbose reporting on individual system components.</p>
+
+  <h2>How</h2>
+  <p>Collection of intuitive commands providing enhanced, cleanly formatted, concise reporting on individual components or the complete system.</p>
+  <div class="cmds">
+    <ul>
+      <li><code>lsstack</code></li>
+      <li><code>lsbios</code></li>
+      <li><code>lscatalog</code></li>
+      <li><code>lscuda</code></li>
+      <li><code>lsdisk</code></li>
+      <li><code>lsdriver</code></li>
+      <li><code>lsgpu</code></li>
+    </ul>
+    <ul>
+      <li><code>lsiommu</code></li>
+      <li><code>lslab</code></li>
+      <li><code>lsmobo</code></li>
+      <li><code>lsnetwork</code></li>
+      <li><code>lsnvme</code></li>
+      <li><code>lspower</code></li>
+    </ul>
+    <ul>
+      <li><code>lsproc</code></li>
+      <li><code>lsram</code></li>
+      <li><code>lsslots</code></li>
+      <li><code>lsthermal</code></li>
+      <li><code>lstopology</code></li>
+      <li><code>lswatch</code></li>
+    </ul>
+  </div>
+
+  <h2>Why</h2>
+  <p>Ease of use for those validating or expanding GPU centric workstation builds in a home or learning lab.</p>
+
+  <h2>Features</h2>
+  <p>Reports: what the number is, why it matters, and what to research next.</p>
+  <ul class="features">
+    <li><strong>Verify</strong> - After a build or a new card, shows what seated properly and whether it came up correctly. Serials and evidence if a part has to go back.</li>
+    <li><strong>Balance</strong> - Shows whether the PSU, PCIe slots, and RAM can carry the GPUs, and why nameplate ratings are best case.</li>
+    <li><strong>PCIe links</strong> - Flags a GPU running below its rated lanes or generation, and explains how slot and CPU lanes decide it.</li>
+    <li><strong>Expansion headroom</strong> - Shows the watts, lanes, and slots still free, so the next card is planned, not guessed.</li>
+    <li><strong>Teach notes</strong> - Every warning says why it matters and what to research next.</li>
+    <li><strong>Live watch</strong> - Temperatures and power draw while a job runs, to see how the design behaves under load.</li>
+    <li><strong>Lab record</strong> - Each machine saved once, PSU and connectors included, so the next build starts from a known design.</li>
+    <li><strong>Catalog</strong> - Add a card or PSU the shipped specs do not cover, and see which numbers matter while doing it.</li>
+    <li><strong>Privilege</strong> - Most commands run without sudo. Fields that need root are named and explained.</li>
+  </ul>
+
+  <h2>Install</h2>
+  <pre><code>git clone https://github.com/lsStack-Lab/lsstack.git lsstack
+cd lsstack
+./scripts/install-user.sh</code></pre>
+  <p>The installer links every <code>ls</code> command into <code>$HOME/.local/bin</code>, so they run from any directory. If the shell answers "command not found," that folder is not on your <code>PATH</code> yet. Add it:</p>
+  <pre><code>export PATH="$HOME/.local/bin:$PATH"</code></pre>
+
+  <h2>License</h2>
+  <p>Scripts are <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>. Spec files are curated hearsay, with no warranty.</p>
+
+  <h2>Contact</h2>
+  <p>Bugs and features to repository Issues. Other mail to <a href="mailto:lsstacklab@gmail.com">lsstacklab@gmail.com</a>.<br />No secrets or serial dumps.</p>
+
+  <footer>
+    <p><a href="https://lsstack.org">lsstack.org</a></p>
+    <p>The component spec files are curated by a carbon-based lifeform, and therefore undoubtedly contain errors. Finding one is part of the curriculum. No warranty, express or implied.</p>
+  </footer>
+</body>
+</html>

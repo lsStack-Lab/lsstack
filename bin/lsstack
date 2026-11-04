@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Full report. With sudo, use this script by path so PYTHONPATH is set: sudo ./bin/lsstack
+set -e
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+root="$(dirname "$script_dir")"
+export PYTHONPATH="$root"
+exec python3 -m lsstack report "$@"

@@ -1,0 +1,10 @@
+{
+  "by_board": {
+    "": {
+      "PCIe Slot 1": 16,
+      "PCIe Slot 2": 16,
+      "Slot 1": 16,
+      "Slot 2": 8
+    }
+  }
+}

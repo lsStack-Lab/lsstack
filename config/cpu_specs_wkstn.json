@@ -1,0 +1,7287 @@
+{
+  "Workstation": {
+    "manufacturers": {
+      "AMD": {
+        "Athlon PRO": {
+          "200GE": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.2,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "300GE": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.4,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          }
+        },
+        "Athlon": {
+          "200GE": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.5,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "220GE": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.5,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "240GE": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.2,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "3000G": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.5,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "300GE": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.6,
+            "l3Cache": "16MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "320GE": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.6,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          }
+        },
+        "Ryzen 3 PRO": {
+          "2200G": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.4,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "2200GE": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "3200G": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.8,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "3200GE": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 4.0,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "4350G": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.5,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "4350GE": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 4.0,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "4355G": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.5,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "4355GE": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 4.0,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5350G": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.5,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5350GE": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.5,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5355G": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.2,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5355GE": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.6,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "8300G": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.4,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "8300GE": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 4.0,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          }
+        },
+        "Ryzen 3": {
+          "2200G": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.5,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "2200GE": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 4.0,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "2300X": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.5,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "3100": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 4.0,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "3200G": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.5,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "3200GE": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 4.0,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "3300X": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.5,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "4100": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 4.0,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "4300G": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.5,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "4300GE": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.5,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5300G": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.4,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5300GE": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.5,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "8300G": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.6,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "8300GE": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.2,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          }
+        },
+        "Ryzen 5 PRO": {
+          "2400G": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.6,
+            "l3Cache": "8MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "2400GE": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.4,
+            "l3Cache": "16MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "2600": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.4,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "3350G": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.6,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "3350GE": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.7,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "3400G": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.4,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "3400GE": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.6,
+            "l3Cache": "16MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "3600": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.6,
+            "l3Cache": "32MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "4650G": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.8,
+            "l3Cache": "32MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "4650GE": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 4.0,
+            "l3Cache": "32MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "4655G": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.6,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "4655GE": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.6,
+            "l3Cache": "8MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5645": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.3,
+            "l3Cache": "8MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "5650G": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.6,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5650GE": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.5,
+            "l3Cache": "16MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5655G": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.5,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5655GE": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.9,
+            "l3Cache": "16MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "7645": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.5,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "8500G": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "8500GE": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.7,
+            "l3Cache": "32MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "8600G": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 4.0,
+            "l3Cache": "32MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "8600GE": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          }
+        },
+        "Ryzen 5": {
+          "2400G": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.8,
+            "l3Cache": "32MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "2400GE": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 4.3,
+            "l3Cache": "32MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "2500X": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 4.5,
+            "l3Cache": "32MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "2600": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "2600E": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.6,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "2600X": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.5,
+            "l3Cache": "16MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "3400G": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "3400GE": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.7,
+            "l3Cache": "16MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 12,
+            "pcie_gen": 3
+          },
+          "3500X": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.6,
+            "l3Cache": "4MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "3600": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.2,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "3600X": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.4,
+            "l3Cache": "16MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "3600XT": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 4.0,
+            "l3Cache": "4MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "4500": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.5,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "4600G": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.7,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "4600GE": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.4,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5500": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.6,
+            "l3Cache": "32MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "5500GT": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.6,
+            "l3Cache": "8MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "5600": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.3,
+            "l3Cache": "8MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "5600G": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 4.0,
+            "l3Cache": "8MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5600GE": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.6,
+            "l3Cache": "8MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5600GT": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "5600X": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.9,
+            "l3Cache": "16MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "5600X3D": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.5,
+            "l3Cache": "16MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "7500F": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 4.0,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "7600": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.6,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "7600X": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "7600X3D": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.6,
+            "l3Cache": "16MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "8400F": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.5,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "8500G": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "8500GE": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.5,
+            "l3Cache": "16MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "8600G": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.2,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "9600X": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.2,
+            "l3Cache": "16MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          }
+        },
+        "Ryzen 7 PRO": {
+          "2700": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.7,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "2700X": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.6,
+            "l3Cache": "32MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "3700": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.9,
+            "l3Cache": "32MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "4750G": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 4.0,
+            "l3Cache": "32MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "4750GE": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.6,
+            "l3Cache": "8MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5750G": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.5,
+            "l3Cache": "8MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5750GE": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.4,
+            "l3Cache": "32MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5755G": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5755GE": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.2,
+            "l3Cache": "16MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5845": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.6,
+            "l3Cache": "32MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "7745": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.4,
+            "l3Cache": "32MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "8700G": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.8,
+            "l3Cache": "32MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "8700GE": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.8,
+            "l3Cache": "32MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          }
+        },
+        "Ryzen 7": {
+          "2700": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 4.0,
+            "l3Cache": "32MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "2700E": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 4.5,
+            "l3Cache": "32MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "2700X": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.8,
+            "l3Cache": "40MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "3700X": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 4.5,
+            "l3Cache": "40MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "3800X": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 4.0,
+            "l3Cache": "40MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "3800XT": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.2,
+            "l3Cache": "12MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "4700G": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.6,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "4700GE": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.0,
+            "l3Cache": "12MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5700": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "5700G": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.2,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5700GE": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.7,
+            "l3Cache": "16MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 24,
+            "pcie_gen": 3
+          },
+          "5700X": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.6,
+            "l3Cache": "32MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "5700X3D": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.6,
+            "l3Cache": "8MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "5800": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.5,
+            "l3Cache": "8MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "5800X": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "5800X3D": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.2,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "5800XT": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "7700": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.5,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "7700X": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.6,
+            "l3Cache": "16MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "7800X3D": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 120,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "8700F": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.6,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "8700G": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.5,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "9700X": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 3.1,
+            "l3Cache": "70MB",
+            "tdp_watts": 120,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "9800X3D": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 3.8,
+            "l3Cache": "70MB",
+            "tdp_watts": 120,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          }
+        },
+        "Ryzen 9": {
+          "3900": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 3.1,
+            "l3Cache": "64MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "3900X": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 3.8,
+            "l3Cache": "64MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "3900XT": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 3.7,
+            "l3Cache": "70MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "3950X": {
+            "memory_channels": 2,
+            "cores": 16,
+            "ghz": 3.5,
+            "l3Cache": "64MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "5900": {
+            "memory_channels": 2,
+            "cores": 16,
+            "ghz": 3.4,
+            "l3Cache": "64MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "5900X": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 3.5,
+            "l3Cache": "70MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "5900XT": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 4.0,
+            "l3Cache": "70MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "5945": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 4.5,
+            "l3Cache": "70MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "5950X": {
+            "memory_channels": 2,
+            "cores": 16,
+            "ghz": 4.0,
+            "l3Cache": "64MB",
+            "tdp_watts": 105,
+            "pcie_lanes": 24,
+            "pcie_gen": 4
+          },
+          "7900": {
+            "memory_channels": 2,
+            "cores": 16,
+            "ghz": 4.2,
+            "l3Cache": "96MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "7900X": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 3.5,
+            "l3Cache": "20MB",
+            "tdp_watts": 170,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "7900X3D": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 3.5,
+            "l3Cache": "24MB",
+            "tdp_watts": 170,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "7945": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 3.1,
+            "l3Cache": "70MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "7950X": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 3.7,
+            "l3Cache": "70MB",
+            "tdp_watts": 170,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "7950X3D": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 3.8,
+            "l3Cache": "70MB",
+            "tdp_watts": 170,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "9900X": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.2,
+            "l3Cache": "4MB",
+            "tdp_watts": 170,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "9950X": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.4,
+            "l3Cache": "4MB",
+            "tdp_watts": 170,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          }
+        },
+        "Ryzen Threadripper PRO": {
+          "3945WX": {
+            "memory_channels": 8,
+            "cores": 12,
+            "ghz": 4.0,
+            "l3Cache": "64MB",
+            "tdp_watts": 280,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "3955WX": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 3.9,
+            "l3Cache": "64MB",
+            "tdp_watts": 280,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "3975WX": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 3.5,
+            "l3Cache": "128MB",
+            "tdp_watts": 280,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "3995WX": {
+            "memory_channels": 8,
+            "cores": 64,
+            "ghz": 2.7,
+            "l3Cache": "256MB",
+            "tdp_watts": 280,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "5945WX": {
+            "memory_channels": 8,
+            "cores": 12,
+            "ghz": 4.1,
+            "l3Cache": "64MB",
+            "tdp_watts": 280,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "5955WX": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 4.0,
+            "l3Cache": "64MB",
+            "tdp_watts": 280,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "5965WX": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 3.8,
+            "l3Cache": "128MB",
+            "tdp_watts": 280,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "5975WX": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 3.6,
+            "l3Cache": "128MB",
+            "tdp_watts": 280,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "5995WX": {
+            "memory_channels": 8,
+            "cores": 64,
+            "ghz": 2.7,
+            "l3Cache": "256MB",
+            "tdp_watts": 280,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7945WX": {
+            "memory_channels": 8,
+            "cores": 12,
+            "ghz": 4.7,
+            "l3Cache": "64MB",
+            "tdp_watts": 350,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "7955WX": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 4.5,
+            "l3Cache": "64MB",
+            "tdp_watts": 350,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "7965WX": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 4.2,
+            "l3Cache": "128MB",
+            "tdp_watts": 350,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "7975WX": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 4.0,
+            "l3Cache": "128MB",
+            "tdp_watts": 350,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "7985WX": {
+            "memory_channels": 8,
+            "cores": 64,
+            "ghz": 3.2,
+            "l3Cache": "256MB",
+            "tdp_watts": 350,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "7995WX": {
+            "memory_channels": 8,
+            "cores": 96,
+            "ghz": 2.5,
+            "l3Cache": "384MB",
+            "tdp_watts": 350,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          }
+        },
+        "Ryzen Threadripper": {
+          "2920X": {
+            "memory_channels": 4,
+            "cores": 12,
+            "ghz": 3.5,
+            "l3Cache": "32MB",
+            "tdp_watts": 180,
+            "pcie_lanes": 64,
+            "pcie_gen": 3
+          },
+          "2950X": {
+            "memory_channels": 4,
+            "cores": 16,
+            "ghz": 3.5,
+            "l3Cache": "32MB",
+            "tdp_watts": 180,
+            "pcie_lanes": 64,
+            "pcie_gen": 3
+          },
+          "2970WX": {
+            "memory_channels": 4,
+            "cores": 24,
+            "ghz": 3.0,
+            "l3Cache": "64MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 3
+          },
+          "2990WX": {
+            "memory_channels": 4,
+            "cores": 32,
+            "ghz": 3.0,
+            "l3Cache": "64MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 3
+          },
+          "3960X": {
+            "memory_channels": 4,
+            "cores": 24,
+            "ghz": 3.8,
+            "l3Cache": "128MB",
+            "tdp_watts": 280,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "3970X": {
+            "memory_channels": 4,
+            "cores": 32,
+            "ghz": 3.7,
+            "l3Cache": "128MB",
+            "tdp_watts": 280,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "7960X": {
+            "memory_channels": 4,
+            "cores": 24,
+            "ghz": 4.2,
+            "l3Cache": "128MB",
+            "tdp_watts": 350,
+            "pcie_lanes": 48,
+            "pcie_gen": 5
+          },
+          "7970X": {
+            "memory_channels": 4,
+            "cores": 32,
+            "ghz": 4.0,
+            "l3Cache": "128MB",
+            "tdp_watts": 350,
+            "pcie_lanes": 48,
+            "pcie_gen": 5
+          },
+          "7980X": {
+            "memory_channels": 4,
+            "cores": 64,
+            "ghz": 3.2,
+            "l3Cache": "256MB",
+            "tdp_watts": 350,
+            "pcie_lanes": 48,
+            "pcie_gen": 5
+          }
+        }
+      },
+      "Intel": {
+        "Celeron": {
+          "G4900": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.1,
+            "l3Cache": "2MB",
+            "tdp_watts": 54,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G4900T": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.0,
+            "l3Cache": "2MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G4920": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.2,
+            "l3Cache": "2MB",
+            "tdp_watts": 54,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G4930": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.3,
+            "l3Cache": "2MB",
+            "tdp_watts": 54,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G4930T": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.0,
+            "l3Cache": "2MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G4950": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.5,
+            "l3Cache": "2MB",
+            "tdp_watts": 54,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "J4025": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.7,
+            "l3Cache": "4MB",
+            "tdp_watts": 10
+          },
+          "J4125": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.3,
+            "l3Cache": "4MB",
+            "tdp_watts": 10
+          }
+        },
+        "Core 5 Ultra": {
+          "245K": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.8,
+            "l3Cache": "4MB",
+            "pcie_lanes": 24,
+            "pcie_gen": 5
+          },
+          "245KF": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.4,
+            "l3Cache": "4MB",
+            "pcie_lanes": 24,
+            "pcie_gen": 5
+          }
+        },
+        "Core 7 Ultra": {
+          "265K": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.8,
+            "l3Cache": "4MB",
+            "pcie_lanes": 24,
+            "pcie_gen": 5
+          },
+          "265KF": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.4,
+            "l3Cache": "4MB",
+            "pcie_lanes": 24,
+            "pcie_gen": 5
+          }
+        },
+        "Core 9 Ultra": {
+          "285K": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.9,
+            "l3Cache": "4MB",
+            "pcie_lanes": 24,
+            "pcie_gen": 5
+          }
+        },
+        "Core i3": {
+          "10100": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.5,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10100F": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 4.0,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10100T": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 4.0,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10105": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.5,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10105F": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 4.1,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10105T": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.6,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10300": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 4.2,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10300T": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.7,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10305": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 4.3,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10305T": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.8,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10320": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 4.4,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10325": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 4.5,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "11100B": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 3.7,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "12100": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 4.1,
+            "l3Cache": "4MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12100F": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.6,
+            "l3Cache": "6MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12100T": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.6,
+            "l3Cache": "6MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12300": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.4,
+            "l3Cache": "6MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12300T": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.8,
+            "l3Cache": "6MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13100": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.8,
+            "l3Cache": "6MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13100F": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.6,
+            "l3Cache": "6MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13100T": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.7,
+            "l3Cache": "6MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14100": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.4,
+            "l3Cache": "6MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14100F": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.8,
+            "l3Cache": "6MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14100T": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.5,
+            "l3Cache": "6MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "8100F": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.5,
+            "l3Cache": "6MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "8100T": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.6,
+            "l3Cache": "6MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "8300": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.6,
+            "l3Cache": "6MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "8300T": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.3,
+            "l3Cache": "12MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9100": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.3,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9100F": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.0,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9100T": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.5,
+            "l3Cache": "12MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9300": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.2,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9300T": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.4,
+            "l3Cache": "12MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9320": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.4,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9350K": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.0,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9350KF": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.5,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          }
+        },
+        "Core i5": {
+          "10400": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.5,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10400F": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.3,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10400T": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.6,
+            "l3Cache": "6MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10500": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.4,
+            "l3Cache": "6MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10500T": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.7,
+            "l3Cache": "8MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10505": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.2,
+            "l3Cache": "8MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10600": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.6,
+            "l3Cache": "6MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10600K": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.6,
+            "l3Cache": "6MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10600KF": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.4,
+            "l3Cache": "6MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10600T": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.7,
+            "l3Cache": "8MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "11400": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.4,
+            "l3Cache": "8MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11400F": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 3.6,
+            "l3Cache": "8MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11400T": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 4.0,
+            "l3Cache": "8MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11500": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 4.0,
+            "l3Cache": "8MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11500B": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.9,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11500T": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.9,
+            "l3Cache": "12MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11600": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.5,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11600K": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.1,
+            "l3Cache": "12MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11600KF": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.5,
+            "l3Cache": "12MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11600T": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.2,
+            "l3Cache": "12MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "12400": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.3,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12400F": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 4.1,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12400T": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 4.1,
+            "l3Cache": "12MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12490F": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.4,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12500": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.6,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12500T": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.6,
+            "l3Cache": "12MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12600": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.4,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12600K": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.7,
+            "l3Cache": "12MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12600KF": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.7,
+            "l3Cache": "12MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12600T": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.4,
+            "l3Cache": "12MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13400": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.3,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13400F": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.9,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13400T": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.9,
+            "l3Cache": "12MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13490F": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.7,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13500": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.5,
+            "l3Cache": "18MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13500T": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.5,
+            "l3Cache": "18MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13600": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.2,
+            "l3Cache": "18MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13600K": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.8,
+            "l3Cache": "18MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13600KF": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.0,
+            "l3Cache": "18MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13600T": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.5,
+            "l3Cache": "18MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14400": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 3.3,
+            "l3Cache": "20MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14400F": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 3.6,
+            "l3Cache": "20MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14400T": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 3.6,
+            "l3Cache": "20MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14490F": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 2.8,
+            "l3Cache": "20MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14500": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 2.5,
+            "l3Cache": "20MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14500T": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 2.5,
+            "l3Cache": "20MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14600": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 2.3,
+            "l3Cache": "20MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14600K": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 2.8,
+            "l3Cache": "20MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14600KF": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 3.0,
+            "l3Cache": "20MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14600T": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 2.5,
+            "l3Cache": "20MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "8400T": {
+            "memory_channels": 2,
+            "cores": 14,
+            "ghz": 3.3,
+            "l3Cache": "24MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "8500": {
+            "memory_channels": 2,
+            "cores": 14,
+            "ghz": 3.6,
+            "l3Cache": "24MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "8500T": {
+            "memory_channels": 2,
+            "cores": 14,
+            "ghz": 3.6,
+            "l3Cache": "24MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "8600": {
+            "memory_channels": 2,
+            "cores": 14,
+            "ghz": 2.5,
+            "l3Cache": "24MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "8600T": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 2.6,
+            "l3Cache": "20MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9400": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 2.6,
+            "l3Cache": "20MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9400F": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 2.4,
+            "l3Cache": "20MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9400T": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 2.8,
+            "l3Cache": "20MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9500": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 2.8,
+            "l3Cache": "20MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9500F": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 2.5,
+            "l3Cache": "20MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9500T": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 3.0,
+            "l3Cache": "20MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9600": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 3.5,
+            "l3Cache": "20MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9600K": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 3.5,
+            "l3Cache": "20MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9600KF": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 2.8,
+            "l3Cache": "20MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9600T": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.5,
+            "l3Cache": "9MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          }
+        },
+        "Core i7": {
+          "10700": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.0,
+            "l3Cache": "9MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10700F": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.1,
+            "l3Cache": "9MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10700K": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.1,
+            "l3Cache": "9MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10700KF": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.3,
+            "l3Cache": "9MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10700T": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.9,
+            "l3Cache": "9MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "11700": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.9,
+            "l3Cache": "9MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11700B": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.5,
+            "l3Cache": "9MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11700F": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.0,
+            "l3Cache": "9MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11700K": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.0,
+            "l3Cache": "9MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11700KF": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.5,
+            "l3Cache": "9MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11700T": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.1,
+            "l3Cache": "9MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "12700": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.7,
+            "l3Cache": "9MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12700F": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.7,
+            "l3Cache": "9MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12700K": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.4,
+            "l3Cache": "9MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12700KF": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 2.9,
+            "l3Cache": "16MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12700T": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 2.9,
+            "l3Cache": "16MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13700": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13700F": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13700K": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 2.0,
+            "l3Cache": "16MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13700KF": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 2.5,
+            "l3Cache": "16MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13700T": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 2.5,
+            "l3Cache": "16MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13790F": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 2.5,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14700": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.6,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14700F": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.6,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14700K": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 2.0,
+            "l3Cache": "16MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14700KF": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 2.1,
+            "l3Cache": "25MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14700T": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 2.1,
+            "l3Cache": "25MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14790F": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 3.6,
+            "l3Cache": "25MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "8086K": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 3.6,
+            "l3Cache": "25MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "8700T": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 2.0,
+            "l3Cache": "25MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9700": {
+            "memory_channels": 2,
+            "cores": 14,
+            "ghz": 2.6,
+            "l3Cache": "24MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9700F": {
+            "memory_channels": 2,
+            "cores": 14,
+            "ghz": 2.6,
+            "l3Cache": "24MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9700K": {
+            "memory_channels": 2,
+            "cores": 14,
+            "ghz": 3.4,
+            "l3Cache": "24MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9700KF": {
+            "memory_channels": 2,
+            "cores": 14,
+            "ghz": 3.4,
+            "l3Cache": "24MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9700T": {
+            "memory_channels": 2,
+            "cores": 14,
+            "ghz": 2.2,
+            "l3Cache": "24MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9800X": {
+            "memory_channels": 2,
+            "cores": 14,
+            "ghz": 2.8,
+            "l3Cache": "24MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 44,
+            "pcie_gen": 3
+          }
+        },
+        "Core i9": {
+          "10850K": {
+            "memory_channels": 2,
+            "cores": 14,
+            "ghz": 2.8,
+            "l3Cache": "24MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10900": {
+            "memory_channels": 2,
+            "cores": 14,
+            "ghz": 2.8,
+            "l3Cache": "24MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10900F": {
+            "memory_channels": 2,
+            "cores": 14,
+            "ghz": 3.6,
+            "l3Cache": "24MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10900K": {
+            "memory_channels": 2,
+            "cores": 14,
+            "ghz": 3.6,
+            "l3Cache": "24MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10900KF": {
+            "memory_channels": 2,
+            "cores": 14,
+            "ghz": 2.4,
+            "l3Cache": "24MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10900T": {
+            "memory_channels": 2,
+            "cores": 14,
+            "ghz": 3.0,
+            "l3Cache": "24MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10900X": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 4.0,
+            "l3Cache": "12MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 44,
+            "pcie_gen": 3
+          },
+          "10910": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 2.4,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 3
+          },
+          "10920X": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.0,
+            "l3Cache": "12MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 44,
+            "pcie_gen": 3
+          },
+          "10940X": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.0,
+            "l3Cache": "12MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 44,
+            "pcie_gen": 3
+          },
+          "10980XE": {
+            "memory_channels": 4,
+            "cores": 18,
+            "ghz": 3.0,
+            "l3Cache": "24.75MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "11900": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.6,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11900F": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 2.0,
+            "l3Cache": "12MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11900K": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11900KB": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 3.6,
+            "l3Cache": "20MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11900KF": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 2.8,
+            "l3Cache": "20MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "11900T": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 2.8,
+            "l3Cache": "20MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "12900": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 3.7,
+            "l3Cache": "20MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12900F": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 3.7,
+            "l3Cache": "20MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12900K": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 2.0,
+            "l3Cache": "20MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12900KF": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 3.5,
+            "l3Cache": "20MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12900KS": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 3.6,
+            "l3Cache": "20MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "12900T": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 3.5,
+            "l3Cache": "20MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13900": {
+            "memory_channels": 2,
+            "cores": 14,
+            "ghz": 3.3,
+            "l3Cache": "20MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13900F": {
+            "memory_channels": 2,
+            "cores": 18,
+            "ghz": 3.0,
+            "l3Cache": "24MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13900K": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 2.5,
+            "l3Cache": "16MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13900KF": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 2.5,
+            "l3Cache": "16MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13900KS": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.5,
+            "l3Cache": "16MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "13900T": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.5,
+            "l3Cache": "16MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14900": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.5,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14900F": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 2.0,
+            "l3Cache": "16MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14900K": {
+            "memory_channels": 2,
+            "cores": 16,
+            "ghz": 2.4,
+            "l3Cache": "30MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14900KF": {
+            "memory_channels": 2,
+            "cores": 16,
+            "ghz": 2.4,
+            "l3Cache": "30MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14900KS": {
+            "memory_channels": 2,
+            "cores": 16,
+            "ghz": 3.2,
+            "l3Cache": "30MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "14900T": {
+            "memory_channels": 2,
+            "cores": 16,
+            "ghz": 3.2,
+            "l3Cache": "30MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "9820X": {
+            "memory_channels": 2,
+            "cores": 16,
+            "ghz": 3.4,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 44,
+            "pcie_gen": 3
+          },
+          "9900": {
+            "memory_channels": 2,
+            "cores": 16,
+            "ghz": 2.0,
+            "l3Cache": "30MB",
+            "tdp_watts": 65,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9900K": {
+            "memory_channels": 2,
+            "cores": 24,
+            "ghz": 2.6,
+            "l3Cache": "36MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9900KF": {
+            "memory_channels": 2,
+            "cores": 24,
+            "ghz": 2.6,
+            "l3Cache": "36MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9900KS": {
+            "memory_channels": 2,
+            "cores": 24,
+            "ghz": 3.4,
+            "l3Cache": "36MB",
+            "tdp_watts": 125,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9900T": {
+            "memory_channels": 2,
+            "cores": 24,
+            "ghz": 3.4,
+            "l3Cache": "36MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "9900X": {
+            "memory_channels": 2,
+            "cores": 24,
+            "ghz": 3.6,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 44,
+            "pcie_gen": 3
+          },
+          "9920X": {
+            "memory_channels": 2,
+            "cores": 24,
+            "ghz": 2.2,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 44,
+            "pcie_gen": 3
+          },
+          "9940X": {
+            "memory_channels": 2,
+            "cores": 24,
+            "ghz": 2.8,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 44,
+            "pcie_gen": 3
+          },
+          "9960X": {
+            "memory_channels": 2,
+            "cores": 24,
+            "ghz": 2.8,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 44,
+            "pcie_gen": 3
+          },
+          "9980XE": {
+            "memory_channels": 4,
+            "cores": 18,
+            "ghz": 3.0,
+            "l3Cache": "24.75MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 44,
+            "pcie_gen": 3
+          }
+        },
+        "Pentium": {
+          "G5400": {
+            "memory_channels": 2,
+            "cores": 24,
+            "ghz": 3.6,
+            "l3Cache": "36MB",
+            "tdp_watts": 54,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G5400T": {
+            "memory_channels": 2,
+            "cores": 24,
+            "ghz": 3.8,
+            "l3Cache": "36MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G5420": {
+            "memory_channels": 2,
+            "cores": 24,
+            "ghz": 2.4,
+            "l3Cache": "36MB",
+            "tdp_watts": 54,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G5420T": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 3.3,
+            "l3Cache": "22MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G5500": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.1,
+            "l3Cache": "16MB",
+            "tdp_watts": 54,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G5500T": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.6,
+            "l3Cache": "16MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G5600": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.6,
+            "l3Cache": "16MB",
+            "tdp_watts": 54,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G5600T": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 5.0,
+            "l3Cache": "16MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G5620": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 2.0,
+            "l3Cache": "16MB",
+            "tdp_watts": 54,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G6400": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 3.5,
+            "l3Cache": "20MB",
+            "tdp_watts": 54,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G6400T": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 3.5,
+            "l3Cache": "22MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G6405": {
+            "memory_channels": 2,
+            "cores": 14,
+            "ghz": 3.3,
+            "l3Cache": "19MB",
+            "tdp_watts": 54,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G6405T": {
+            "memory_channels": 2,
+            "cores": 16,
+            "ghz": 3.1,
+            "l3Cache": "24MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G6500": {
+            "memory_channels": 2,
+            "cores": 18,
+            "ghz": 3.0,
+            "l3Cache": "24MB",
+            "tdp_watts": 54,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G6500T": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 2.0,
+            "l3Cache": "2MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G6505": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 2.0,
+            "l3Cache": "4MB",
+            "tdp_watts": 54,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G6505T": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 2.0,
+            "l3Cache": "4MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G6600": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.5,
+            "l3Cache": "12MB",
+            "tdp_watts": 54,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G6605": {
+            "memory_channels": 2,
+            "cores": 6,
+            "ghz": 3.5,
+            "l3Cache": "12MB",
+            "tdp_watts": 54,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G7400": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 54,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "G7400T": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 35,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "J5040": {
+            "memory_channels": 2,
+            "cores": 10,
+            "ghz": 4.0,
+            "l3Cache": "20MB",
+            "tdp_watts": 54
+          }
+        }
+      }
+    }
+  },
+  "Server": {
+    "manufacturers": {
+      "Intel": {
+        "Atom": {
+          "C3338R": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 1.8,
+            "l3Cache": "4MB",
+            "tdp_watts": 21
+          },
+          "C3436L": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 1.9,
+            "l3Cache": "4MB",
+            "tdp_watts": 9
+          },
+          "C3558R": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 2.2,
+            "l3Cache": "8MB",
+            "tdp_watts": 21
+          },
+          "C3758R": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 2.4,
+            "l3Cache": "16MB",
+            "tdp_watts": 21
+          },
+          "C5115": {
+            "memory_channels": 2,
+            "cores": 2,
+            "ghz": 1.8,
+            "l3Cache": "4MB",
+            "tdp_watts": 9
+          },
+          "C5125": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 2.0,
+            "l3Cache": "4MB",
+            "tdp_watts": 9
+          },
+          "C5310": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 2.2,
+            "l3Cache": "8MB",
+            "tdp_watts": 9
+          },
+          "C5315": {
+            "memory_channels": 2,
+            "cores": 4,
+            "ghz": 2.3,
+            "l3Cache": "8MB",
+            "tdp_watts": 9
+          },
+          "C5320": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 2.1,
+            "l3Cache": "16MB",
+            "tdp_watts": 9
+          },
+          "C5325": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 2.2,
+            "l3Cache": "16MB",
+            "tdp_watts": 9
+          },
+          "C5335C1": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 2.3,
+            "l3Cache": "16MB",
+            "tdp_watts": 9
+          },
+          "P5322": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 2.0,
+            "l3Cache": "16MB",
+            "tdp_watts": 32
+          },
+          "P5332": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 2.1,
+            "l3Cache": "17MB",
+            "tdp_watts": 32
+          },
+          "P5342": {
+            "memory_channels": 2,
+            "cores": 16,
+            "ghz": 2.2,
+            "l3Cache": "18MB",
+            "tdp_watts": 32
+          },
+          "P5352": {
+            "memory_channels": 2,
+            "cores": 18,
+            "ghz": 2.4,
+            "l3Cache": "24MB",
+            "tdp_watts": 32
+          },
+          "P5362": {
+            "memory_channels": 2,
+            "cores": 20,
+            "ghz": 2.5,
+            "l3Cache": "30MB",
+            "tdp_watts": 32
+          },
+          "P5721": {
+            "memory_channels": 2,
+            "cores": 8,
+            "ghz": 2.2,
+            "l3Cache": "16MB",
+            "tdp_watts": 32
+          },
+          "P5731": {
+            "memory_channels": 2,
+            "cores": 12,
+            "ghz": 2.3,
+            "l3Cache": "17MB",
+            "tdp_watts": 32
+          },
+          "P5742": {
+            "memory_channels": 2,
+            "cores": 16,
+            "ghz": 2.4,
+            "l3Cache": "18MB",
+            "tdp_watts": 32
+          },
+          "P5752": {
+            "memory_channels": 2,
+            "cores": 20,
+            "ghz": 2.5,
+            "l3Cache": "32MB",
+            "tdp_watts": 32
+          },
+          "P5921B": {
+            "memory_channels": 2,
+            "cores": 24,
+            "ghz": 2.6,
+            "l3Cache": "32MB",
+            "tdp_watts": 32
+          },
+          "P5931B": {
+            "memory_channels": 2,
+            "cores": 28,
+            "ghz": 2.7,
+            "l3Cache": "34MB",
+            "tdp_watts": 32
+          },
+          "P5942B": {
+            "memory_channels": 2,
+            "cores": 32,
+            "ghz": 2.8,
+            "l3Cache": "36MB",
+            "tdp_watts": 32
+          },
+          "P5962B": {
+            "memory_channels": 2,
+            "cores": 36,
+            "ghz": 2.9,
+            "l3Cache": "38MB",
+            "tdp_watts": 32
+          }
+        },
+        "Xeon": {
+          "3206R": {
+            "memory_channels": 6,
+            "cores": 6,
+            "ghz": 1.9,
+            "l3Cache": "11MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "3408U": {
+            "memory_channels": 4,
+            "cores": 8,
+            "ghz": 2.0,
+            "l3Cache": "15MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "3508U": {
+            "memory_channels": 4,
+            "cores": 8,
+            "ghz": 2.1,
+            "l3Cache": "15MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "4210R": {
+            "memory_channels": 6,
+            "cores": 10,
+            "ghz": 2.4,
+            "l3Cache": "13.75MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "4210T": {
+            "memory_channels": 6,
+            "cores": 10,
+            "ghz": 2.3,
+            "l3Cache": "13.75MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "4214R": {
+            "memory_channels": 6,
+            "cores": 12,
+            "ghz": 2.4,
+            "l3Cache": "16.5MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "4215R": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 3.2,
+            "l3Cache": "11MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "4309Y": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 2.8,
+            "l3Cache": "12MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "4310": {
+            "memory_channels": 6,
+            "cores": 12,
+            "ghz": 2.1,
+            "l3Cache": "18MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "4310T": {
+            "memory_channels": 6,
+            "cores": 10,
+            "ghz": 2.3,
+            "l3Cache": "13.75MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "4314": {
+            "memory_channels": 6,
+            "cores": 16,
+            "ghz": 2.4,
+            "l3Cache": "24MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "4316": {
+            "memory_channels": 6,
+            "cores": 20,
+            "ghz": 2.3,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "4410T": {
+            "memory_channels": 6,
+            "cores": 12,
+            "ghz": 2.0,
+            "l3Cache": "18MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "4410Y": {
+            "memory_channels": 6,
+            "cores": 12,
+            "ghz": 2.0,
+            "l3Cache": "18MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "4416+": {
+            "memory_channels": 6,
+            "cores": 16,
+            "ghz": 2.1,
+            "l3Cache": "24MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "4509Y": {
+            "memory_channels": 6,
+            "cores": 20,
+            "ghz": 2.0,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "4510": {
+            "memory_channels": 6,
+            "cores": 26,
+            "ghz": 2.0,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "4510T": {
+            "memory_channels": 6,
+            "cores": 20,
+            "ghz": 1.9,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "4514Y": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.0,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "4516Y+": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.1,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "5218R": {
+            "memory_channels": 6,
+            "cores": 20,
+            "ghz": 2.1,
+            "l3Cache": "27.5MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "5220R": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.2,
+            "l3Cache": "35.75MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "5315Y": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 3.2,
+            "l3Cache": "12MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "5317": {
+            "memory_channels": 6,
+            "cores": 12,
+            "ghz": 3.0,
+            "l3Cache": "18MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "5318H": {
+            "memory_channels": 6,
+            "cores": 18,
+            "ghz": 2.5,
+            "l3Cache": "24.75MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "5318N": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.1,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "5318S": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.1,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "5318Y": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.0,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "5320": {
+            "memory_channels": 6,
+            "cores": 26,
+            "ghz": 2.2,
+            "l3Cache": "39MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "5320H": {
+            "memory_channels": 6,
+            "cores": 20,
+            "ghz": 2.4,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "5320T": {
+            "memory_channels": 6,
+            "cores": 20,
+            "ghz": 2.3,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "5403N": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.2,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "5411N": {
+            "memory_channels": 6,
+            "cores": 16,
+            "ghz": 2.3,
+            "l3Cache": "24MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "5412U": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.5,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "5415+": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 2.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "5416S": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.0,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "5418N": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.0,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "5418Y": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.0,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "5420+": {
+            "memory_channels": 6,
+            "cores": 28,
+            "ghz": 2.0,
+            "l3Cache": "42MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "5423N": {
+            "memory_channels": 6,
+            "cores": 32,
+            "ghz": 2.0,
+            "l3Cache": "48MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "5433N": {
+            "memory_channels": 6,
+            "cores": 40,
+            "ghz": 2.0,
+            "l3Cache": "60MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "5512U": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 2.9,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "5515+": {
+            "memory_channels": 8,
+            "cores": 8,
+            "ghz": 3.0,
+            "l3Cache": "16MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "5520+": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 2.2,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6208U": {
+            "memory_channels": 6,
+            "cores": 16,
+            "ghz": 2.9,
+            "l3Cache": "22MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "6226R": {
+            "memory_channels": 6,
+            "cores": 16,
+            "ghz": 2.9,
+            "l3Cache": "22MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "6230R": {
+            "memory_channels": 6,
+            "cores": 26,
+            "ghz": 2.1,
+            "l3Cache": "35.75MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "6238R": {
+            "memory_channels": 6,
+            "cores": 28,
+            "ghz": 2.2,
+            "l3Cache": "38.5MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "6240R": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.4,
+            "l3Cache": "35.75MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "6242R": {
+            "memory_channels": 6,
+            "cores": 20,
+            "ghz": 3.1,
+            "l3Cache": "35.75MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "6246R": {
+            "memory_channels": 6,
+            "cores": 16,
+            "ghz": 3.4,
+            "l3Cache": "35.75MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "6248R": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 3.0,
+            "l3Cache": "35.75MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "6250": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 3.9,
+            "l3Cache": "35.75MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "6250L": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 3.9,
+            "l3Cache": "35.75MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "6256": {
+            "memory_channels": 6,
+            "cores": 12,
+            "ghz": 3.6,
+            "l3Cache": "33MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "6258R": {
+            "memory_channels": 6,
+            "cores": 28,
+            "ghz": 2.7,
+            "l3Cache": "38.5MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 48,
+            "pcie_gen": 3
+          },
+          "6312U": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 2.4,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "6314U": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.3,
+            "l3Cache": "48MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "6326": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 2.9,
+            "l3Cache": "24MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "6328H": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 2.8,
+            "l3Cache": "24MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "6328HL": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 2.8,
+            "l3Cache": "24MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "6330": {
+            "memory_channels": 8,
+            "cores": 28,
+            "ghz": 2.0,
+            "l3Cache": "42MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "6330H": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 2.0,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "6330N": {
+            "memory_channels": 8,
+            "cores": 28,
+            "ghz": 2.2,
+            "l3Cache": "42MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "6334": {
+            "memory_channels": 8,
+            "cores": 8,
+            "ghz": 3.6,
+            "l3Cache": "18MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "6336Y": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 2.4,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "6338": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.0,
+            "l3Cache": "48MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "6338N": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.2,
+            "l3Cache": "48MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "6338T": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 2.1,
+            "l3Cache": "24MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "6342": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 2.8,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "6346": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 3.1,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "6348": {
+            "memory_channels": 8,
+            "cores": 28,
+            "ghz": 2.6,
+            "l3Cache": "42MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "6348H": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 2.3,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "6354": {
+            "memory_channels": 8,
+            "cores": 18,
+            "ghz": 3.0,
+            "l3Cache": "39MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "6403N": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 2.1,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6414U": {
+            "memory_channels": 8,
+            "cores": 48,
+            "ghz": 2.0,
+            "l3Cache": "72MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6416H": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 2.1,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6418H": {
+            "memory_channels": 8,
+            "cores": 36,
+            "ghz": 2.0,
+            "l3Cache": "54MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6421N": {
+            "memory_channels": 8,
+            "cores": 40,
+            "ghz": 2.0,
+            "l3Cache": "60MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6423N": {
+            "memory_channels": 8,
+            "cores": 48,
+            "ghz": 2.0,
+            "l3Cache": "72MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6426Y": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 2.5,
+            "l3Cache": "24MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6428N": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 2.0,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6430": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.1,
+            "l3Cache": "48MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6433N": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.0,
+            "l3Cache": "48MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6433NE": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.0,
+            "l3Cache": "48MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6434": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 3.4,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6434H": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 2.4,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6438M": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.0,
+            "l3Cache": "48MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6438N": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.2,
+            "l3Cache": "48MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6438Y+": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.0,
+            "l3Cache": "48MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6442Y": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 2.6,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6443N": {
+            "memory_channels": 8,
+            "cores": 56,
+            "ghz": 2.0,
+            "l3Cache": "84MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6444Y": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 3.6,
+            "l3Cache": "24MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6448H": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 3.1,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6448Y": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.9,
+            "l3Cache": "48MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6454S": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 3.0,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6458Q": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 3.0,
+            "l3Cache": "48MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6526Y": {
+            "memory_channels": 8,
+            "cores": 48,
+            "ghz": 2.1,
+            "l3Cache": "72MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6530": {
+            "memory_channels": 8,
+            "cores": 28,
+            "ghz": 2.0,
+            "l3Cache": "42MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6534": {
+            "memory_channels": 8,
+            "cores": 36,
+            "ghz": 2.0,
+            "l3Cache": "54MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6538N": {
+            "memory_channels": 8,
+            "cores": 40,
+            "ghz": 2.0,
+            "l3Cache": "60MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6538Y+": {
+            "memory_channels": 8,
+            "cores": 48,
+            "ghz": 2.0,
+            "l3Cache": "72MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6542Y": {
+            "memory_channels": 8,
+            "cores": 48,
+            "ghz": 2.1,
+            "l3Cache": "72MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6544Y": {
+            "memory_channels": 8,
+            "cores": 56,
+            "ghz": 2.0,
+            "l3Cache": "84MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6548N": {
+            "memory_channels": 8,
+            "cores": 64,
+            "ghz": 2.0,
+            "l3Cache": "96MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6548Y+": {
+            "memory_channels": 8,
+            "cores": 56,
+            "ghz": 2.0,
+            "l3Cache": "84MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6554S": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 3.0,
+            "l3Cache": "48MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6558Q": {
+            "memory_channels": 8,
+            "cores": 48,
+            "ghz": 2.7,
+            "l3Cache": "72MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "6710E": {
+            "memory_channels": 8,
+            "cores": 12,
+            "ghz": 2.8,
+            "l3Cache": "45MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 88,
+            "pcie_gen": 5
+          },
+          "6731E": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 2.5,
+            "l3Cache": "60MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 88,
+            "pcie_gen": 5
+          },
+          "6740E": {
+            "memory_channels": 8,
+            "cores": 20,
+            "ghz": 2.4,
+            "l3Cache": "75MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 88,
+            "pcie_gen": 5
+          },
+          "6746E": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 2.3,
+            "l3Cache": "90MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 88,
+            "pcie_gen": 5
+          },
+          "6756E": {
+            "memory_channels": 8,
+            "cores": 28,
+            "ghz": 2.1,
+            "l3Cache": "105MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 88,
+            "pcie_gen": 5
+          },
+          "6766E": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.0,
+            "l3Cache": "120MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 88,
+            "pcie_gen": 5
+          },
+          "6780E": {
+            "memory_channels": 8,
+            "cores": 36,
+            "ghz": 1.8,
+            "l3Cache": "135MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 88,
+            "pcie_gen": 5
+          },
+          "6952P": {
+            "memory_channels": 8,
+            "cores": 48,
+            "ghz": 2.1,
+            "l3Cache": "120MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 136,
+            "pcie_gen": 5
+          },
+          "6960P": {
+            "memory_channels": 8,
+            "cores": 48,
+            "ghz": 2.1,
+            "l3Cache": "120MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 136,
+            "pcie_gen": 5
+          },
+          "6972P": {
+            "memory_channels": 8,
+            "cores": 56,
+            "ghz": 2.0,
+            "l3Cache": "135MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 136,
+            "pcie_gen": 5
+          },
+          "6979P": {
+            "memory_channels": 8,
+            "cores": 64,
+            "ghz": 1.9,
+            "l3Cache": "150MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 136,
+            "pcie_gen": 5
+          },
+          "6980P": {
+            "memory_channels": 8,
+            "cores": 64,
+            "ghz": 1.9,
+            "l3Cache": "150MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 136,
+            "pcie_gen": 5
+          },
+          "8321HC": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 3.2,
+            "l3Cache": "24MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8351N": {
+            "memory_channels": 8,
+            "cores": 36,
+            "ghz": 2.4,
+            "l3Cache": "54MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8352M": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.3,
+            "l3Cache": "48MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8352S": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.2,
+            "l3Cache": "48MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8352V": {
+            "memory_channels": 8,
+            "cores": 36,
+            "ghz": 2.1,
+            "l3Cache": "54MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8352Y": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.2,
+            "l3Cache": "48MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8353H": {
+            "memory_channels": 8,
+            "cores": 18,
+            "ghz": 2.5,
+            "l3Cache": "24.75MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8354H": {
+            "memory_channels": 8,
+            "cores": 18,
+            "ghz": 3.1,
+            "l3Cache": "24.75MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8356H": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 3.1,
+            "l3Cache": "48MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8358": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.6,
+            "l3Cache": "48MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8358P": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.6,
+            "l3Cache": "48MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8360H": {
+            "memory_channels": 8,
+            "cores": 36,
+            "ghz": 3.0,
+            "l3Cache": "54MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8360HL": {
+            "memory_channels": 8,
+            "cores": 36,
+            "ghz": 3.0,
+            "l3Cache": "54MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8360Y": {
+            "memory_channels": 8,
+            "cores": 36,
+            "ghz": 2.4,
+            "l3Cache": "54MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8362": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.8,
+            "l3Cache": "48MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8368": {
+            "memory_channels": 8,
+            "cores": 38,
+            "ghz": 2.4,
+            "l3Cache": "57MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8368Q": {
+            "memory_channels": 8,
+            "cores": 38,
+            "ghz": 2.6,
+            "l3Cache": "57MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8376H": {
+            "memory_channels": 8,
+            "cores": 38,
+            "ghz": 3.0,
+            "l3Cache": "57MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8376HL": {
+            "memory_channels": 8,
+            "cores": 38,
+            "ghz": 3.0,
+            "l3Cache": "57MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8380": {
+            "memory_channels": 8,
+            "cores": 40,
+            "ghz": 2.3,
+            "l3Cache": "60MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8380H": {
+            "memory_channels": 8,
+            "cores": 28,
+            "ghz": 2.9,
+            "l3Cache": "42MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8380HL": {
+            "memory_channels": 8,
+            "cores": 28,
+            "ghz": 2.9,
+            "l3Cache": "42MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "8444H": {
+            "memory_channels": 8,
+            "cores": 36,
+            "ghz": 2.5,
+            "l3Cache": "108MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8450H": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 3.5,
+            "l3Cache": "45MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8452Y": {
+            "memory_channels": 8,
+            "cores": 36,
+            "ghz": 2.3,
+            "l3Cache": "108MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8454H": {
+            "memory_channels": 8,
+            "cores": 36,
+            "ghz": 2.6,
+            "l3Cache": "108MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8458P": {
+            "memory_channels": 8,
+            "cores": 44,
+            "ghz": 2.8,
+            "l3Cache": "66MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8460H": {
+            "memory_channels": 8,
+            "cores": 40,
+            "ghz": 2.5,
+            "l3Cache": "120MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8460Y+": {
+            "memory_channels": 8,
+            "cores": 40,
+            "ghz": 2.3,
+            "l3Cache": "120MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8461V": {
+            "memory_channels": 8,
+            "cores": 44,
+            "ghz": 2.0,
+            "l3Cache": "132MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8462Y+": {
+            "memory_channels": 8,
+            "cores": 48,
+            "ghz": 2.2,
+            "l3Cache": "144MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8468": {
+            "memory_channels": 8,
+            "cores": 48,
+            "ghz": 2.1,
+            "l3Cache": "144MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8468H": {
+            "memory_channels": 8,
+            "cores": 44,
+            "ghz": 2.3,
+            "l3Cache": "132MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8468V": {
+            "memory_channels": 8,
+            "cores": 48,
+            "ghz": 2.0,
+            "l3Cache": "144MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8470": {
+            "memory_channels": 8,
+            "cores": 52,
+            "ghz": 2.0,
+            "l3Cache": "156MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8470N": {
+            "memory_channels": 8,
+            "cores": 52,
+            "ghz": 2.0,
+            "l3Cache": "156MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8470Q": {
+            "memory_channels": 8,
+            "cores": 52,
+            "ghz": 2.5,
+            "l3Cache": "156MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8471N": {
+            "memory_channels": 8,
+            "cores": 56,
+            "ghz": 2.0,
+            "l3Cache": "168MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8480+": {
+            "memory_channels": 8,
+            "cores": 56,
+            "ghz": 2.0,
+            "l3Cache": "168MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8480C": {
+            "memory_channels": 8,
+            "cores": 56,
+            "ghz": 2.5,
+            "l3Cache": "168MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8490H": {
+            "memory_channels": 8,
+            "cores": 60,
+            "ghz": 2.0,
+            "l3Cache": "112.5MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8558": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.7,
+            "l3Cache": "48MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8558P": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.7,
+            "l3Cache": "48MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8558U": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.7,
+            "l3Cache": "48MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8562Y+": {
+            "memory_channels": 8,
+            "cores": 48,
+            "ghz": 2.5,
+            "l3Cache": "72MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8568Y+": {
+            "memory_channels": 8,
+            "cores": 56,
+            "ghz": 2.4,
+            "l3Cache": "84MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8570": {
+            "memory_channels": 8,
+            "cores": 40,
+            "ghz": 2.8,
+            "l3Cache": "60MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8571N": {
+            "memory_channels": 8,
+            "cores": 64,
+            "ghz": 2.0,
+            "l3Cache": "96MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8580": {
+            "memory_channels": 8,
+            "cores": 48,
+            "ghz": 2.8,
+            "l3Cache": "72MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8581V": {
+            "memory_channels": 8,
+            "cores": 56,
+            "ghz": 2.0,
+            "l3Cache": "168MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8592+": {
+            "memory_channels": 8,
+            "cores": 64,
+            "ghz": 2.5,
+            "l3Cache": "96MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8592V": {
+            "memory_channels": 8,
+            "cores": 64,
+            "ghz": 2.2,
+            "l3Cache": "96MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "8593Q": {
+            "memory_channels": 8,
+            "cores": 56,
+            "ghz": 2.5,
+            "l3Cache": "84MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "9460": {
+            "memory_channels": 8,
+            "cores": 52,
+            "ghz": 2.3,
+            "l3Cache": "156MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "9462": {
+            "memory_channels": 8,
+            "cores": 56,
+            "ghz": 2.2,
+            "l3Cache": "168MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "9468": {
+            "memory_channels": 8,
+            "cores": 56,
+            "ghz": 2.3,
+            "l3Cache": "168MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "9470": {
+            "memory_channels": 8,
+            "cores": 52,
+            "ghz": 2.7,
+            "l3Cache": "156MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "9480": {
+            "memory_channels": 8,
+            "cores": 56,
+            "ghz": 2.7,
+            "l3Cache": "168MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 80,
+            "pcie_gen": 5
+          },
+          "D-1702": {
+            "memory_channels": 4,
+            "cores": 2,
+            "ghz": 2.0,
+            "l3Cache": "4MB",
+            "tdp_watts": 165
+          },
+          "D-1712TR": {
+            "memory_channels": 4,
+            "cores": 4,
+            "ghz": 2.0,
+            "l3Cache": "6MB",
+            "tdp_watts": 165
+          },
+          "D-1713NT": {
+            "memory_channels": 4,
+            "cores": 4,
+            "ghz": 1.8,
+            "l3Cache": "6MB",
+            "tdp_watts": 165
+          },
+          "D-1713NTE": {
+            "memory_channels": 4,
+            "cores": 4,
+            "ghz": 1.8,
+            "l3Cache": "6MB",
+            "tdp_watts": 165
+          },
+          "D-1714": {
+            "memory_channels": 4,
+            "cores": 6,
+            "ghz": 2.0,
+            "l3Cache": "8MB",
+            "tdp_watts": 165
+          },
+          "D-1715TER": {
+            "memory_channels": 4,
+            "cores": 6,
+            "ghz": 2.5,
+            "l3Cache": "8MB",
+            "tdp_watts": 165
+          },
+          "D-1718T": {
+            "memory_channels": 4,
+            "cores": 8,
+            "ghz": 2.5,
+            "l3Cache": "12MB",
+            "tdp_watts": 165
+          },
+          "D-1722NE": {
+            "memory_channels": 4,
+            "cores": 8,
+            "ghz": 2.5,
+            "l3Cache": "12MB",
+            "tdp_watts": 165
+          },
+          "D-1726": {
+            "memory_channels": 4,
+            "cores": 8,
+            "ghz": 2.8,
+            "l3Cache": "12MB",
+            "tdp_watts": 165
+          },
+          "D-1731NTE": {
+            "memory_channels": 4,
+            "cores": 12,
+            "ghz": 2.1,
+            "l3Cache": "15MB",
+            "tdp_watts": 165
+          },
+          "D-1732TE": {
+            "memory_channels": 4,
+            "cores": 12,
+            "ghz": 2.6,
+            "l3Cache": "15MB",
+            "tdp_watts": 165
+          },
+          "D-1733NT": {
+            "memory_channels": 4,
+            "cores": 12,
+            "ghz": 2.2,
+            "l3Cache": "15MB",
+            "tdp_watts": 165
+          },
+          "D-1734NT": {
+            "memory_channels": 4,
+            "cores": 14,
+            "ghz": 2.2,
+            "l3Cache": "16MB",
+            "tdp_watts": 165
+          },
+          "D-1735TR": {
+            "memory_channels": 4,
+            "cores": 14,
+            "ghz": 2.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 165
+          },
+          "D-1736": {
+            "memory_channels": 4,
+            "cores": 16,
+            "ghz": 2.7,
+            "l3Cache": "21MB",
+            "tdp_watts": 165
+          },
+          "D-1736NT": {
+            "memory_channels": 4,
+            "cores": 16,
+            "ghz": 2.2,
+            "l3Cache": "21MB",
+            "tdp_watts": 165
+          },
+          "D-1739": {
+            "memory_channels": 4,
+            "cores": 18,
+            "ghz": 2.0,
+            "l3Cache": "21MB",
+            "tdp_watts": 165
+          },
+          "D-1746TER": {
+            "memory_channels": 4,
+            "cores": 20,
+            "ghz": 2.5,
+            "l3Cache": "24MB",
+            "tdp_watts": 165
+          },
+          "D-1747NTE": {
+            "memory_channels": 4,
+            "cores": 20,
+            "ghz": 2.2,
+            "l3Cache": "24MB",
+            "tdp_watts": 165
+          },
+          "D-1748TE": {
+            "memory_channels": 4,
+            "cores": 20,
+            "ghz": 2.4,
+            "l3Cache": "24MB",
+            "tdp_watts": 165
+          },
+          "D-1749NT": {
+            "memory_channels": 4,
+            "cores": 24,
+            "ghz": 2.0,
+            "l3Cache": "30MB",
+            "tdp_watts": 165
+          },
+          "D-1813NT": {
+            "memory_channels": 4,
+            "cores": 4,
+            "ghz": 2.2,
+            "l3Cache": "6MB",
+            "tdp_watts": 165
+          },
+          "D-1823NT": {
+            "memory_channels": 4,
+            "cores": 8,
+            "ghz": 2.2,
+            "l3Cache": "12MB",
+            "tdp_watts": 165
+          },
+          "D-1834": {
+            "memory_channels": 4,
+            "cores": 14,
+            "ghz": 2.2,
+            "l3Cache": "16MB",
+            "tdp_watts": 165
+          },
+          "D-1844NT": {
+            "memory_channels": 4,
+            "cores": 16,
+            "ghz": 2.2,
+            "l3Cache": "21MB",
+            "tdp_watts": 165
+          },
+          "D-1846": {
+            "memory_channels": 4,
+            "cores": 16,
+            "ghz": 2.5,
+            "l3Cache": "21MB",
+            "tdp_watts": 165
+          },
+          "D-1848TER": {
+            "memory_channels": 4,
+            "cores": 20,
+            "ghz": 2.2,
+            "l3Cache": "24MB",
+            "tdp_watts": 165
+          },
+          "D-2712T": {
+            "memory_channels": 6,
+            "cores": 4,
+            "ghz": 2.2,
+            "l3Cache": "8MB",
+            "tdp_watts": 165
+          },
+          "D-2733NT": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 2.1,
+            "l3Cache": "12MB",
+            "tdp_watts": 165
+          },
+          "D-2738": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 2.5,
+            "l3Cache": "12MB",
+            "tdp_watts": 165
+          },
+          "D-2739NT": {
+            "memory_channels": 6,
+            "cores": 10,
+            "ghz": 2.1,
+            "l3Cache": "15MB",
+            "tdp_watts": 165
+          },
+          "D-2745NX": {
+            "memory_channels": 6,
+            "cores": 12,
+            "ghz": 2.1,
+            "l3Cache": "18MB",
+            "tdp_watts": 165
+          },
+          "D-2752NTE": {
+            "memory_channels": 6,
+            "cores": 14,
+            "ghz": 2.0,
+            "l3Cache": "21MB",
+            "tdp_watts": 165
+          },
+          "D-2752TER": {
+            "memory_channels": 6,
+            "cores": 14,
+            "ghz": 2.1,
+            "l3Cache": "21MB",
+            "tdp_watts": 165
+          },
+          "D-2753NT": {
+            "memory_channels": 6,
+            "cores": 14,
+            "ghz": 2.0,
+            "l3Cache": "21MB",
+            "tdp_watts": 165
+          },
+          "D-2757NX": {
+            "memory_channels": 6,
+            "cores": 16,
+            "ghz": 2.0,
+            "l3Cache": "24MB",
+            "tdp_watts": 165
+          },
+          "D-2766NT": {
+            "memory_channels": 6,
+            "cores": 16,
+            "ghz": 2.0,
+            "l3Cache": "24MB",
+            "tdp_watts": 165
+          },
+          "D-2775TE": {
+            "memory_channels": 6,
+            "cores": 16,
+            "ghz": 2.2,
+            "l3Cache": "24MB",
+            "tdp_watts": 165
+          },
+          "D-2776NT": {
+            "memory_channels": 6,
+            "cores": 16,
+            "ghz": 2.1,
+            "l3Cache": "24MB",
+            "tdp_watts": 165
+          },
+          "D-2777NX": {
+            "memory_channels": 6,
+            "cores": 18,
+            "ghz": 1.9,
+            "l3Cache": "27MB",
+            "tdp_watts": 165
+          },
+          "D-2779": {
+            "memory_channels": 6,
+            "cores": 18,
+            "ghz": 2.0,
+            "l3Cache": "27MB",
+            "tdp_watts": 165
+          },
+          "D-2786NTE": {
+            "memory_channels": 6,
+            "cores": 20,
+            "ghz": 1.9,
+            "l3Cache": "30MB",
+            "tdp_watts": 165
+          },
+          "D-2795NT": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 1.9,
+            "l3Cache": "36MB",
+            "tdp_watts": 165
+          },
+          "D-2796NT": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.0,
+            "l3Cache": "36MB",
+            "tdp_watts": 165
+          },
+          "D-2796TE": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.1,
+            "l3Cache": "36MB",
+            "tdp_watts": 165
+          },
+          "D-2798NT": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.0,
+            "l3Cache": "36MB",
+            "tdp_watts": 165
+          },
+          "D-2798NX": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.0,
+            "l3Cache": "36MB",
+            "tdp_watts": 165
+          },
+          "D-2799": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.2,
+            "l3Cache": "36MB",
+            "tdp_watts": 165
+          },
+          "D-2832NT": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 2.5,
+            "l3Cache": "12MB",
+            "tdp_watts": 165
+          },
+          "D-2843NT": {
+            "memory_channels": 6,
+            "cores": 10,
+            "ghz": 2.4,
+            "l3Cache": "15MB",
+            "tdp_watts": 165
+          },
+          "D-2876NT": {
+            "memory_channels": 6,
+            "cores": 18,
+            "ghz": 2.2,
+            "l3Cache": "27MB",
+            "tdp_watts": 165
+          },
+          "D-2896NT": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.3,
+            "l3Cache": "36MB",
+            "tdp_watts": 165
+          },
+          "D-2896TER": {
+            "memory_channels": 6,
+            "cores": 24,
+            "ghz": 2.5,
+            "l3Cache": "36MB",
+            "tdp_watts": 165
+          },
+          "D-2899NT": {
+            "memory_channels": 6,
+            "cores": 28,
+            "ghz": 2.0,
+            "l3Cache": "42MB",
+            "tdp_watts": 165
+          },
+          "E-2314": {
+            "memory_channels": 6,
+            "cores": 4,
+            "ghz": 2.8,
+            "l3Cache": "8MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "E-2324G": {
+            "memory_channels": 6,
+            "cores": 4,
+            "ghz": 3.1,
+            "l3Cache": "8MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "E-2334": {
+            "memory_channels": 6,
+            "cores": 4,
+            "ghz": 3.4,
+            "l3Cache": "8MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "E-2336": {
+            "memory_channels": 6,
+            "cores": 6,
+            "ghz": 2.9,
+            "l3Cache": "12MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "E-2356G": {
+            "memory_channels": 6,
+            "cores": 6,
+            "ghz": 3.2,
+            "l3Cache": "12MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "E-2374G": {
+            "memory_channels": 6,
+            "cores": 4,
+            "ghz": 3.7,
+            "l3Cache": "8MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "E-2378": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 2.6,
+            "l3Cache": "16MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "E-2378G": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 2.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "E-2386G": {
+            "memory_channels": 6,
+            "cores": 6,
+            "ghz": 3.5,
+            "l3Cache": "12MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "E-2388G": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 3.2,
+            "l3Cache": "16MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "E-2414": {
+            "memory_channels": 6,
+            "cores": 4,
+            "ghz": 2.6,
+            "l3Cache": "8MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "E-2434": {
+            "memory_channels": 6,
+            "cores": 4,
+            "ghz": 3.3,
+            "l3Cache": "8MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "E-2436": {
+            "memory_channels": 6,
+            "cores": 6,
+            "ghz": 2.9,
+            "l3Cache": "12MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "E-2456": {
+            "memory_channels": 6,
+            "cores": 6,
+            "ghz": 3.5,
+            "l3Cache": "12MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "E-2468": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 2.5,
+            "l3Cache": "16MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "E-2478": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 2.7,
+            "l3Cache": "16MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "E-2486": {
+            "memory_channels": 6,
+            "cores": 6,
+            "ghz": 3.4,
+            "l3Cache": "12MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "E-2488": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 3.1,
+            "l3Cache": "16MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 5
+          },
+          "W-1250": {
+            "memory_channels": 6,
+            "cores": 6,
+            "ghz": 3.3,
+            "l3Cache": "12MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "W-1250P": {
+            "memory_channels": 6,
+            "cores": 6,
+            "ghz": 4.1,
+            "l3Cache": "12MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "W-1270": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 3.4,
+            "l3Cache": "16MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "W-1270P": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 3.8,
+            "l3Cache": "16MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "W-1290": {
+            "memory_channels": 6,
+            "cores": 10,
+            "ghz": 3.2,
+            "l3Cache": "20MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "W-1290P": {
+            "memory_channels": 6,
+            "cores": 10,
+            "ghz": 3.7,
+            "l3Cache": "20MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "W-1290T": {
+            "memory_channels": 6,
+            "cores": 10,
+            "ghz": 1.9,
+            "l3Cache": "20MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 16,
+            "pcie_gen": 3
+          },
+          "W-1350": {
+            "memory_channels": 6,
+            "cores": 6,
+            "ghz": 3.3,
+            "l3Cache": "12MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "W-1350P": {
+            "memory_channels": 6,
+            "cores": 6,
+            "ghz": 4.0,
+            "l3Cache": "12MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "W-1370": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 2.9,
+            "l3Cache": "16MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "W-1370P": {
+            "memory_channels": 6,
+            "cores": 8,
+            "ghz": 3.6,
+            "l3Cache": "16MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "W-1390": {
+            "memory_channels": 6,
+            "cores": 10,
+            "ghz": 2.8,
+            "l3Cache": "20MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "W-1390P": {
+            "memory_channels": 6,
+            "cores": 10,
+            "ghz": 3.5,
+            "l3Cache": "20MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "W-1390T": {
+            "memory_channels": 6,
+            "cores": 10,
+            "ghz": 1.9,
+            "l3Cache": "20MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 20,
+            "pcie_gen": 4
+          },
+          "W-3323": {
+            "memory_channels": 8,
+            "cores": 12,
+            "ghz": 3.5,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "W-3335": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 3.4,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "W-3345": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 3.0,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "W-3365": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.7,
+            "l3Cache": "48MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "W-3375": {
+            "memory_channels": 8,
+            "cores": 38,
+            "ghz": 2.5,
+            "l3Cache": "57MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 4
+          },
+          "w3-2423": {
+            "memory_channels": 8,
+            "cores": 12,
+            "ghz": 2.1,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 5
+          },
+          "w3-2425": {
+            "memory_channels": 8,
+            "cores": 4,
+            "ghz": 2.4,
+            "l3Cache": "20MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 5
+          },
+          "w3-2435": {
+            "memory_channels": 8,
+            "cores": 8,
+            "ghz": 2.4,
+            "l3Cache": "20MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 5
+          },
+          "w3-2525": {
+            "memory_channels": 8,
+            "cores": 12,
+            "ghz": 2.3,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 5
+          },
+          "w3-2535": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 2.2,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 5
+          },
+          "w5-2445": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 3.2,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 5
+          },
+          "w5-2455X": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 3.4,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 5
+          },
+          "w5-2465X": {
+            "memory_channels": 8,
+            "cores": 20,
+            "ghz": 3.2,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 5
+          },
+          "w5-2545": {
+            "memory_channels": 8,
+            "cores": 18,
+            "ghz": 3.0,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 5
+          },
+          "w5-2555X": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 3.7,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 5
+          },
+          "w5-2565X": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 3.2,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 5
+          },
+          "w5-3425": {
+            "memory_channels": 8,
+            "cores": 12,
+            "ghz": 3.8,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 112,
+            "pcie_gen": 5
+          },
+          "w5-3435X": {
+            "memory_channels": 8,
+            "cores": 12,
+            "ghz": 4.0,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 112,
+            "pcie_gen": 5
+          },
+          "w5-3525": {
+            "memory_channels": 8,
+            "cores": 14,
+            "ghz": 3.8,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 112,
+            "pcie_gen": 5
+          },
+          "w5-3535X": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 3.8,
+            "l3Cache": "30MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 112,
+            "pcie_gen": 5
+          },
+          "w7-2475X": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 3.2,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 5
+          },
+          "w7-2495X": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 3.5,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 5
+          },
+          "w7-2575X": {
+            "memory_channels": 8,
+            "cores": 26,
+            "ghz": 3.2,
+            "l3Cache": "60MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 5
+          },
+          "w7-2595X": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 3.0,
+            "l3Cache": "75MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 64,
+            "pcie_gen": 5
+          },
+          "w7-3445": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 3.2,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 112,
+            "pcie_gen": 5
+          },
+          "w7-3455": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 3.5,
+            "l3Cache": "36MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 112,
+            "pcie_gen": 5
+          },
+          "w7-3465X": {
+            "memory_channels": 8,
+            "cores": 28,
+            "ghz": 3.2,
+            "l3Cache": "42MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 112,
+            "pcie_gen": 5
+          },
+          "w7-3545": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 3.0,
+            "l3Cache": "48MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 112,
+            "pcie_gen": 5
+          },
+          "w7-3555": {
+            "memory_channels": 8,
+            "cores": 36,
+            "ghz": 2.8,
+            "l3Cache": "54MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 112,
+            "pcie_gen": 5
+          },
+          "w7-3565X": {
+            "memory_channels": 8,
+            "cores": 36,
+            "ghz": 3.2,
+            "l3Cache": "54MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 112,
+            "pcie_gen": 5
+          },
+          "w9-3475X": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 3.2,
+            "l3Cache": "75MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 112,
+            "pcie_gen": 5
+          },
+          "w9-3495X": {
+            "memory_channels": 8,
+            "cores": 56,
+            "ghz": 2.4,
+            "l3Cache": "105MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 112,
+            "pcie_gen": 5
+          },
+          "w9-3575X": {
+            "memory_channels": 8,
+            "cores": 48,
+            "ghz": 3.0,
+            "l3Cache": "90MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 112,
+            "pcie_gen": 5
+          },
+          "w9-3595X": {
+            "memory_channels": 8,
+            "cores": 64,
+            "ghz": 2.9,
+            "l3Cache": "112.5MB",
+            "tdp_watts": 165,
+            "pcie_lanes": 112,
+            "pcie_gen": 5
+          }
+        }
+      },
+      "AMD": {
+        "EPYC": {
+          "4124P": {
+            "memory_channels": 8,
+            "cores": 12,
+            "ghz": 3.0,
+            "l3Cache": "128MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "4244P": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 3.2,
+            "l3Cache": "192MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "4344P": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 3.3,
+            "l3Cache": "256MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "4364P": {
+            "memory_channels": 8,
+            "cores": 48,
+            "ghz": 3.1,
+            "l3Cache": "384MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "4464P": {
+            "memory_channels": 8,
+            "cores": 72,
+            "ghz": 2.8,
+            "l3Cache": "512MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "4484PX": {
+            "memory_channels": 8,
+            "cores": 96,
+            "ghz": 2.7,
+            "l3Cache": "768MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "4564P": {
+            "memory_channels": 8,
+            "cores": 128,
+            "ghz": 2.5,
+            "l3Cache": "1024MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "4584PX": {
+            "memory_channels": 8,
+            "cores": 160,
+            "ghz": 2.3,
+            "l3Cache": "1280MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 28,
+            "pcie_gen": 5
+          },
+          "7203": {
+            "memory_channels": 8,
+            "cores": 8,
+            "ghz": 3.1,
+            "l3Cache": "64MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7203P": {
+            "memory_channels": 8,
+            "cores": 8,
+            "ghz": 3.1,
+            "l3Cache": "64MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "72F3": {
+            "memory_channels": 8,
+            "cores": 8,
+            "ghz": 3.7,
+            "l3Cache": "256MB",
+            "tdp_watts": 180,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7303": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 2.8,
+            "l3Cache": "128MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7303P": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 2.8,
+            "l3Cache": "128MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7313": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 3.0,
+            "l3Cache": "128MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7313P": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 3.0,
+            "l3Cache": "128MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7343": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 3.2,
+            "l3Cache": "128MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7373X": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 3.8,
+            "l3Cache": "768MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "73F3": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 3.5,
+            "l3Cache": "256MB",
+            "tdp_watts": 180,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7413": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 2.65,
+            "l3Cache": "128MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7443": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 2.85,
+            "l3Cache": "128MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7443P": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 2.85,
+            "l3Cache": "128MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7453": {
+            "memory_channels": 8,
+            "cores": 28,
+            "ghz": 2.75,
+            "l3Cache": "64MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7473X": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 3.5,
+            "l3Cache": "768MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "74F3": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 3.2,
+            "l3Cache": "256MB",
+            "tdp_watts": 180,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7513": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.6,
+            "l3Cache": "128MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7532": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.4,
+            "l3Cache": "256MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7543": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.8,
+            "l3Cache": "256MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7543P": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.8,
+            "l3Cache": "256MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7573X": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 3.0,
+            "l3Cache": "768MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "75F3": {
+            "memory_channels": 8,
+            "cores": 32,
+            "ghz": 2.95,
+            "l3Cache": "256MB",
+            "tdp_watts": 180,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7643": {
+            "memory_channels": 8,
+            "cores": 48,
+            "ghz": 2.3,
+            "l3Cache": "256MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7643P": {
+            "memory_channels": 8,
+            "cores": 48,
+            "ghz": 2.3,
+            "l3Cache": "256MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7662": {
+            "memory_channels": 8,
+            "cores": 64,
+            "ghz": 2.0,
+            "l3Cache": "256MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7663": {
+            "memory_channels": 8,
+            "cores": 56,
+            "ghz": 2.0,
+            "l3Cache": "256MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7663P": {
+            "memory_channels": 8,
+            "cores": 56,
+            "ghz": 2.0,
+            "l3Cache": "256MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7713": {
+            "memory_channels": 8,
+            "cores": 64,
+            "ghz": 2.0,
+            "l3Cache": "256MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7713P": {
+            "memory_channels": 8,
+            "cores": 64,
+            "ghz": 2.0,
+            "l3Cache": "256MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7763": {
+            "memory_channels": 8,
+            "cores": 64,
+            "ghz": 2.45,
+            "l3Cache": "256MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7773X": {
+            "memory_channels": 8,
+            "cores": 64,
+            "ghz": 2.2,
+            "l3Cache": "768MB",
+            "tdp_watts": 320,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7F32": {
+            "memory_channels": 8,
+            "cores": 8,
+            "ghz": 3.7,
+            "l3Cache": "128MB",
+            "tdp_watts": 180,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7F52": {
+            "memory_channels": 8,
+            "cores": 16,
+            "ghz": 3.5,
+            "l3Cache": "256MB",
+            "tdp_watts": 180,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "7F72": {
+            "memory_channels": 8,
+            "cores": 24,
+            "ghz": 3.2,
+            "l3Cache": "192MB",
+            "tdp_watts": 180,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "8024P": {
+            "memory_channels": 12,
+            "cores": 24,
+            "ghz": 2.8,
+            "l3Cache": "256MB",
+            "tdp_watts": 225,
+            "pcie_lanes": 96,
+            "pcie_gen": 5
+          },
+          "8024PN": {
+            "memory_channels": 12,
+            "cores": 24,
+            "ghz": 2.8,
+            "l3Cache": "256MB",
+            "tdp_watts": 225,
+            "pcie_lanes": 96,
+            "pcie_gen": 5
+          },
+          "8124P": {
+            "memory_channels": 12,
+            "cores": 32,
+            "ghz": 3.0,
+            "l3Cache": "256MB",
+            "tdp_watts": 225,
+            "pcie_lanes": 96,
+            "pcie_gen": 5
+          },
+          "8124PN": {
+            "memory_channels": 12,
+            "cores": 32,
+            "ghz": 3.0,
+            "l3Cache": "256MB",
+            "tdp_watts": 225,
+            "pcie_lanes": 96,
+            "pcie_gen": 5
+          },
+          "8224P": {
+            "memory_channels": 12,
+            "cores": 48,
+            "ghz": 2.7,
+            "l3Cache": "384MB",
+            "tdp_watts": 225,
+            "pcie_lanes": 96,
+            "pcie_gen": 5
+          },
+          "8224PN": {
+            "memory_channels": 12,
+            "cores": 48,
+            "ghz": 2.7,
+            "l3Cache": "384MB",
+            "tdp_watts": 225,
+            "pcie_lanes": 96,
+            "pcie_gen": 5
+          },
+          "8324P": {
+            "memory_channels": 12,
+            "cores": 64,
+            "ghz": 2.4,
+            "l3Cache": "512MB",
+            "tdp_watts": 225,
+            "pcie_lanes": 96,
+            "pcie_gen": 5
+          },
+          "8324PN": {
+            "memory_channels": 12,
+            "cores": 64,
+            "ghz": 2.4,
+            "l3Cache": "512MB",
+            "tdp_watts": 225,
+            "pcie_lanes": 96,
+            "pcie_gen": 5
+          },
+          "8434P": {
+            "memory_channels": 12,
+            "cores": 84,
+            "ghz": 2.1,
+            "l3Cache": "768MB",
+            "tdp_watts": 225,
+            "pcie_lanes": 96,
+            "pcie_gen": 5
+          },
+          "8434PN": {
+            "memory_channels": 12,
+            "cores": 84,
+            "ghz": 2.1,
+            "l3Cache": "768MB",
+            "tdp_watts": 225,
+            "pcie_lanes": 96,
+            "pcie_gen": 5
+          },
+          "8534P": {
+            "memory_channels": 12,
+            "cores": 96,
+            "ghz": 2.0,
+            "l3Cache": "1024MB",
+            "tdp_watts": 225,
+            "pcie_lanes": 96,
+            "pcie_gen": 5
+          },
+          "8534PN": {
+            "memory_channels": 12,
+            "cores": 96,
+            "ghz": 2.0,
+            "l3Cache": "1024MB",
+            "tdp_watts": 225,
+            "pcie_lanes": 96,
+            "pcie_gen": 5
+          },
+          "9015": {
+            "memory_channels": 12,
+            "cores": 16,
+            "ghz": 3.8,
+            "l3Cache": "128MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9115": {
+            "memory_channels": 12,
+            "cores": 16,
+            "ghz": 3.5,
+            "l3Cache": "128MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9124": {
+            "memory_channels": 12,
+            "cores": 16,
+            "ghz": 3.0,
+            "l3Cache": "128MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9135": {
+            "memory_channels": 12,
+            "cores": 16,
+            "ghz": 3.3,
+            "l3Cache": "128MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9174F": {
+            "memory_channels": 12,
+            "cores": 16,
+            "ghz": 3.7,
+            "l3Cache": "128MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9175F": {
+            "memory_channels": 12,
+            "cores": 16,
+            "ghz": 4.0,
+            "l3Cache": "128MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9184X": {
+            "memory_channels": 12,
+            "cores": 16,
+            "ghz": 3.9,
+            "l3Cache": "768MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9224": {
+            "memory_channels": 12,
+            "cores": 24,
+            "ghz": 3.0,
+            "l3Cache": "128MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9254": {
+            "memory_channels": 12,
+            "cores": 24,
+            "ghz": 2.9,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9255": {
+            "memory_channels": 12,
+            "cores": 24,
+            "ghz": 3.2,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9274F": {
+            "memory_channels": 12,
+            "cores": 24,
+            "ghz": 3.5,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9275F": {
+            "memory_channels": 12,
+            "cores": 24,
+            "ghz": 3.7,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9334": {
+            "memory_channels": 12,
+            "cores": 32,
+            "ghz": 2.7,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9335": {
+            "memory_channels": 12,
+            "cores": 32,
+            "ghz": 2.9,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9354": {
+            "memory_channels": 12,
+            "cores": 32,
+            "ghz": 3.25,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9354P": {
+            "memory_channels": 12,
+            "cores": 32,
+            "ghz": 3.25,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9355": {
+            "memory_channels": 12,
+            "cores": 32,
+            "ghz": 3.4,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9355P": {
+            "memory_channels": 12,
+            "cores": 32,
+            "ghz": 3.4,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9365": {
+            "memory_channels": 12,
+            "cores": 32,
+            "ghz": 3.3,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9374F": {
+            "memory_channels": 12,
+            "cores": 32,
+            "ghz": 3.85,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9375F": {
+            "memory_channels": 12,
+            "cores": 32,
+            "ghz": 4.0,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9384X": {
+            "memory_channels": 12,
+            "cores": 32,
+            "ghz": 3.5,
+            "l3Cache": "1152MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9454": {
+            "memory_channels": 12,
+            "cores": 48,
+            "ghz": 2.75,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9454P": {
+            "memory_channels": 12,
+            "cores": 48,
+            "ghz": 2.75,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9455": {
+            "memory_channels": 12,
+            "cores": 48,
+            "ghz": 2.85,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9455P": {
+            "memory_channels": 12,
+            "cores": 48,
+            "ghz": 2.85,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9474F": {
+            "memory_channels": 12,
+            "cores": 48,
+            "ghz": 3.6,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9475F": {
+            "memory_channels": 12,
+            "cores": 48,
+            "ghz": 3.8,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9534": {
+            "memory_channels": 12,
+            "cores": 64,
+            "ghz": 2.45,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9535": {
+            "memory_channels": 12,
+            "cores": 64,
+            "ghz": 2.6,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9554": {
+            "memory_channels": 12,
+            "cores": 64,
+            "ghz": 3.1,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9554P": {
+            "memory_channels": 12,
+            "cores": 64,
+            "ghz": 3.1,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9555": {
+            "memory_channels": 12,
+            "cores": 64,
+            "ghz": 3.2,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9555P": {
+            "memory_channels": 12,
+            "cores": 64,
+            "ghz": 3.2,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9565": {
+            "memory_channels": 12,
+            "cores": 64,
+            "ghz": 3.1,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9575F": {
+            "memory_channels": 12,
+            "cores": 64,
+            "ghz": 3.8,
+            "l3Cache": "256MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9634": {
+            "memory_channels": 12,
+            "cores": 84,
+            "ghz": 2.25,
+            "l3Cache": "384MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9645": {
+            "memory_channels": 12,
+            "cores": 84,
+            "ghz": 2.4,
+            "l3Cache": "384MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9654": {
+            "memory_channels": 12,
+            "cores": 96,
+            "ghz": 2.4,
+            "l3Cache": "384MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9654P": {
+            "memory_channels": 12,
+            "cores": 96,
+            "ghz": 2.4,
+            "l3Cache": "384MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9655": {
+            "memory_channels": 12,
+            "cores": 96,
+            "ghz": 2.5,
+            "l3Cache": "384MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9655P": {
+            "memory_channels": 12,
+            "cores": 96,
+            "ghz": 2.5,
+            "l3Cache": "384MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9684X": {
+            "memory_channels": 12,
+            "cores": 96,
+            "ghz": 2.55,
+            "l3Cache": "1536MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9734": {
+            "memory_channels": 12,
+            "cores": 128,
+            "ghz": 2.0,
+            "l3Cache": "512MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9745": {
+            "memory_channels": 12,
+            "cores": 128,
+            "ghz": 2.1,
+            "l3Cache": "512MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9754": {
+            "memory_channels": 12,
+            "cores": 128,
+            "ghz": 2.25,
+            "l3Cache": "512MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9754S": {
+            "memory_channels": 12,
+            "cores": 128,
+            "ghz": 2.35,
+            "l3Cache": "512MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9755": {
+            "memory_channels": 12,
+            "cores": 128,
+            "ghz": 2.4,
+            "l3Cache": "512MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9825": {
+            "memory_channels": 12,
+            "cores": 96,
+            "ghz": 2.0,
+            "l3Cache": "768MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9845": {
+            "memory_channels": 12,
+            "cores": 128,
+            "ghz": 1.9,
+            "l3Cache": "1024MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "9965": {
+            "memory_channels": 12,
+            "cores": 144,
+            "ghz": 1.8,
+            "l3Cache": "1152MB",
+            "tdp_watts": 200,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          }
+        }
+      },
+      "NVIDIA": {
+        "Grace": {
+          "C1": {
+            "memory_channels": 8,
+            "cores": 72,
+            "ghz": 3.1,
+            "l3Cache": "114MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 5
+          },
+          "Superchip": {
+            "memory_channels": 8,
+            "cores": 144,
+            "ghz": 3.1,
+            "l3Cache": "228MB",
+            "tdp_watts": 500,
+            "pcie_lanes": 128,
+            "pcie_gen": 5
+          },
+          "GH200": {
+            "memory_channels": 8,
+            "cores": 72,
+            "ghz": 3.1,
+            "l3Cache": "114MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 64,
+            "pcie_gen": 5
+          }
+        }
+      },
+      "Ampere": {
+        "Altra": {
+          "Q80-30": {
+            "memory_channels": 8,
+            "cores": 80,
+            "ghz": 3.0,
+            "l3Cache": "32MB",
+            "tdp_watts": 210,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "Q80-33": {
+            "memory_channels": 8,
+            "cores": 80,
+            "ghz": 3.3,
+            "l3Cache": "32MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          },
+          "Q64-30": {
+            "memory_channels": 8,
+            "cores": 64,
+            "ghz": 3.0,
+            "l3Cache": "32MB",
+            "tdp_watts": 180,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          }
+        },
+        "Altra Max": {
+          "M128-30": {
+            "memory_channels": 8,
+            "cores": 128,
+            "ghz": 3.0,
+            "l3Cache": "32MB",
+            "tdp_watts": 250,
+            "pcie_lanes": 128,
+            "pcie_gen": 4
+          }
+        }
+      }
+    }
+  }
+}

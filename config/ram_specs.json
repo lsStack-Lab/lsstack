@@ -1,0 +1,1232 @@
+[
+  {
+    "vendor": "Samsung",
+    "part_number": "M378A1G44AB0-CWE",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M378A2K43DB2-CWE",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M391A1K43DB2-CWE",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M391A1G43DB0-CWE",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M391A4G43AB1-CWE",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M391A4G43AB1-CVF",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "21-21-21",
+    "thermal_prof": "standard",
+    "max_speed_mts": 2933
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M393A1K43DB2-CWE",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M393A2K40DB3-CWE",
+    "rank": "2",
+    "organization": "x4",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M393A4K40DB3-CWE",
+    "rank": "2",
+    "organization": "x4",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M393A4K40EB3-CWE",
+    "rank": "2",
+    "organization": "x4",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M386A8K40DM2-CWE",
+    "rank": "2",
+    "organization": "x4",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M323R2GA3BB0-CQK",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-39-39",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M323R4GA3BB0-CQK",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-39-39",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M323R4GA3DB0-CWM",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "46-45-45",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 5600
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M324R2GA3BB0-CQK",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-39-39",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M324R4GA3BB0-CQK",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-39-39",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M321R4GA0PB0-CWM",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "46-45-45",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 5600
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M321R4GA3EB0-CWM",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "46-45-45",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 5600
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M321R8GA0PB0-CWM",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "46-45-45",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 5600
+  },
+  {
+    "vendor": "Samsung",
+    "part_number": "M321R8GA0EB2-CWM",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "46-45-45",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 5600
+  },
+  {
+    "vendor": "Micron",
+    "part_number": "MT8JTF51264AZ-1G6",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "low profile",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Micron",
+    "part_number": "MT18KSF51272AZ-1G6",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Micron",
+    "part_number": "MTC20F1045S1RC48BA2R",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-39-39",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Micron",
+    "part_number": "MTC20F2085S1RC56BD1",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "46-45-45",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 5600
+  },
+  {
+    "vendor": "Micron",
+    "part_number": "MTC20F2085S1RC64BH1",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "52-52-52",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 6400
+  },
+  {
+    "vendor": "Micron",
+    "part_number": "MT40A1G16RC-062E",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "38-38-38",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 5200
+  },
+  {
+    "vendor": "Micron",
+    "part_number": "MT40A2G16JA-062E",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "38-38-38",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 5200
+  },
+  {
+    "vendor": "SK Hynix",
+    "part_number": "HMA81GU6CJR8N-UH",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "SK Hynix",
+    "part_number": "HMA81GU6DJR8N-XN",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "SK Hynix",
+    "part_number": "HMA81GU6MFR8N-UH",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "19-19-19",
+    "thermal_prof": "standard",
+    "max_speed_mts": 2666
+  },
+  {
+    "vendor": "SK Hynix",
+    "part_number": "HMA82GU6CJR8N-UH",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "SK Hynix",
+    "part_number": "HMA82GU6DJR8N-XN",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "SK Hynix",
+    "part_number": "HMA82GU6MFR8N",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "19-19-19",
+    "thermal_prof": "standard",
+    "max_speed_mts": 2666
+  },
+  {
+    "vendor": "SK Hynix",
+    "part_number": "HMA82GR7DJR4N",
+    "rank": "1",
+    "organization": "x4",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "SK Hynix",
+    "part_number": "HMA84GR7MFR4N",
+    "rank": "2",
+    "organization": "x4",
+    "voltage": "1.2V",
+    "primary_timings": "19-19-19",
+    "thermal_prof": "standard",
+    "max_speed_mts": 2666
+  },
+  {
+    "vendor": "SK Hynix",
+    "part_number": "HMCG78AGBUA081N",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "46-45-45",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 5600
+  },
+  {
+    "vendor": "SK Hynix",
+    "part_number": "HMCG78MEBSA092N",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-39-39",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "SK Hynix",
+    "part_number": "HMCG78MEBRA113N",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-39-39",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "SK Hynix",
+    "part_number": "HMCG88MEBSA092N",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-39-39",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "SK Hynix",
+    "part_number": "HMCG88MEBRAXXX",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-39-39",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "SK Hynix",
+    "part_number": "HMCG94MEBRAXXX",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-39-39",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Kingston",
+    "part_number": "KVR26N19D8/32",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "19-19-19",
+    "thermal_prof": "standard",
+    "max_speed_mts": 2666
+  },
+  {
+    "vendor": "Kingston",
+    "part_number": "KVR32N22D8/32",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Kingston",
+    "part_number": "KVR32N22S8/16",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Kingston",
+    "part_number": "KVR48U40BS6-8",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Kingston",
+    "part_number": "KVR48U40BS8-16",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Kingston",
+    "part_number": "KVR48U40BD8-32",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Kingston",
+    "part_number": "KVR48S40BD8-32",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 SODIMM",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Kingston",
+    "part_number": "KF432C16BB/32",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "16-18-18",
+    "thermal_prof": "heat spreader",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Kingston",
+    "part_number": "KF548C38BB-32",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "38-38-38",
+    "thermal_prof": "DDR5 heat spreader",
+    "max_speed_mts": 5200
+  },
+  {
+    "vendor": "Kingston",
+    "part_number": "KF548R36RBK8-256",
+    "rank": "2",
+    "organization": "x4",
+    "voltage": "1.1V",
+    "primary_timings": "36-36-36",
+    "thermal_prof": "DDR5 ECC RDIMM",
+    "max_speed_mts": 5600
+  },
+  {
+    "vendor": "Kingston",
+    "part_number": "KF560C36BBE2AK2-32",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "36-36-36",
+    "thermal_prof": "DDR5 heat spreader",
+    "max_speed_mts": 5600
+  },
+  {
+    "vendor": "Crucial",
+    "part_number": "CT8G4DFRA32A",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Crucial",
+    "part_number": "CT16G4DFD832A",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Crucial",
+    "part_number": "CT16G4DFRA32A",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Crucial",
+    "part_number": "CT2K16G4DFRA32A",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Crucial",
+    "part_number": "CP32G4DFRA32A",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Crucial",
+    "part_number": "CP2K16G4DFRA32A",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Crucial",
+    "part_number": "CB8GU3200",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "low profile",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Crucial",
+    "part_number": "CB16GU3200",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "low profile",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Crucial",
+    "part_number": "CT32G48C40U5",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-39-39",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Crucial",
+    "part_number": "CT2K16G48C40U5",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-39-39",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Crucial",
+    "part_number": "CB8GU4800",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Crucial",
+    "part_number": "CB16GU4800",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "G.Skill",
+    "part_number": "F4-3200C16-16GVK",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-18-18",
+    "thermal_prof": "heat spreader",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "G.Skill",
+    "part_number": "F4-3200C16S-16GVK",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-18-18",
+    "thermal_prof": "heat spreader",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "G.Skill",
+    "part_number": "F4-3200C16S-32GVK",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-18-18",
+    "thermal_prof": "heat spreader",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "G.Skill",
+    "part_number": "F4-3200C16D-8GVKB",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-18-18",
+    "thermal_prof": "heat spreader",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "G.Skill",
+    "part_number": "F4-3200C16D-16GVKB",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-18-18",
+    "thermal_prof": "heat spreader",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "G.Skill",
+    "part_number": "F4-3200C16Q-16GVK",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-18-18",
+    "thermal_prof": "heat spreader",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "G.Skill",
+    "part_number": "F4-3200C14D-16GFX",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "14-14-14",
+    "thermal_prof": "heat spreader",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "G.Skill",
+    "part_number": "F4-3200C16D-16GTRS",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-18-18",
+    "thermal_prof": "heat spreader",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "G.Skill",
+    "part_number": "F4-3200C16D-32GVKA",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-18-18",
+    "thermal_prof": "heat spreader",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "G.Skill",
+    "part_number": "F4-3200C16D-32GTZSW",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-18-18",
+    "thermal_prof": "heat spreader",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "G.Skill",
+    "part_number": "F4-3200C16D-32GTRS",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-18-18",
+    "thermal_prof": "heat spreader",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "G.Skill",
+    "part_number": "F4-3200C16Q-32GTZR",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-18-18",
+    "thermal_prof": "heat spreader RGB",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "G.Skill",
+    "part_number": "F5-4800J3239F16GX2-TZ5RK",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "39-39-39",
+    "thermal_prof": "DDR5 heat spreader",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "G.Skill",
+    "part_number": "F5-6400J3239F48GX2-TZ5RS",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "32-39-39",
+    "thermal_prof": "DDR5 heat spreader RGB",
+    "max_speed_mts": 6400
+  },
+  {
+    "vendor": "Corsair",
+    "part_number": "CMK16GX4M2E3200C16",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-20-20",
+    "thermal_prof": "low profile",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Corsair",
+    "part_number": "CMK32GX4M2E3200C16",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-20-20",
+    "thermal_prof": "low profile",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Corsair",
+    "part_number": "CMK32GX4M4B3200C16W",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-20-20",
+    "thermal_prof": "low profile",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Corsair",
+    "part_number": "CMK32GX5M2A4800C40",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "ADATA",
+    "part_number": "AD4U32008G22",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "ADATA",
+    "part_number": "AD4U320016G22",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "ADATA",
+    "part_number": "AD4U320032G22",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "ADATA",
+    "part_number": "AX4U3200316G16-DR80",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-18-18",
+    "thermal_prof": "heat spreader",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "ADATA",
+    "part_number": "AX5U5200C3816G-CLARBK",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "38-38-38",
+    "thermal_prof": "DDR5 heat spreader RGB",
+    "max_speed_mts": 5200
+  },
+  {
+    "vendor": "Team Group",
+    "part_number": "TED516G4800C40DC016",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Team Group",
+    "part_number": "TPSD532G4800HC40DC01",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Team Group",
+    "part_number": "TED532G4800C4001",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Patriot",
+    "part_number": "PSD516G4800K",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Patriot",
+    "part_number": "PSD432G32002K",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Kimtigo",
+    "part_number": "KT-UD4-8G3200",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Kimtigo",
+    "part_number": "KT-UD4-16G3200",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Kimtigo",
+    "part_number": "KT-UD4-32G3200",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Kimtigo",
+    "part_number": "KT-UD5-8G4800",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Kimtigo",
+    "part_number": "KT-UD5-16G4800",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Kimtigo",
+    "part_number": "KT-UD5-32G4800",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Ramaxel",
+    "part_number": "RMUA5090KB78HAF2133",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "15-15-15",
+    "thermal_prof": "standard",
+    "max_speed_mts": 2133
+  },
+  {
+    "vendor": "Ramaxel",
+    "part_number": "RMUA5190MR86",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Ramaxel",
+    "part_number": "RMUA210ME88HCF-3200",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Ramaxel",
+    "part_number": "RMUA5210ME88HCF-3200",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "POWEV",
+    "part_number": "PW-D4-16G3200",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "POWEV",
+    "part_number": "PW-D4-32G3200",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "POWEV",
+    "part_number": "PW-D5-32G4800",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Transcend",
+    "part_number": "JM3200HLE-32G",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Transcend",
+    "part_number": "JM3200HLE-16G",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Transcend",
+    "part_number": "JM4800ALE-16G",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Apacer",
+    "part_number": "AU16GHB48CTBBGH",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "Apacer",
+    "part_number": "D12-2730HS-001",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Innodisk",
+    "part_number": "M4XE-8GSSQCIK-G",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "19-19-19",
+    "thermal_prof": "industrial",
+    "max_speed_mts": 2666
+  },
+  {
+    "vendor": "Innodisk",
+    "part_number": "M4XE-AGS1QCIK-G",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "19-19-19",
+    "thermal_prof": "industrial",
+    "max_speed_mts": 2666
+  },
+  {
+    "vendor": "Silicon Power",
+    "part_number": "SP032GXLZU320FDA",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-18-18",
+    "thermal_prof": "heat spreader",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Silicon Power",
+    "part_number": "SP032GXLZU320BDAJ7",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "PNY",
+    "part_number": "MD8GSD54800-TB",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "PNY",
+    "part_number": "MD16GK2D4320016AXR",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-20-20",
+    "thermal_prof": "heat spreader",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "PNY",
+    "part_number": "MD32GK2D4320016XR",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-20-20",
+    "thermal_prof": "heat spreader",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Mushkin",
+    "part_number": "MES4U320NF16GX2",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Mushkin",
+    "part_number": "MES4U320NF32GX2",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.2V",
+    "primary_timings": "22-22-22",
+    "thermal_prof": "standard",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "Mushkin",
+    "part_number": "MRE5U480FFFD16GX2",
+    "rank": "1",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 standard",
+    "max_speed_mts": 4800
+  },
+  {
+    "vendor": "GeIL",
+    "part_number": "GLS432GB3200C16BDC",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-20-20",
+    "thermal_prof": "heat spreader RGB",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "GeIL",
+    "part_number": "GAOSR432GB3200C16BDC",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.35V",
+    "primary_timings": "16-20-20",
+    "thermal_prof": "heat spreader RGB",
+    "max_speed_mts": 3200
+  },
+  {
+    "vendor": "GeIL",
+    "part_number": "GOSG532GB4800C40DC",
+    "rank": "2",
+    "organization": "x8",
+    "voltage": "1.1V",
+    "primary_timings": "40-40-40",
+    "thermal_prof": "DDR5 heat spreader RGB",
+    "max_speed_mts": 4800
+  }
+]

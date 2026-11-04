@@ -1,0 +1,308 @@
+{
+  "corsair-rm750x": {
+    "key": "corsair-rm750x",
+    "brand": "Corsair",
+    "model": "RM750x",
+    "watts": 750,
+    "atx": "3.0",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 2,
+      "sata": 8,
+      "6+2": 4
+    },
+    "eff": "gold",
+    "notes": "datasheet typical; verify exact model on vendor site"
+  },
+  "corsair-rm850x": {
+    "key": "corsair-rm850x",
+    "brand": "Corsair",
+    "model": "RM850x",
+    "watts": 850,
+    "atx": "3.0",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 2,
+      "sata": 8,
+      "6+2": 4
+    },
+    "eff": "gold",
+    "notes": "lab staple; verify ports on Corsair page for your revision"
+  },
+  "corsair-rm1000x": {
+    "key": "corsair-rm1000x",
+    "brand": "Corsair",
+    "model": "RM1000x",
+    "watts": 1000,
+    "atx": "3.0",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 2,
+      "sata": 10,
+      "6+2": 4
+    },
+    "eff": "gold",
+    "notes": "higher TDP / light dual-GPU headroom"
+  },
+  "corsair-rm850x-shift": {
+    "key": "corsair-rm850x-shift",
+    "brand": "Corsair",
+    "model": "RM850x Shift",
+    "watts": 850,
+    "atx": "3.1",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 2,
+      "sata": 8,
+      "12V-2x6": 1
+    },
+    "eff": "gold",
+    "notes": "Shift: native 12V-2x6; confirm full port map on Corsair page"
+  },
+  "corsair-hx1200i": {
+    "key": "corsair-hx1200i",
+    "brand": "Corsair",
+    "model": "HX1200i",
+    "watts": 1200,
+    "atx": "3.0",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 2,
+      "sata": 12,
+      "6+2": 6
+    },
+    "eff": "platinum",
+    "notes": "enthusiast kit; dual EPS common"
+  },
+  "corsair-sf750": {
+    "key": "corsair-sf750",
+    "brand": "Corsair",
+    "model": "SF750",
+    "watts": 750,
+    "atx": "3.0",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 1,
+      "sata": 4,
+      "6+2": 2
+    },
+    "eff": "platinum",
+    "notes": "SFX: still 24-pin+CPU; fewer SATA/GPU ports \u2014 check datasheet"
+  },
+  "seasonic-focus-gx-850": {
+    "key": "seasonic-focus-gx-850",
+    "brand": "Seasonic",
+    "model": "Focus GX-850",
+    "watts": 850,
+    "atx": "3.0",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 2,
+      "sata": 8,
+      "6+2": 4
+    },
+    "eff": "gold",
+    "notes": "common OEM-quality Gold kit"
+  },
+  "seasonic-focus-gx-1000": {
+    "key": "seasonic-focus-gx-1000",
+    "brand": "Seasonic",
+    "model": "Focus GX-1000",
+    "watts": 1000,
+    "atx": "3.0",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 2,
+      "sata": 10,
+      "6+2": 4
+    },
+    "eff": "gold",
+    "notes": ""
+  },
+  "seasonic-vertex-gx-850": {
+    "key": "seasonic-vertex-gx-850",
+    "brand": "Seasonic",
+    "model": "Vertex GX-850",
+    "watts": 850,
+    "atx": "3.1",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 2,
+      "sata": 8,
+      "6+2": 3,
+      "12V-2x6": 1
+    },
+    "eff": "gold",
+    "notes": "ATX 3.1 + 12V-2x6; confirm mb/cpu/sata ports on datasheet"
+  },
+  "seasonic-prime-tx-1000": {
+    "key": "seasonic-prime-tx-1000",
+    "brand": "Seasonic",
+    "model": "Prime TX-1000",
+    "watts": 1000,
+    "atx": "3.0",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 2,
+      "sata": 12,
+      "6+2": 4
+    },
+    "eff": "titanium",
+    "notes": "flagship efficiency class"
+  },
+  "bequiet-straight-power-12-850": {
+    "key": "bequiet-straight-power-12-850",
+    "brand": "be quiet!",
+    "model": "Straight Power 12 850W",
+    "watts": 850,
+    "atx": "3.0",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 2,
+      "sata": 8,
+      "6+2": 4
+    },
+    "eff": "platinum",
+    "notes": ""
+  },
+  "bequiet-dark-power-13-1000": {
+    "key": "bequiet-dark-power-13-1000",
+    "brand": "be quiet!",
+    "model": "Dark Power 13 1000W",
+    "watts": 1000,
+    "atx": "3.1",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 2,
+      "sata": 10,
+      "6+2": 2,
+      "12V-2x6": 1
+    },
+    "eff": "titanium",
+    "notes": "ATX 3.1 teaching anchor"
+  },
+  "cooler-master-v850-gold-v2": {
+    "key": "cooler-master-v850-gold-v2",
+    "brand": "Cooler Master",
+    "model": "V850 Gold V2",
+    "watts": 850,
+    "atx": "2",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 2,
+      "sata": 8,
+      "molex": 3,
+      "6+2": 4
+    },
+    "eff": "gold",
+    "notes": "ATX 2.x era; Molex ports common \u2014 check datasheet"
+  },
+  "evga-supernova-850-g6": {
+    "key": "evga-supernova-850-g6",
+    "brand": "EVGA",
+    "model": "SuperNOVA 850 G6",
+    "watts": 850,
+    "atx": "2",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 2,
+      "sata": 8,
+      "molex": 3,
+      "6+2": 4
+    },
+    "eff": "gold",
+    "notes": "legacy brand; still on lab shelves"
+  },
+  "thermaltake-toughpower-gf3-850": {
+    "key": "thermaltake-toughpower-gf3-850",
+    "brand": "Thermaltake",
+    "model": "Toughpower GF3 850W",
+    "watts": 850,
+    "atx": "3.0",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 2,
+      "sata": 8,
+      "6+2": 2,
+      "12V-2x6": 1
+    },
+    "eff": "gold",
+    "notes": "PCIe 5 / 12VHPWR kit common"
+  },
+  "msi-mpg-a850g-pcie5": {
+    "key": "msi-mpg-a850g-pcie5",
+    "brand": "MSI",
+    "model": "MPG A850G PCIE5",
+    "watts": 850,
+    "atx": "3.0",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 2,
+      "sata": 8,
+      "6+2": 2,
+      "12V-2x6": 1
+    },
+    "eff": "gold",
+    "notes": ""
+  },
+  "asus-rog-strix-850g": {
+    "key": "asus-rog-strix-850g",
+    "brand": "ASUS",
+    "model": "ROG Strix 850G",
+    "watts": 850,
+    "atx": "2",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 2,
+      "sata": 8,
+      "6+2": 4
+    },
+    "eff": "gold",
+    "notes": ""
+  },
+  "asus-rog-loki-850p": {
+    "key": "asus-rog-loki-850p",
+    "brand": "ASUS",
+    "model": "ROG Loki 850P",
+    "watts": 850,
+    "atx": "3.0",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 1,
+      "sata": 5,
+      "12V-2x6": 1
+    },
+    "eff": "platinum",
+    "notes": "SFX-L; 24-pin+CPU still required"
+  },
+  "superflower-leadex-vii-850": {
+    "key": "superflower-leadex-vii-850",
+    "brand": "Super Flower",
+    "model": "Leadex VII Gold 850W",
+    "watts": 850,
+    "atx": "3.0",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 2,
+      "sata": 8,
+      "6+2": 4
+    },
+    "eff": "gold",
+    "notes": "OEM behind several rebrands"
+  },
+  "nzxt-c850": {
+    "key": "nzxt-c850",
+    "brand": "NZXT",
+    "model": "C850",
+    "watts": 850,
+    "atx": "3.0",
+    "plugs": {
+      "24-pin": 1,
+      "cpu": 2,
+      "sata": 8,
+      "6+2": 4
+    },
+    "eff": "gold",
+    "notes": "compact modular"
+  }
+}

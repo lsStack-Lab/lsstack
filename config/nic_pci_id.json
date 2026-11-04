@@ -1,0 +1,202 @@
+{
+  "8086:1539": {
+    "vendor": "8086",
+    "device": "1539",
+    "model": "I211 Gigabit Network Connection",
+    "port_speed_gbps": 1,
+    "ports": 1,
+    "rdma": "none",
+    "tdp_watts": null,
+    "notes": "common desktop/onboard GbE"
+  },
+  "8086:15f3": {
+    "vendor": "8086",
+    "device": "15f3",
+    "model": "I225-LM/V 2.5GbE Controller",
+    "port_speed_gbps": 2.5,
+    "ports": 1,
+    "rdma": "none",
+    "tdp_watts": null,
+    "notes": "common 2.5GbE"
+  },
+  "8086:15f2": {
+    "vendor": "8086",
+    "device": "15f2",
+    "model": "I225-LM 2.5GbE Controller",
+    "port_speed_gbps": 2.5,
+    "ports": 1,
+    "rdma": "none",
+    "tdp_watts": null,
+    "notes": ""
+  },
+  "8086:125b": {
+    "vendor": "8086",
+    "device": "125b",
+    "model": "I226-LM 2.5GbE Controller",
+    "port_speed_gbps": 2.5,
+    "ports": 1,
+    "rdma": "none",
+    "tdp_watts": null,
+    "notes": ""
+  },
+  "8086:125c": {
+    "vendor": "8086",
+    "device": "125c",
+    "model": "I226-V 2.5GbE Controller",
+    "port_speed_gbps": 2.5,
+    "ports": 1,
+    "rdma": "none",
+    "tdp_watts": null,
+    "notes": ""
+  },
+  "8086:1572": {
+    "vendor": "8086",
+    "device": "1572",
+    "model": "X710 10GbE dual/quad",
+    "port_speed_gbps": 10,
+    "ports": 2,
+    "rdma": "none",
+    "tdp_watts": null,
+    "notes": "lab 10GbE (port count varies by SKU)"
+  },
+  "8086:1583": {
+    "vendor": "8086",
+    "device": "1583",
+    "model": "X710-BM2 10GbE",
+    "port_speed_gbps": 10,
+    "ports": 2,
+    "rdma": "none",
+    "tdp_watts": null,
+    "notes": ""
+  },
+  "8086:158b": {
+    "vendor": "8086",
+    "device": "158b",
+    "model": "X710-TM4 10GbE",
+    "port_speed_gbps": 10,
+    "ports": 4,
+    "rdma": "none",
+    "tdp_watts": null,
+    "notes": ""
+  },
+  "8086:1593": {
+    "vendor": "8086",
+    "device": "1593",
+    "model": "E810-XXV 25GbE",
+    "port_speed_gbps": 25,
+    "ports": 2,
+    "rdma": "none",
+    "tdp_watts": null,
+    "notes": ""
+  },
+  "8086:1592": {
+    "vendor": "8086",
+    "device": "1592",
+    "model": "E810-CQDA2 100GbE",
+    "port_speed_gbps": 100,
+    "ports": 2,
+    "rdma": "none",
+    "tdp_watts": null,
+    "notes": ""
+  },
+  "14e4:165f": {
+    "vendor": "14e4",
+    "device": "165f",
+    "model": "NetXtreme BCM5720 Gigabit Ethernet",
+    "port_speed_gbps": 1,
+    "ports": 2,
+    "rdma": "none",
+    "tdp_watts": null,
+    "notes": ""
+  },
+  "14e4:1682": {
+    "vendor": "14e4",
+    "device": "1682",
+    "model": "NetXtreme BCM57766 Gigabit Ethernet",
+    "port_speed_gbps": 1,
+    "ports": 1,
+    "rdma": "none",
+    "tdp_watts": null,
+    "notes": ""
+  },
+  "15b3:1013": {
+    "vendor": "15b3",
+    "device": "1013",
+    "model": "MT27500 Family [ConnectX-3]",
+    "port_speed_gbps": 10,
+    "ports": 1,
+    "rdma": "ib",
+    "tdp_watts": null,
+    "notes": "legacy IB/Ethernet"
+  },
+  "15b3:1015": {
+    "vendor": "15b3",
+    "device": "1015",
+    "model": "MT27710 Family [ConnectX-4 Lx]",
+    "port_speed_gbps": 25,
+    "ports": 1,
+    "rdma": "roce",
+    "tdp_watts": null,
+    "notes": ""
+  },
+  "15b3:1017": {
+    "vendor": "15b3",
+    "device": "1017",
+    "model": "MT27800 Family [ConnectX-5]",
+    "port_speed_gbps": 100,
+    "ports": 1,
+    "rdma": "roce",
+    "tdp_watts": null,
+    "notes": ""
+  },
+  "15b3:101d": {
+    "vendor": "15b3",
+    "device": "101d",
+    "model": "MT2892 Family [ConnectX-6 Dx]",
+    "port_speed_gbps": 100,
+    "ports": 1,
+    "rdma": "roce",
+    "tdp_watts": null,
+    "notes": ""
+  },
+  "15b3:101b": {
+    "vendor": "15b3",
+    "device": "101b",
+    "model": "MT28908 Family [ConnectX-6]",
+    "port_speed_gbps": 200,
+    "ports": 1,
+    "rdma": "ib",
+    "tdp_watts": null,
+    "notes": ""
+  },
+  "15b3:1021": {
+    "vendor": "15b3",
+    "device": "1021",
+    "model": "MT2910 Family [ConnectX-7]",
+    "port_speed_gbps": 200,
+    "ports": 1,
+    "rdma": "roce",
+    "tdp_watts": null,
+    "notes": ""
+  },
+  "1924:0a03": {
+    "vendor": "1924",
+    "device": "0a03",
+    "model": "FastLinQ QL41000 10GbE",
+    "port_speed_gbps": 10,
+    "ports": 2,
+    "rdma": "none",
+    "tdp_watts": null,
+    "notes": ""
+  },
+  "10ec:8168": {
+    "vendor": "10ec",
+    "device": "8168",
+    "model": "RTL8111/8168/8411 PCI Express Gigabit Ethernet",
+    "port_speed_gbps": 1,
+    "ports": 1,
+    "rdma": "none",
+    "tdp_watts": null,
+    "notes": "common consumer GbE"
+  }
+}

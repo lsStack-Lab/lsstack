@@ -1,0 +1,24 @@
+{
+  "ram_vram_rules": [
+    {
+      "label": "1:1",
+      "ratio": 1.0,
+      "url": "https://developer.nvidia.com/blog/choosing-a-server-for-deep-learning-training/",
+      "note": "Typical adequate floor: system RAM ≥ total VRAM"
+    },
+    {
+      "label": "1.5:1",
+      "ratio": 1.5,
+      "url": "https://developer.nvidia.com/blog/choosing-a-server-for-deep-learning-training/",
+      "note": "Comfortable headroom when the CPU stages large training batches"
+    },
+    {
+      "label": "2:1",
+      "ratio": 2.0,
+      "url": "https://docs.nvidia.com/certification-programs/latest/nvidia-certified-configuration-guide.html",
+      "note": "Certified multi-GPU server BOM guidance — not a home/lab workstation floor",
+      "on_fail": "warn"
+    }
+  ],
+  "ram_vram_footnote": "RAM:VRAM rules move with the source and the job: inference and light fine-tune often sit near 1:1; CPU-side dataloading and offload push higher; certified-server guides still list 2× as a multi-GPU BOM minimum. Treat ratios as workload guidance, not one universal law."
+}

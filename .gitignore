@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+.env.*
+*.pem
+*.key
+id_rsa*
+.DS_Store
+*.swp
+.cursor/
+agent-transcripts/
+*.pyc
+
+# Local working files (concept art, RFCs, maintainer notes)
+docs/brand/
