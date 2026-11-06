@@ -18,6 +18,11 @@ ROOT="$(dirname "$SCRIPT_DIR")"
 BIN_DIR="$ROOT/bin"
 DEST="${LSSTACK_BIN_DIR:-$HOME/.local/bin}"
 
+if ! python3 -c 'import sys; raise SystemExit(0 if sys.version_info >= (3, 10) else 1)'; then
+  echo "error: lsstack needs Python 3.10 or newer (this python3 is $(python3 -c 'import sys; print("%d.%d" % sys.version_info[:2)]'))" >&2
+  exit 1
+fi
+
 if [[ ! -d "$BIN_DIR" ]]; then
   echo "error: bin dir not found: $BIN_DIR" >&2
   exit 1

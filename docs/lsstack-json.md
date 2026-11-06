@@ -1,6 +1,6 @@
 # lsstack `--json` schema
 
-Machine-readable full report for single-host use, Phase 2 fleet rollups (≤30 hosts), and CMDB feeds (NetBox / similar).
+Machine-readable full report for this host and for scripts. Not a fleet or CMDB product.
 
 ```bash
 ./bin/lsstack --json
@@ -8,7 +8,7 @@ Machine-readable full report for single-host use, Phase 2 fleet rollups (≤30 h
 LSSTACK_CONFIG=/path/to/config python3 -m lsstack report --json
 ```
 
-Human mode still prints Balance / High-impact and (unless `--checks-only`) aggregated `ls*` output. `--json` skips the human `ls*` dump.
+Human mode still prints Balance / High-impact and (unless `--checks-only`) the hardware dump (bios, mobo, proc, gpu, driver, cuda, ram, slots, disk, nvme, network, power, thermal, topology, iommu). `--json` skips that dump.
 
 **Privileges:** unprivileged JSON is valid. Fields that need root (some identity serials/UUID, DIMM Type 17, Type 9 slots) are `null` / omitted with the same meaning as human `[na]` + note — re-run **those** enrichers with sudo if you need them filled. See `docs/SECURITY.md` (Privilege contract).
 
@@ -19,7 +19,7 @@ Human mode still prints Balance / High-impact and (unless `--checks-only`) aggre
 | `schema_version` | Integer; currently **`2`**. Bump when breaking check IDs or field shapes. |
 | `tool` | Always `"lsstack"`. |
 | `host` | Compact: `hostname`, `fqdn`, `uname` (kept for v1 consumers). |
-| `identity` | Join keys for CMDB upsert (serials, UUID, board, OS). |
+| `identity` | Host join keys (serials, UUID, board, OS). |
 | `components` | FRU-style list: CPU, DIMM, GPU, NVMe (serial / part / firmware when available). |
 | `interfaces` | NICs: name, MAC, speed, PCI, driver, addresses. |
 | `dependencies` | External tool probe: `items[]`, `missing`, `apt_packages`, `apt_install_command`, `vendor_hints`. |
@@ -68,7 +68,7 @@ No LLDP neighbors in v2 (optional later).
 
 | Field | Meaning |
 |-------|---------|
-| `id` | **Stable** string for rollups (e.g. `ram_vram_2_1`, `dimms_vs_channels`, `gpu_temp_1`, `psu_headroom`). |
+| `id` | **Stable** string (e.g. `ram_vram_2_1`, `dimms_vs_channels`, `gpu_temp_1`, `psu_headroom`). |
 | `category` | `balance`, `thermal`, `power`, `topology`, `reliability`, `software`, `pcie`, … |
 | `status` | `pass` \| `fail` \| `warn` \| `na` |
 | `message` | Human one-liner (same idea as the text report). |
@@ -91,6 +91,4 @@ No LLDP neighbors in v2 (optional later).
 - `pcie_width_{role}_{n}` / `pcie_speed_{role}_{n}` / `pcie_gen_{role}_{n}` — width, GT/s, and platform-vs-card generation (`role`: gpu|nvme|nic|storage). Evidence includes `explanation`, `research_hint`, `conflicts`, gens.
 - `pcie_parent_oversub_{bdf}` — CPU root lane budget; evidence may include `lane_table` (available / in use / devices / remaining) plus explanation/research strings
 
-Fleet aggregators should key on `id` + `status`, not on free-text `message`.
-
-CMDB importers should key devices on `identity.product_uuid` or `identity.board_serial` / `product_serial`, and modules on `components[].serial` or `components[].uuid` (GPUs).
+Scripts should key on `id` + `status`, not on free-text `message`. Host identity: `identity.product_uuid` or `identity.board_serial` / `product_serial`. Modules: `components[].serial` or `components[].uuid` (GPUs).

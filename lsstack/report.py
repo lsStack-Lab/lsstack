@@ -1384,7 +1384,24 @@ def _run_subsystem_outputs() -> None:
         print("lsstack: bin directory not found", file=sys.stderr)
         sys.exit(1)
 
-    commands = ["lsproc", "lsgpu", "lsram", "lsslots", "lsdisk", "lsthermal", "lstopology"]
+    # Hardware dump. Skip lswatch (loop), lscatalog/lslab (CRUD), lsvirt.
+    commands = [
+        "lsbios",
+        "lsmobo",
+        "lsproc",
+        "lsgpu",
+        "lsdriver",
+        "lscuda",
+        "lsram",
+        "lsslots",
+        "lsdisk",
+        "lsnvme",
+        "lsnetwork",
+        "lspower",
+        "lsthermal",
+        "lstopology",
+        "lsiommu",
+    ]
     notes_cmds = {"lsproc", "lsram", "lsslots", "lsdisk", "lsthermal", "lstopology"}
     for cmd in commands:
         path = os.path.join(bin_dir, cmd)
@@ -1558,8 +1575,9 @@ def _help_text() -> str:
 
 What
   Balance (RAM:VRAM, DIMMs, slots), expansion headroom (power / lanes),
-  high-impact checks (GPU temp, PSU, PCIe, ECC, driver), then aggregated
-  ls* output (or --checks-only for the checks).
+  high-impact checks (GPU temp, PSU, PCIe, ECC, driver), then a hardware
+  dump: bios, mobo, proc, gpu, driver, cuda, ram, slots, disk, nvme,
+  network, power, thermal, topology, iommu (or --checks-only for the checks).
 
 Why
   One place to see whether the box is balanced before adding a GPU, cloning

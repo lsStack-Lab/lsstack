@@ -8,7 +8,7 @@
   <link rel="icon" href="brand/favicon/favicon.ico" sizes="16x16 32x32 48x48" />
   <link rel="icon" type="image/png" href="brand/favicon/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="brand/icons/lsstack-180.png" />
-  <link rel="stylesheet" href="site.css?v=6" />
+  <link rel="stylesheet" href="site.css?v=7" />
 </head>
 <body>
   <header>
@@ -18,10 +18,11 @@
     </div>
   </header>
 
-  <h2>Problem this solves</h2>
+  <h2>Problem this solves - Before</h2>
   <p>Cryptic Linux tools delivering limited, poorly formatted, verbose reporting on individual system components.</p>
+  <pre><code>lspci -vv|strings|grep LnkSta|sed s/Width//|awk '{print $1}'|cut -c1-3|tr -d x</code></pre>
 
-  <h2>How</h2>
+  <h2>Now</h2>
   <p>Collection of intuitive commands providing enhanced, cleanly formatted, concise reporting on individual components or the complete system.</p>
   <div class="cmds">
     <ul>
@@ -73,8 +74,9 @@
   <pre><code>git clone https://github.com/lsStack-Lab/lsstack.git lsstack
 cd lsstack
 ./scripts/install-user.sh</code></pre>
-  <p>The installer links every <code>ls</code> command into <code>$HOME/.local/bin</code>, so they run from any directory. If the shell answers "command not found," that folder is not on your <code>PATH</code> yet. Add it:</p>
-  <pre><code>export PATH="$HOME/.local/bin:$PATH"</code></pre>
+  <p>Requires Python 3.10 or newer.</p>
+  <p class="indent">The installer links every <code>ls</code> command into <code>$HOME/.local/bin</code>, so they run from any directory. If the shell answers "command not found," that folder is not on your <code>PATH</code> yet. Add it:</p>
+  <pre class="indent"><code>export PATH="$HOME/.local/bin:$PATH"</code></pre>
 
   <h2>License</h2>
   <p>Scripts are <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>.</p>

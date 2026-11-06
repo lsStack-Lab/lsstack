@@ -65,6 +65,10 @@ h2 {
 
 p { margin: 0.4rem 0; }
 
+.indent {
+  padding-left: 1.15rem;
+}
+
 a { color: var(--amber); }
 
 ul {
