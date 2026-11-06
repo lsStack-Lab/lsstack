@@ -4,12 +4,13 @@ Always runs unprivileged for /proc/meminfo. DIMM/SPD detail needs sudo (amber no
 """
 
 import glob
+import json
 import os
 import re
 import sys
 
 from lsstack.color import color_enabled, privilege_note
-from lsstack.common import load_json, read_file, sudo_full_results_note
+from lsstack.common import load_json, read_file, sudo_full_results_note, want_notes
 
 
 def _require_root() -> bool:
@@ -589,6 +590,31 @@ def _bank_row(b: dict, has_specs: bool) -> tuple:
     )
 
 
+def _help_text() -> str:
+    return """lsram — memory and DIMMs for lab / workstation builds
+
+What
+  Reports MemTotal / MemAvailable from /proc/meminfo, then (with sudo) the
+  DIMM table from DMI Type 17 / SPD: slot, size, type, clocks, vendor, part.
+
+Why
+  Builders need live RAM vs kit identity (part number, rated vs running
+  speed, which slots are filled) before buying another DIMM or chasing
+  single-channel performance.
+
+How
+  Meminfo needs no sudo. DIMM/SPD rows are amber until sudo. Slots = which
+  sticks are populated. Channels = CPU package count (lsproc). Lean data → --json.
+
+Usage: lsram [options]
+  --json, -j       JSON (meminfo; DIMMs when sudo)
+  --no-notes       Hide the Notes section
+  -nc, --no-color  Disable ANSI color
+  --version, -V    Print lsStack version
+  -h, --help       This help
+"""
+
+
 def _print_dimm_table(banks: list[dict], has_specs: bool) -> None:
     if has_specs:
         header_line1 = ("", "Size", "", "", "", "Clock", "Config", "Max", "", "", "", "", "", "", "")
@@ -623,7 +649,9 @@ def _print_dimm_table(banks: list[dict], has_specs: bool) -> None:
 def main(args: list[str] | None = None) -> None:
     args = args if args is not None else sys.argv[1:]
     # -v/--verbose accepted as no-ops; human output is always full. Lean data → --json.
-    _ = "--verbose" in args or "-v" in args
+    if "-h" in args or "--help" in args:
+        print(_help_text())
+        return
     color = color_enabled(args)
     if not read_file("/proc/meminfo"):
         print("Error: /proc/meminfo not found", file=sys.stderr)
@@ -639,6 +667,19 @@ def main(args: list[str] | None = None) -> None:
     has_specs = _enrich_banks_with_specs(banks, spec_lookup) if banks else False
 
     populated_banks = [b for b in banks if not _is_empty_bank(b)]
+    cpu_ch = _cpu_memory_channels_spec()
+
+    if "--json" in args or "-j" in args:
+        out = dict(info)
+        out["cpu_channels"] = cpu_ch
+        out["dimm"] = {
+            "needs_sudo": not as_root,
+            "slots": banks,
+            "populated": len(populated_banks) if banks else None,
+            "slot_count": len(banks) if banks else None,
+        }
+        print(json.dumps(out, indent=2, default=str))
+        return
 
     print("\nMemory")
     _section("Summary")
@@ -646,6 +687,10 @@ def main(args: list[str] | None = None) -> None:
     _kv("MemAvailable", info.get("available_human", "N/A"))
     if info.get("free_kb") is not None:
         _kv("MemFree", _format_kb(info["free_kb"]))
+    if cpu_ch is not None:
+        _kv("Channels", f"{cpu_ch} (CPU package) — lsproc")
+    elif as_root:
+        _kv("Channels", "see lsproc")
     if not as_root:
         _kv(
             "Note",
@@ -660,19 +705,14 @@ def main(args: list[str] | None = None) -> None:
         pop_n = len(populated_banks)
         total_slots = len(banks)
         if pop_n:
-            ch_line = "%d populated (%s) of %d slots" % (
+            slot_line = "%d populated (%s) of %d slots" % (
                 pop_n,
                 "+".join(pop_labels),
                 total_slots,
             )
         else:
-            ch_line = "0 populated of %d slots" % total_slots
-        _kv("Channels", ch_line)
-        cpu_ch = _cpu_memory_channels_spec()
-        if cpu_ch is not None:
-            _kv("Note", f"CPU: {cpu_ch} memory channels — see lsproc")
-        else:
-            _kv("Note", "CPU memory channels — see lsproc")
+            slot_line = "0 populated of %d slots" % total_slots
+        _kv("Slots", slot_line)
 
     if banks:
         _section("DIMMs")
@@ -714,12 +754,12 @@ def main(args: list[str] | None = None) -> None:
             privilege_note("— (needs sudo for DMI Type 17 / SPD)", enabled=color),
         )
     sudo_note = sudo_full_results_note("lsram")
-    if sudo_note:
+    if want_notes(args) and sudo_note:
         _section("Notes")
         _kv("Note", privilege_note(sudo_note, enabled=color))
     print()
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:] if len(sys.argv) > 1 else [])
+    main()
 

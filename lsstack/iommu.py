@@ -12,13 +12,24 @@ from lsstack.common import read_file
 _IOMMU_GROUPS = "/sys/kernel/iommu_groups"
 _PCI = "/sys/bus/pci/devices"
 
-# PCI base class: VGA 03:00, 3D 03:02, Audio 04:03
+# Exact class, then subclass (prog-if masked). Names a builder can read in --all.
 _CLASS_LABELS = {
     0x030000: "VGA",
     0x030200: "3D",
+    0x040100: "Audio",
     0x040300: "Audio",
     0x020000: "Ethernet",
+    0x010400: "RAID",
+    0x010601: "SATA",
+    0x010800: "NVMe",
     0x010802: "NVMe",
+    0x060000: "Host bridge",
+    0x060100: "ISA bridge",
+    0x060400: "PCI bridge",
+    0x0c0300: "USB",
+    0x0c0500: "SMBus",
+    0x108000: "Crypto",
+    0x130000: "Coprocessor",
 }
 
 
@@ -57,6 +68,9 @@ def _class_label(cls: int | None) -> str:
         return "?"
     if cls in _CLASS_LABELS:
         return _CLASS_LABELS[cls]
+    subclass = cls & 0xFFFF00
+    if subclass in _CLASS_LABELS:
+        return _CLASS_LABELS[subclass]
     base = cls & 0xFF0000
     if base == 0x030000:
         return "Display"
@@ -64,6 +78,18 @@ def _class_label(cls: int | None) -> str:
         return "Net"
     if base == 0x010000:
         return "Storage"
+    if base == 0x040000:
+        return "Multimedia"
+    if base == 0x060000:
+        return "Bridge"
+    if base == 0x0c0000:
+        return "Serial bus"
+    if base == 0x100000:
+        return "Crypto"
+    if base == 0x120000:
+        return "Accelerator"
+    if base == 0x130000:
+        return "Coprocessor"
     return f"class={cls:#08x}"
 
 
@@ -197,6 +223,7 @@ Usage: lsiommu [options]
   --json, -j       JSON (all groups)
   --all            List every IOMMU group (default: GPU-related only)
   -nc, --no-color  Disable ANSI color
+  --version, -V    Print lsStack version
   -h, --help       This help
 """
 
@@ -262,13 +289,15 @@ def print_iommu_human(
 
     if show_all:
         _section("All groups")
-        for g in groups:
-            if g.get("has_gpu") and not show_all:
-                continue
-            bits = ", ".join(
-                f"{d['bdf']} {d.get('class_label')}" for d in (g.get("devices") or [])
-            )
-            _kv(f"Group {g['id']}", bits or "—", w)
+        others = [g for g in groups if not g.get("has_gpu")]
+        if not others:
+            _kv("Note", "only GPU groups (listed above)", w)
+        else:
+            for g in others:
+                bits = ", ".join(
+                    f"{d['bdf']} {d.get('class_label')}" for d in (g.get("devices") or [])
+                )
+                _kv(f"Group {g['id']}", bits or "—", w)
 
     _section("Notes")
     _kv("Note", "GPU inventory → lsgpu", w)

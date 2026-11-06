@@ -8,7 +8,7 @@ import re
 import subprocess
 import sys
 
-from lsstack.color import color_enabled, green, privilege_note, red, yellow
+from lsstack.color import color_enabled, green, red, yellow
 from lsstack.common import read_file, system_binary
 
 _SYS_PCI = "/sys/bus/pci/devices"
@@ -224,7 +224,6 @@ def _collect_amd() -> dict | None:
         or os.path.isdir("/sys/module/amdgpu")
         or "amdgpu" in mods
         or _pci_has_vendor_gpu(_AMD_VENDOR)
-        or rocm
     )
     if not present:
         return None
@@ -351,6 +350,7 @@ How
 Usage: lsdriver [options]
   --json, -j       JSON
   -nc, --no-color  Disable ANSI color
+  --version, -V    Print lsStack version
   -h, --help       This help
 """
 
@@ -373,7 +373,7 @@ def _print_nvidia_block(n: dict, *, color: bool, w: int) -> None:
     if n.get("status") in ("mismatch", "differ"):
         _kv(
             "Note",
-            privilege_note(
+            yellow(
                 "reboot after driver install, or align kernel/userspace packages",
                 enabled=color,
             ),
@@ -429,8 +429,8 @@ def print_driver_human(info: dict | None = None, *, color: bool = False) -> None
         _kv("Note", "GPU inventory → lsgpu", w)
     if nvidia:
         _kv("Note", "CUDA driver/toolkit ceiling → lscuda", w)
-    if amd and not nvidia:
-        _kv("Note", "ROCm toolkit checks planned later (not lscuda)", w)
+    if amd:
+        _kv("Note", "AMD live fields → lsgpu (ROCm is not lscuda)", w)
     _kv("Note", "GPU specs (vendor:device) → lsgpu / gpu_pci_id.json", w)
     _kv("Note", "color: auto on TTY; disable with -nc, --no-color or NO_COLOR=1", w)
     print()

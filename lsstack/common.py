@@ -28,8 +28,23 @@ SYSTEM_BINARIES = {
 }
 
 
+def _nvcc_from_cuda_home() -> str | None:
+    """$CUDA_HOME/bin/nvcc (or CUDA_PATH) when that path is an executable file."""
+    root = (os.environ.get("CUDA_HOME") or os.environ.get("CUDA_PATH") or "").strip()
+    if not root or not os.path.isabs(root):
+        return None
+    path = os.path.join(root, "bin", "nvcc")
+    if os.path.isfile(path) and os.access(path, os.X_OK):
+        return path
+    return None
+
+
 def system_binary(name: str) -> str | None:
     """Return full path to a system binary if it exists. Prefer distro-installed paths only."""
+    if name == "nvcc":
+        env_nvcc = _nvcc_from_cuda_home()
+        if env_nvcc:
+            return env_nvcc
     candidates = SYSTEM_BINARIES.get(name)
     if not candidates:
         return None
@@ -202,6 +217,7 @@ _LS_COMMANDS = {
     "driver": "lsdriver",
     "cuda": "lscuda",
     "iommu": "lsiommu",
+    "virt": "lsvirt",
     "report": "lsstack",
     "deps": "lsstack",
 }
@@ -227,6 +243,17 @@ def sudo_full_results_note(command: str | None = None) -> str | None:
         return None
     cmd = ls_command_name(command)
     return f'sudo "$(command -v {cmd})"  for full results'
+
+
+def want_notes(args: list[str] | None) -> bool:
+    """False when the caller asked to omit the Notes footer (lsstack aggregator)."""
+    return "--no-notes" not in (args or [])
+
+
+def print_version() -> None:
+    from lsstack import __version__
+
+    print(f"lsStack {__version__}")
 
 
 def conf_path() -> str:
@@ -434,6 +461,10 @@ def parse_cpu_model(full_model: str) -> tuple[str | None, str | None, str | None
         m = re.match(r"AMD\s+Ryzen\s+Threadripper\s+(\d+[A-Z0-9]*)", full, re.I)
         if m:
             return (mfg, "Ryzen Threadripper", m.group(1))
+        # Live lscpu: "AMD Ryzen 5 PRO 4650G ..." (PRO sits between family and model).
+        m = re.match(r"AMD\s+Ryzen\s+([3579])\s+PRO\s+([0-9]+[A-Z0-9]*)", full, re.I)
+        if m:
+            return (mfg, "Ryzen " + m.group(1) + " PRO", m.group(2))
         m = re.match(r"AMD\s+Ryzen\s+([3579])\s+([0-9]+[A-Z0-9]*)", full, re.I)
         if m:
             family = "Ryzen " + m.group(1)
@@ -443,6 +474,9 @@ def parse_cpu_model(full_model: str) -> tuple[str | None, str | None, str | None
         m = re.match(r"AMD\s+EPYC\s+([A-Z0-9]+)", full, re.I)
         if m:
             return (mfg, "EPYC", m.group(1))
+        m = re.match(r"AMD\s+Athlon\s+PRO\s+([0-9]+[A-Z0-9]*)", full, re.I)
+        if m:
+            return (mfg, "Athlon PRO", m.group(1))
         m = re.match(r"AMD\s+Athlon\s+([0-9]+[A-Z0-9]*)", full, re.I)
         if m:
             family = "Athlon PRO" if re.search(r"\bPRO\b", full, re.I) else "Athlon"
@@ -458,6 +492,10 @@ def parse_cpu_model(full_model: str) -> tuple[str | None, str | None, str | None
         if m:
             return (mfg, "Core " + m.group(1), m.group(2))
         m = re.match(r"Intel\s+Core\s+([579])\s+Ultra\s+(\d+[A-Z0-9]*)", cleaned, re.I)
+        if m:
+            return (mfg, "Core " + m.group(1) + " Ultra", m.group(2))
+        # lscpu: "Intel Core Ultra 7 265K" (Ultra before the 5/7/9)
+        m = re.match(r"Intel\s+Core\s+Ultra\s+([579])\s+(\d+[A-Z0-9]*)", cleaned, re.I)
         if m:
             return (mfg, "Core " + m.group(1) + " Ultra", m.group(2))
         m = re.match(r"Intel\s+(Pentium|Celeron)\s+([A-Z0-9]+)", cleaned, re.I)

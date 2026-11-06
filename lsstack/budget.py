@@ -89,41 +89,48 @@ def _normalize_dram_class(type_str: str | None) -> str:
     return "UNKNOWN"
 
 
+def _dimm_row(cls: str, source: str, part_number: str | None) -> dict:
+    return {
+        "class": cls,
+        "watts": DIMM_WATTS.get(cls, DIMM_WATTS["UNKNOWN"]),
+        "source": source,
+        "part_number": part_number,
+    }
+
+
 def _populated_dimms() -> list[dict]:
-    """Populated modules: prefer SPD (often no root), else DMI Type 17."""
+    """Populated modules: SPD when it covers the set, else DMI Type 17.
+
+    Incomplete SPD (one EEPROM dead) must not hide extra Type 17 sticks.
+    """
     from lsstack import memory as memory_mod
 
-    out: list[dict] = []
+    spd: list[dict] = []
     spd_fn = getattr(memory_mod, "_spd_per_dimm", None)
     if callable(spd_fn):
         for s in spd_fn() or []:
-            cls = _normalize_dram_class(s.get("type"))
-            out.append({
-                "class": cls,
-                "watts": DIMM_WATTS.get(cls, DIMM_WATTS["UNKNOWN"]),
-                "source": "spd",
-                "part_number": s.get("part_number"),
-            })
-        if out:
-            return out
+            spd.append(_dimm_row(
+                _normalize_dram_class(s.get("type")),
+                "spd",
+                s.get("part_number"),
+            ))
 
+    dmi: list[dict] = []
+    infer = getattr(memory_mod, "_infer_dram_gen_from_part_number", None)
     for d in memory_mod.get_dimm_devices() or []:
         size = str(d.get("size") or d.get("size_str") or "0")
         if size in ("0", "0 GiB", "[empty]") or d.get("description") == "[empty]":
             continue
-        # DMI devices use "type" / memory type string
         cls = _normalize_dram_class(d.get("type") or d.get("memory_type"))
-        if cls == "UNKNOWN" and d.get("part_number"):
-            inferred = memory_mod._infer_dram_gen_from_part_number(d.get("part_number") or "")
+        if cls == "UNKNOWN" and d.get("part_number") and callable(infer):
+            inferred = infer(d.get("part_number") or "")
             if inferred:
                 cls = inferred
-        out.append({
-            "class": cls,
-            "watts": DIMM_WATTS.get(cls, DIMM_WATTS["UNKNOWN"]),
-            "source": "dmi",
-            "part_number": d.get("part_number"),
-        })
-    return out
+        dmi.append(_dimm_row(cls, "dmi", d.get("part_number")))
+
+    if spd and (not dmi or len(spd) >= len(dmi)):
+        return spd
+    return dmi
 
 
 def _running_fans() -> list[dict]:
@@ -232,18 +239,20 @@ def _nic_lines() -> list[dict]:
 def _line(
     key: str,
     label: str,
-    watts: float | int,
+    watts: float | int | None,
     kind: str,
     detail: str | None = None,
     count: int | None = None,
+    include_in_total: bool = True,
 ) -> dict:
     return {
         "key": key,
         "label": label,
-        "watts": int(round(watts)),
+        "watts": None if watts is None else int(round(watts)),
         "kind": kind,  # "spec" | "est"
         "detail": detail,
         "count": count,
+        "include_in_total": include_in_total,
     }
 
 
@@ -265,26 +274,39 @@ def estimate_system_budget(
 
     lines: list[dict] = []
 
-    # CPU — spec
+    # CPU — spec (0 W + reason when the catalog has no TDP)
     cpu_tdp = None
     specs = (cpu_info or {}).get("specs") or {}
+    cpu_name = (cpu_info or {}).get("model_name")
     if specs.get("tdp_watts") is not None:
         cpu_tdp = int(specs["tdp_watts"])
-        lines.append(_line("cpu", "CPU", cpu_tdp, "spec", detail=(cpu_info or {}).get("model_name")))
+        lines.append(_line("cpu", "CPU", cpu_tdp, "spec", detail=cpu_name))
+    else:
+        detail = "TDP unknown (not in catalog)"
+        if cpu_name:
+            detail = f"{detail}  {cpu_name}"
+        lines.append(_line("cpu", "CPU", 0, "spec", detail=detail))
 
-    # GPU(s) — spec
+    # GPU(s) — spec (same 0 W row when a live GPU has no catalog TDP)
     gpu_tdp_total = 0
     gpu_n = 0
-    for i, g in enumerate(gpu_list or []):
+    gpus = gpu_list or []
+    multi = len(gpus) > 1
+    for i, g in enumerate(gpus):
         sp = g.get("specs") or {}
+        name = sp.get("model") or (g.get("nvidia_smi") or {}).get("name") or g.get("bus_id") or f"GPU {i}"
+        key = "gpu" if not multi else f"gpu_{i}"
+        label = "GPU" if not multi else f"GPU {i}"
         if sp.get("tdp_watts") is None:
+            lines.append(_line(
+                key, label, 0, "spec",
+                detail=f"TDP unknown (not in catalog)  {name}",
+            ))
             continue
         w = int(sp["tdp_watts"])
         gpu_tdp_total += w
         gpu_n += 1
-        name = sp.get("model") or (g.get("nvidia_smi") or {}).get("name") or g.get("bus_id") or f"GPU {i}"
-        key = "gpu" if len([x for x in (gpu_list or []) if (x.get("specs") or {}).get("tdp_watts") is not None]) == 1 else f"gpu_{i}"
-        lines.append(_line(key, "GPU" if key == "gpu" else f"GPU {i}", w, "spec", detail=str(name)))
+        lines.append(_line(key, label, w, "spec", detail=str(name)))
 
     # DRAM — class × populated count
     dimms = _populated_dimms()
@@ -316,10 +338,11 @@ def estimate_system_budget(
         lines.append(_line(
             "dram",
             "DRAM",
-            0,
+            None,
             "est",
             detail=dram_detail,
-            count=0,
+            count=None,
+            include_in_total=False,
         ))
 
     # Storage — class × disk
@@ -398,8 +421,17 @@ def estimate_system_budget(
         detail=f"board/chipset/USB ({plat_hint})",
     ))
 
-    spec_w = sum(L["watts"] for L in lines if L["kind"] == "spec")
-    est_w = sum(L["watts"] for L in lines if L["kind"] == "est")
+    def _sum_kind(kind: str) -> int:
+        return sum(
+            int(L["watts"])
+            for L in lines
+            if L.get("kind") == kind
+            and L.get("include_in_total", True)
+            and L.get("watts") is not None
+        )
+
+    spec_w = _sum_kind("spec")
+    est_w = _sum_kind("est")
     total_w = spec_w + est_w
 
     psu_obj = lab.get("psu")
@@ -417,6 +449,7 @@ def estimate_system_budget(
         pct = round(100.0 * total_w / psu, 1)
         headroom = {
             "psu_watts": psu,
+            "used_w": total_w,
             "pct_of_psu": pct,
             "ok": pct <= 80.0,
             "psu_source": psu_source,

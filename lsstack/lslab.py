@@ -25,43 +25,50 @@ from lsstack.psu_roster import (
 )
 
 
+def _help_text() -> str:
+    return """lslab — lab book (builds + hosts) for workstation / lab PSU and platform
+
+What
+  Enrolls this machine in a JSON inventory: identity, PSU object, optional
+  shared build. lspower / lsstack read that for nameplate and platform watts.
+
+Why
+  PSU ports and watts are not in sysfs. Similar boards should declare the brick
+  once, not edit ~/.lsstack.conf on every host.
+
+How
+  lslab status — this host vs the book. enroll once (roster pick or --psu).
+  Reuse a build when the board matches (adopt). Live hardware stays on ls*.
+  Custom SKU for the next machine → lscatalog add psu.
+  Plug SPEC is manufacturer port counts, not cables in the box:
+  24-pin:1,cpu:2,sata:8,molex:0,6+2:4,12V-2x6:1
+  Lean list → lslab list --json.
+
+Usage: lslab <command> [options]
+  status              This host vs the lab book
+  path                Inventory file path
+  list [--json]       Builds and hosts
+  show <id>           Host, hostname, or build:<name>
+  enroll              Register this host (PSU ± build)
+  mkbuild <name>      Shared build (PSU, board, platform)
+  set-psu [N]         Set PSU on host or --build
+  set-build NAME      Attach this host to a build
+  same-as OTHER       Alias this host to another
+  adopt               Use a board-matching build
+  --version, -V       Print lsStack version
+  -h, --help          This help
+
+Env: LSSTACK_LAB=   Conf: lab_inventory= in ~/.lsstack.conf
+Default file: ~/.lsstack/lab_inventory.json
+"""
+
+
 def _usage() -> None:
     print(
-        """lslab — lab inventory for shared builds (PSU object, platform watts) across hosts.
-
-Manage a JSON catalog of builds and enrolled systems so lspower / lsstack can
-resolve PSU headroom without hand-editing ~/.lsstack.conf on every machine.
-Enroll once per host = lab book entry (id + PSU ± shared build), not a full PC
-scan. Live hardware stays on lsstack / ls*. Reuse a build when boards match.
-`lslab enroll` prompts for PSU (roster prefill). Custom enroll entries stay on
-that host only — run `lscatalog add psu` (or add gpu/nic) so the SKU appears in
-future pick lists.
-
-Usage:
-  lslab status
-  lslab path
-  lslab list [--json]
-  lslab show <system_id|hostname|build:<name>>
-  lslab enroll [--system-id ID] [--psu N] [--psu-atx ATX] [--psu-model NAME]
-               [--psu-plugs SPEC] [--psu-eff TIER] [--build NAME] [--mkbuild NAME] [--yes]
-  lslab mkbuild <name> [--psu N] [--psu-atx ATX] … [--platform N] [--from-this-host]
-  lslab set-psu [<N>] [--host ID] [--build NAME]   # interactive if N omitted on TTY
-  lslab set-build <NAME> [--host ID]
-  lslab same-as <OTHER> [--host ID]
-  lslab adopt [--build NAME] [--yes]
-
-PSU plugs SPEC = manufacturer port counts (not cables in the box):
-  24-pin:1,cpu:2,sata:8,molex:0,6+2:4,12V-2x6:1
-  Look up the exact model on the vendor site. Keys: 24-pin, cpu, sata, molex, 6+2, 12V-2x6
-ATX: 2 | 3.0 | 3.1 | unknown (required). 2.x datasheet values (e.g. 2.4) store as 2.
-Eff: bronze|silver|gold|platinum|titanium|unknown (stored for education; not derated)
-
-Env: LSSTACK_LAB=/path/to/lab_inventory.json
-Conf: lab_inventory=/path in ~/.lsstack.conf; psu_watts= overrides nameplate only
-Default file: ~/.lsstack/lab_inventory.json
-""",
+        "Usage: lslab {status|path|list|show|enroll|mkbuild|set-psu|set-build|same-as|adopt}",
         file=sys.stderr,
     )
+    print("       lslab --help", file=sys.stderr)
 
 
 def _prompt(msg: str, default: str | None = None) -> str:
@@ -277,7 +284,11 @@ def cmd_status(_args: list[str]) -> int:
     print(f"  {'Path':>14}  {r['inventory_path']}")
     print(f"  {'Exists':>14}  {'yes' if r['inventory_exists'] else 'no'}")
     print(f"  {'Hostname':>14}  {ident.get('hostname') or '—'}")
-    print(f"  {'System ID':>14}  {ident.get('system_id') or '— (pass --system-id on enroll)'}")
+    if r.get("enrolled") and r.get("host_key"):
+        sid_line = str(r["host_key"])
+    else:
+        sid_line = ident.get("system_id") or "— (pass --system-id on enroll)"
+    print(f"  {'System ID':>14}  {sid_line}")
     print(f"  {'Board':>14}  {ident.get('board_vendor') or ''} {ident.get('board_name') or ''}".rstrip())
     print(f"  {'Enrolled':>14}  {'yes' if r['enrolled'] else 'no'}")
     print(f"  {'Build':>14}  {r.get('build') or '—'}")
@@ -725,9 +736,12 @@ def cmd_adopt(args: list[str]) -> int:
 
 def main(args: list[str] | None = None) -> None:
     args = args if args is not None else sys.argv[1:]
-    if not args or args[0] in ("-h", "--help"):
+    if not args:
         _usage()
-        sys.exit(0 if args else 2)
+        sys.exit(2)
+    if args[0] in ("-h", "--help"):
+        print(_help_text())
+        return
     cmd = args[0]
     rest = args[1:]
     handlers = {

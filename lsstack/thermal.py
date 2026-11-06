@@ -1,4 +1,12 @@
-"""lsthermal: temperatures and fans from sysfs (nvidia-smi and amdgpu when present). Voltages → lspower."""
+"""lsthermal: temperatures and fans from sysfs (nvidia-smi and amdgpu when present). Voltages → lspower.
+
+CPU color uses catalog ``tjmax_c`` when present (Workstation SKUs, including
+PRO / Threadripper / Intel HEDT). Other sensors use lab first-look bands.
+Server rows later.
+
+FUTURE(server-profile): rack nodes should N/A ATX PSU/ports/80% headroom and
+keep inventory + ECC + NUMA. Not this module. Workstation-lab stays the product.
+"""
 
 from __future__ import annotations
 
@@ -8,7 +16,7 @@ import re
 import subprocess
 import sys
 
-from lsstack.common import read_file, system_binary
+from lsstack.common import read_file, system_binary, want_notes
 
 _THERMAL = "/sys/class/thermal"
 _HWMON = "/sys/class/hwmon"
@@ -289,11 +297,19 @@ def get_thermal_info() -> dict:
     nvidia = get_nvidia_temps()
     summary = _pick_summary(hw_temps, nvidia)
     fans = _dedupe_fans(hw_fans)
+    tjmax = _cpu_tjmax_c()
+    rows = []
+    for s in summary:
+        rec = {k: v for k, v in s.items() if k != "priority"}
+        if rec.get("role") == "CPU" and tjmax is not None:
+            rec["tjmax_c"] = tjmax
+        y, r, src = _temp_thresholds(rec.get("role") or "", rec.get("tjmax_c"))
+        rec["temp_yellow_c"] = round(y, 1)
+        rec["temp_red_c"] = round(r, 1)
+        rec["temp_band_source"] = src
+        rows.append(rec)
     return {
-        "summary": [
-            {k: v for k, v in s.items() if k != "priority"}
-            for s in summary
-        ],
+        "summary": rows,
         "fans": [
             {"label": f["label"], "rpm": f["rpm"], "hwmon": f.get("hwmon")}
             for f in fans
@@ -318,6 +334,49 @@ def _label_width(*labels: str, minimum: int = 14) -> int:
     return max([minimum, *(len(x) for x in labels if x)])
 
 
+# Lab first-look (yellow, red) °C when the catalog has no Tjmax.
+# NVMe/board complain earlier than a CPU die; VRM FETs run hotter.
+_LAB_TEMP_BANDS = {
+    "CPU": (80.0, 90.0),
+    "GPU": (80.0, 90.0),
+    "NVMe": (70.0, 80.0),
+    "Motherboard": (70.0, 80.0),
+    "Chipset": (70.0, 80.0),
+    "VRM": (90.0, 105.0),
+}
+
+
+def _cpu_tjmax_c() -> int | None:
+    """Workstation catalog Tjmax for the live CPU, or None if not filled yet."""
+    from lsstack.common import lookup_cpu_specs
+
+    blob = read_file("/proc/cpuinfo") or ""
+    model = None
+    for line in blob.splitlines():
+        if line.lower().startswith("model name"):
+            model = line.split(":", 1)[-1].strip()
+            break
+    specs = lookup_cpu_specs(model) if model else None
+    if not specs:
+        return None
+    v = specs.get("tjmax_c")
+    try:
+        return int(v) if v is not None else None
+    except (TypeError, ValueError):
+        return None
+
+
+def _temp_thresholds(
+    role: str, tjmax_c: int | None
+) -> tuple[float, float, str]:
+    """Return (yellow_c, red_c, source). CPU uses 85%/95% of Tjmax when known."""
+    if role == "CPU" and tjmax_c:
+        return (0.85 * tjmax_c, 0.95 * tjmax_c, "catalog_tjmax")
+    key = "GPU" if (role or "").startswith("GPU") else (role or "CPU")
+    y, r = _LAB_TEMP_BANDS.get(key, (80.0, 90.0))
+    return (y, r, "lab")
+
+
 def _fmt_c(temp_c: float | int | None) -> str:
     if temp_c is None:
         return "—"
@@ -326,18 +385,25 @@ def _fmt_c(temp_c: float | int | None) -> str:
     return f"{int(temp_c)}°C"
 
 
-def _color_temp(temp_c: float | int | None, text: str, *, enabled: bool) -> str:
-    """Yellow ≥80°C, red ≥90°C — attention only on the reading."""
+def _color_temp(
+    temp_c: float | int | None,
+    text: str,
+    *,
+    enabled: bool,
+    yellow_c: float,
+    red_c: float,
+) -> str:
+    """Green below yellow, yellow to red, red at/above red_c."""
     if not enabled or temp_c is None:
         return text
-    from lsstack.color import red, yellow
+    from lsstack.color import green, red, yellow
 
     t = float(temp_c)
-    if t >= 90:
+    if t >= red_c:
         return red(text, enabled=True)
-    if t >= 80:
+    if t >= yellow_c:
         return yellow(text, enabled=True)
-    return text
+    return green(text, enabled=True)
 
 
 def print_thermal_human(
@@ -346,6 +412,7 @@ def print_thermal_human(
     watching: bool = False,
     heading: bool = True,
     color: bool = False,
+    notes: bool = True,
 ) -> None:
     """Print thermal human report. watching=True omits -w / lswatch tips."""
     info = info if info is not None else get_thermal_info()
@@ -366,12 +433,15 @@ def print_thermal_human(
         _kv("Note", "no plausible temperature sensors found", w)
     else:
         for s in summary:
+            y, r, _src = _temp_thresholds(s.get("role") or "", s.get("tjmax_c"))
             raw = _fmt_c(s.get("temp_c"))
-            val = _color_temp(s.get("temp_c"), raw, enabled=color)
+            val = _color_temp(
+                s.get("temp_c"), raw, enabled=color, yellow_c=y, red_c=r,
+            )
             if s.get("fan_pct") is not None:
                 val = f"{val}, fan {s['fan_pct']}%"
             if s.get("name") and s["role"].startswith("GPU"):
-                val = f"{s['name']}: {val}"
+                val = f"{val}  {s['name']}"
             _kv(s["role"], val, w)
 
     _section("Fans")
@@ -381,13 +451,35 @@ def print_thermal_human(
         for f in fans:
             _kv(f["label"], f"{f['rpm']} RPM", w)
 
-    if zones:
+    if zones and not watching:
         _section("Zones")
         for z in zones:
             _kv(z["type"], f"{z['id']}: {_fmt_c(z.get('temp_c'))}", w)
 
-    if not watching:
+    if notes and not watching:
         _section("Notes")
+        cpu_row = next((s for s in summary if s.get("role") == "CPU"), None)
+        if cpu_row and cpu_row.get("temp_band_source") == "catalog_tjmax":
+            _kv(
+                "Note",
+                f"CPU color from catalog Tjmax {cpu_row['tjmax_c']}°C "
+                f"(yellow {cpu_row['temp_yellow_c']:.0f}°C, "
+                f"red {cpu_row['temp_red_c']:.0f}°C). Not k10temp temp_max.",
+                w,
+            )
+        else:
+            _kv(
+                "Note",
+                "CPU color is a lab first-look (yellow 80°C, red 90°C); "
+                "catalog Tjmax not on this SKU yet.",
+                w,
+            )
+        _kv(
+            "Note",
+            "Other sensors: lab bands (NVMe/board 70/80, GPU 80/90, VRM 90/105), "
+            "not a JEDEC/ATX standard. Green = below yellow.",
+            w,
+        )
         _kv(
             "Note",
             "watch: lsthermal -w (clears screen, default 2s; -w N to set interval)",
@@ -410,13 +502,18 @@ Why
   and whether a GPU is cooking while the case fans look idle.
 
 How
-  Run on the host. 0°C / absurd readings are dropped. Watch: lsthermal -w.
+  Run on the host. 0°C / absurd readings are dropped. Temps: green below the
+  yellow band, yellow then red. CPU uses catalog Tjmax when present
+  (Workstation catalog, including PRO/HEDT); otherwise a lab 80/90.
+  Watch: lsthermal -w.
   Combined thermal+power → lswatch. Voltages → lspower. Lean data → --json.
 
 Usage: lsthermal [options]
   --json, -j       JSON
   -w, --watch [N]  Refresh live (default 2s)
+  --no-notes       Hide the Notes section
   -nc, --no-color  Disable ANSI color
+  --version, -V    Print lsStack version
   -h, --help       This help
 """
 
@@ -449,7 +546,7 @@ def main(args: list[str] | None = None) -> None:
         )
         return
 
-    print_thermal_human(watching=False, color=use_color)
+    print_thermal_human(watching=False, color=use_color, notes=want_notes(args))
 
 
 if __name__ == "__main__":

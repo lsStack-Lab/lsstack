@@ -196,6 +196,8 @@ def get_nic_devices(onboard_bdfs: set[str] | None | object = _ONBOARD_UNSET) -> 
                 driver = None
         link_speed = read_file(os.path.join(path, "current_link_speed"))
         link_width = read_file(os.path.join(path, "current_link_width"))
+        max_speed = read_file(os.path.join(path, "max_link_speed"))
+        max_width = read_file(os.path.join(path, "max_link_width"))
 
         ifaces: list[str] = []
         net_dir = os.path.join(path, "net")
@@ -261,6 +263,8 @@ def get_nic_devices(onboard_bdfs: set[str] | None | object = _ONBOARD_UNSET) -> 
             "speed_mbps": speed_mbps,
             "pcie_link_speed": (link_speed or "").strip() or None,
             "pcie_link_width": (link_width or "").strip() or None,
+            "pcie_max_speed": (max_speed or "").strip() or None,
+            "pcie_max_width": (max_width or "").strip() or None,
             "add_on": add_on,
             "specs": specs,
         })
@@ -305,13 +309,43 @@ def _state_display(oper: str | None, carrier: str | None, *, color: bool) -> str
     return text
 
 
+def _width_int(raw) -> int | None:
+    if raw is None:
+        return None
+    s = str(raw).strip().lower().lstrip("x")
+    if s.isdigit():
+        return int(s)
+    return None
+
+
 def _pcie_link_line(nic: dict) -> str | None:
     speed = nic.get("pcie_link_speed")
     width = nic.get("pcie_link_width")
-    if not speed and not width:
+    max_speed = nic.get("pcie_max_speed")
+    max_width = nic.get("pcie_max_width")
+    if not speed and not width and not max_speed and not max_width:
         return None
     w = f"x{width}" if width and not str(width).startswith("x") else (width or "—")
-    return f"{w}, {speed or '—'}"
+    bits = [f"{w}, {speed or '—'}"]
+    max_bits = []
+    if max_width:
+        mw = f"x{max_width}" if not str(max_width).startswith("x") else str(max_width)
+        max_bits.append(mw)
+    if max_speed:
+        max_bits.append(max_speed.replace(" PCIe", ""))
+    if max_bits:
+        bits.append(f"(max {' '.join(max_bits)})")
+    return " ".join(bits)
+
+
+def _link_below_max(nic: dict) -> bool:
+    cur_w = _width_int(nic.get("pcie_link_width"))
+    max_w = _width_int(nic.get("pcie_max_width"))
+    if cur_w is not None and max_w is not None and cur_w < max_w:
+        return True
+    cur_s = nic.get("pcie_link_speed") or ""
+    max_s = nic.get("pcie_max_speed") or ""
+    return bool(cur_s and max_s and cur_s != max_s)
 
 
 def _help_text() -> str:
@@ -328,13 +362,14 @@ Why
 
 How
   Run on the host; read Interfaces first, then PCI NICs for hardware identity.
-  PCIe gen/width detail and idle Gen1 caveats → lstopology. Drivers → lsdriver.
+  Kernel module is on the Driver line. PCIe gen/width and idle Gen1 → lstopology.
   Lean machine output → --json. Loopback → --all.
 
 Usage: lsnetwork [options]
   --json, -j       JSON (interfaces + nics)
   --all            Include loopback (lo)
   -nc, --no-color  Disable ANSI color
+  --version, -V    Print lsStack version
   -h, --help       This help
 """
 
@@ -490,14 +525,15 @@ def print_network_human(
         link = _pcie_link_line(n)
         if link:
             _kv("PCIe link", link, w)
+        if _link_below_max(n):
+            _kv("Note", f"{n.get('bdf') or 'NIC'} below device max — see lstopology", w)
 
     _section("Notes")
     sudo_note = sudo_full_results_note("lsnetwork")
     if sudo_note:
         _kv("Note", privilege_note(sudo_note, enabled=color), w)
     _kv("Note", "PCIe path / idle Gen1 → lstopology", w)
-    _kv("Note", "drivers → lsdriver; lab roster → lscatalog / nic_pci_id", w)
-    _kv("Note", "color: auto on TTY; disable with -nc, --no-color or NO_COLOR=1", w)
+    _kv("Note", "lab roster → lscatalog / nic_pci_id", w)
     print()
 
 

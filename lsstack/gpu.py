@@ -1,7 +1,7 @@
 """lsgpu: GPU details. Reads sysfs PCI; lookup in gpu_pci_id.json; optional nvidia-smi, lspci.
 
-Run with sudo so lspci can read PCI capabilities (Link speed, Link width). Without root,
-capabilities may show as <access denied> and Live link data will be missing."""
+VGA/3D inventory and current/max link width/speed come from sysfs (no sudo).
+nvidia-smi / lspci are optional enrichers."""
 
 import csv
 import json
@@ -256,7 +256,7 @@ def _maybe_link_downgrade_note(link_speed_val: str, bus_interface: str, width: i
     if spec_gt_s and live_gt_s < spec_gt_s * 0.5:
         _kv(
             "Note",
-            "link downgraded from spec — check slot/BIOS (lsstack/docs/lsgpu-link-downgrade.md)",
+            "link downgraded from spec — check slot/BIOS (lstopology)",
             width,
         )
 
@@ -520,15 +520,17 @@ def _label_width(*labels: str, minimum: int = 14) -> int:
     return max([minimum, *(len(x) for x in labels if x)])
 
 
-def main(verbose: bool = False) -> None:
-    # -v/--verbose accepted as no-ops; human output is always full. Lean data → --json.
-    _ = verbose or ("--verbose" in sys.argv or "-v" in sys.argv)
-    gpus, gpu_json = get_gpu_info()
+def print_gpu_human(gpus: list[dict] | None = None, gpu_json: dict | None = None) -> None:
+    if gpus is None:
+        gpus, gpu_json = get_gpu_info()
     if not gpus:
-        print("\nNo GPU devices found (no VGA/3D class PCI devices). Run with sudo for full detection.")
+        print("\nNo GPU devices found (no VGA/3D class PCI devices).")
         return
     if gpu_json is None:
-        print("\n  Spec database (gpu_pci_id.json) not found. Set LSSTACK_CONFIG to config dir, or run csv_to_json.")
+        print(
+            "\n  Spec database (gpu_pci_id.json) not found. "
+            "Set LSSTACK_CONFIG to the config dir, or add the card with lscatalog."
+        )
 
     def _live(v):
         if v is None or (isinstance(v, str) and (not v.strip() or v.strip().upper() == "N/A")):
@@ -819,70 +821,86 @@ def _gpus_to_json(gpus: list[dict]) -> list[dict]:
     return out
 
 
-def _main() -> None:
-    import argparse
-    ap = argparse.ArgumentParser(
-        description="List GPU details from sysfs + JSON + nvidia-smi/lspci.",
-        epilog=(
-            "Peak TFLOPS are omitted from specs (vendor marketing peaks). "
-            "Use VRAM, link, TDP, and lsstack balance instead; see docs/specs.md."
-        ),
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-    )
-    ap.add_argument("--validate", action="store_true", help="Print raw nvidia-smi and lspci output for each GPU to verify parsing.")
-    ap.add_argument("--json", action="store_true", help="Output machine-readable JSON.")
-    ap.add_argument(
-        "--verbose",
-        "-v",
-        action="store_true",
-        help="Accepted for compatibility; human output is always full (use --json for lean data).",
-    )
-    args = ap.parse_args()
-    if args.validate:
-        gpus, _ = get_gpu_info()
-        for i, g in enumerate(gpus):
-            bus_id = g["bus_id"]
-            print(f"\n=== GPU {i + 1}: {bus_id} ===")
-            # Always run nvidia-smi for this GPU so we see raw output or failure
-            print("nvidia-smi (same query as lsgpu):")
-            exe = system_binary("nvidia-smi")
-            if exe:
-                out = subprocess.run(
-                    [exe, "-i", bus_id,
-                     "--query-gpu=name,driver_version,vbios_version,pcie.link.width.current,memory.total,clocks.current.graphics,clocks.current.memory,temperature.gpu,fan.speed",
-                     "--format=csv,noheader,nounits"],
-                    capture_output=True, text=True, timeout=5,
-                )
-                print(out.stdout if out.stdout else "(no output)")
-                if out.stderr:
-                    print("stderr:", out.stderr)
-                if out.returncode != 0:
-                    print("(nvidia-smi exit code:", out.returncode, ")")
-            else:
-                print("(nvidia-smi not found in PATH)")
-            # Always run lspci and show LnkSta/LnkCap, or full output if none
-            print("lspci -vv -s (LnkSta for link width/speed):")
-            lspci_exe = system_binary("lspci")
-            out = subprocess.run([lspci_exe or "lspci", "-vv", "-s", bus_id], capture_output=True, text=True, timeout=5)
-            raw = (out.stdout or "").strip()
-            lnk_lines = [line for line in raw.splitlines() if "LnkSta" in line or "LnkCap" in line]
-            if lnk_lines:
-                for line in lnk_lines:
-                    print(" ", line.strip())
-            else:
-                print(" (no LnkSta/LnkCap lines in lspci output)")
-                if raw:
-                    for line in raw.splitlines()[:25]:
-                        print(" ", line)
-                    if len(raw.splitlines()) > 25:
-                        print(" ...")
+def _help_text() -> str:
+    return """lsgpu — GPU inventory for lab / workstation builds
+
+What
+  Lists each VGA/3D PCI GPU: catalog model/chip, VRAM, live clocks/temp
+  (nvidia-smi or AMD sysfs), and PCIe link width/speed.
+
+Why
+  Builders need to confirm which card is present, whether the live link matches
+  the spec, and whether the NVIDIA driver can talk to the device.
+
+How
+  Detection is sysfs (no sudo). NVIDIA live fields need nvidia-smi; AMD uses
+  sysfs (rocm-smi optional). Link below spec → lstopology. Driver match →
+  lsdriver. CUDA toolkit → lscuda. Lean data → --json.
+
+Usage: lsgpu [options]
+  --json, -j       JSON
+  --validate       Raw nvidia-smi / lspci for parse checks
+  --version, -V    Print lsStack version
+  -h, --help       This help
+"""
+
+
+def _print_validate(gpus: list[dict]) -> None:
+    for i, g in enumerate(gpus):
+        bus_id = g["bus_id"]
+        print(f"\n=== GPU {i + 1}: {bus_id} ===")
+        print("nvidia-smi (same query as lsgpu):")
+        exe = system_binary("nvidia-smi")
+        if exe:
+            out = subprocess.run(
+                [exe, "-i", bus_id,
+                 "--query-gpu=name,driver_version,vbios_version,pcie.link.width.current,memory.total,clocks.current.graphics,clocks.current.memory,temperature.gpu,fan.speed",
+                 "--format=csv,noheader,nounits"],
+                capture_output=True, text=True, timeout=5,
+            )
+            print(out.stdout if out.stdout else "(no output)")
+            if out.stderr:
+                print("stderr:", out.stderr)
+            if out.returncode != 0:
+                print("(nvidia-smi exit code:", out.returncode, ")")
+        else:
+            print("(nvidia-smi not found in PATH)")
+        print("lspci -vv -s (LnkSta for link width/speed):")
+        lspci_exe = system_binary("lspci")
+        out = subprocess.run(
+            [lspci_exe or "lspci", "-vv", "-s", bus_id],
+            capture_output=True, text=True, timeout=5,
+        )
+        raw = (out.stdout or "").strip()
+        lnk_lines = [line for line in raw.splitlines() if "LnkSta" in line or "LnkCap" in line]
+        if lnk_lines:
+            for line in lnk_lines:
+                print(" ", line.strip())
+        else:
+            print(" (no LnkSta/LnkCap lines in lspci output)")
+            if raw:
+                for line in raw.splitlines()[:25]:
+                    print(" ", line)
+                if len(raw.splitlines()) > 25:
+                    print(" ...")
+
+
+def main(args: list[str] | None = None) -> None:
+    args = args if args is not None else sys.argv[1:]
+    # -v/--verbose accepted as no-ops; human output is always full. Lean data → --json.
+    if "-h" in args or "--help" in args:
+        print(_help_text())
         return
-    if args.json:
+    if "--validate" in args:
         gpus, _ = get_gpu_info()
+        _print_validate(gpus)
+        return
+    gpus, gpu_json = get_gpu_info()
+    if "--json" in args or "-j" in args:
         print(json.dumps(_gpus_to_json(gpus), indent=2))
         return
-    main(verbose=args.verbose)
+    print_gpu_human(gpus, gpu_json)
 
 
 if __name__ == "__main__":
-    _main()
+    main()

@@ -1,7 +1,7 @@
 """Dependency probe + low-friction install hints (Ubuntu/apt).
 
 Does not invent packages: only maps known full-path binaries to distro packages
-or a short NVIDIA/CUDA hint. Never installs unless --deps-install is explicit.
+or a short NVIDIA/CUDA/ROCm hint. Never installs unless --deps-install is explicit.
 """
 
 from __future__ import annotations
@@ -14,7 +14,7 @@ from typing import Any
 
 from lsstack.common import SYSTEM_BINARIES, system_binary
 
-# tier: base (usually present) | enricher (apt) | vendor (NVIDIA/CUDA, not plain apt one-liner)
+# tier: base (usually present) | enricher (apt) | vendor (NVIDIA/CUDA/ROCm, not apt one-liner)
 _DEPENDENCY_META: dict[str, dict[str, Any]] = {
     "lsblk": {
         "tier": "base",
@@ -99,6 +99,15 @@ _DEPENDENCY_META: dict[str, dict[str, Any]] = {
             "or /usr/local/cuda — not required for most lsstack checks."
         ),
     },
+    "rocm-smi": {
+        "tier": "vendor",
+        "apt": None,
+        "provides": "optional AMD live enrich (lsdriver / lsgpu); sysfs is enough",
+        "install_hint": (
+            "Optional: install ROCm so /opt/rocm/bin/rocm-smi or /usr/bin/rocm-smi exists. "
+            "Not required; amdgpu sysfs covers inventory. Not auto-installed."
+        ),
+    },
 }
 
 
@@ -174,7 +183,7 @@ def format_deps_report(deps: dict[str, Any] | None = None) -> str:
             lines.append("")
             lines.append(f"  Vendor: {hint}")
     lines.append("")
-    lines.append("  Policy: install from distro / NVIDIA only — not pip/npm. See docs/SECURITY.md.")
+    lines.append("  Policy: install from distro / NVIDIA / ROCm only, not pip/npm. See docs/SECURITY.md.")
     return "\n".join(lines) + "\n"
 
 
@@ -246,7 +255,15 @@ def main(argv: list[str] | None = None) -> None:
     """CLI: python3 -m lsstack deps [--install]."""
     import argparse
 
+    from lsstack import __version__
+
     ap = argparse.ArgumentParser(description="Probe lsstack external dependencies.")
+    ap.add_argument(
+        "-V",
+        "--version",
+        action="version",
+        version=f"lsStack {__version__}",
+    )
     ap.add_argument(
         "--install",
         action="store_true",

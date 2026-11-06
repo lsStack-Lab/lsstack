@@ -16,7 +16,7 @@ from lsstack.color import (
     red,
     yellow,
 )
-from lsstack.common import read_file, sudo_full_results_note, system_binary
+from lsstack.common import read_file, sudo_full_results_note, system_binary, want_notes
 
 
 def _run(cmd: list[str], timeout: int = 10) -> tuple[int, str, str]:
@@ -82,12 +82,6 @@ def _nvme_ctrl(device: str) -> str | None:
 
 
 def _get_model(device: str) -> str:
-    exe = system_binary("smartctl")
-    if exe:
-        _, out, _ = _run([exe, "-i", "/dev/" + device], timeout=15)
-        for line in out.splitlines():
-            if "Device Model:" in line or "Model Number:" in line:
-                return line.split(":", 1)[1].strip()
     exe = system_binary("lsblk")
     if exe:
         code, out, _ = _run([exe, "-d", "-n", "-o", "MODEL", "/dev/" + device])
@@ -105,6 +99,12 @@ def _get_model(device: str) -> str:
         m = read_file(path)
         if m:
             return m.strip()
+    exe = system_binary("smartctl")
+    if exe:
+        _, out, _ = _run([exe, "-i", "/dev/" + device], timeout=15)
+        for line in out.splitlines():
+            if "Device Model:" in line or "Model Number:" in line:
+                return line.split(":", 1)[1].strip()
     return "N/A"
 
 
@@ -483,7 +483,7 @@ def _health_display(health: str | None, *, note: str | None, color: bool) -> str
     if "fail" in low:
         return red(health, enabled=color)
     if health == "Unknown" and looks_like_privilege_note(note):
-        return privilege_note(health, enabled=color)
+        return privilege_note("— (needs sudo + smartctl)", enabled=color)
     if "unknown" in low:
         return yellow(health, enabled=color)
     return health
@@ -641,7 +641,9 @@ How
 
 Usage: lsdisk [options]
   --json, -j       JSON (disks + partitions + wear attrs)
+  --no-notes       Hide the Notes section
   -nc, --no-color  Disable ANSI color
+  --version, -V    Print lsStack version
   -h, --help       This help
 """
 
@@ -736,9 +738,7 @@ def main(args: list[str] | None = None) -> None:
         elif looks_like_privilege_note(d.get("wear_note") or d.get("note")):
             _kv("Wear", privilege_note("— (needs sudo + smartctl)", enabled=color), w)
         note = d.get("note") or d.get("health_note") or d.get("wear_note")
-        if note:
-            if looks_like_privilege_note(note):
-                note = privilege_note(note, enabled=color)
+        if note and not looks_like_privilege_note(note):
             _kv("Note", note, w)
         temp = d.get("temperature")
         if temp and temp != "N/A":
@@ -765,7 +765,7 @@ def main(args: list[str] | None = None) -> None:
             _kv("Partitions", "none", w)
 
     sudo_note = sudo_full_results_note("lsdisk")
-    if sudo_note:
+    if want_notes(args) and sudo_note:
         _section("Notes")
         _kv("Note", privilege_note(sudo_note, enabled=color), w)
     print()

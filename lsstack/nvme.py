@@ -11,6 +11,19 @@ from lsstack.color import color_enabled, green, red, yellow
 from lsstack.common import read_file
 
 _NVME = "/sys/class/nvme"
+# Lab first-look when the drive publishes no temp1_max / temp1_crit.
+# Same NVMe band as lsthermal; never the CPU/GPU 80/90.
+_NVME_TEMP_YELLOW_C = 70
+_NVME_TEMP_RED_C = 80
+
+
+def _milli_c(raw: str | None) -> int | None:
+    if not raw:
+        return None
+    s = raw.strip()
+    if not s.lstrip("-").isdigit():
+        return None
+    return int(s) // 1000
 
 
 def _pci_link(ctrl_path: str) -> dict:
@@ -20,6 +33,8 @@ def _pci_link(ctrl_path: str) -> dict:
     pci_bdf = normalize_bdf(os.path.basename(cur))
     link_speed = None
     link_width = None
+    max_speed = None
+    max_width = None
     walk = cur
     for _ in range(6):
         speed = read_file(os.path.join(walk, "current_link_speed"))
@@ -27,6 +42,8 @@ def _pci_link(ctrl_path: str) -> dict:
         if speed or width:
             link_speed = (speed or "").strip() or None
             link_width = (width or "").strip() or None
+            max_speed = (read_file(os.path.join(walk, "max_link_speed")) or "").strip() or None
+            max_width = (read_file(os.path.join(walk, "max_link_width")) or "").strip() or None
             break
         parent = os.path.dirname(walk)
         if parent == walk:
@@ -38,10 +55,14 @@ def _pci_link(ctrl_path: str) -> dict:
     if link_speed or link_width:
         out["link_speed"] = link_speed
         out["link_width"] = link_width
+    if max_speed or max_width:
+        out["max_speed"] = max_speed
+        out["max_width"] = max_width
     return out
 
 
-def _hwmon_temp_c(ctrl: str) -> int | None:
+def _hwmon_temp(ctrl: str) -> dict:
+    """Composite temp plus the drive's own max/crit when hwmon publishes them."""
     base = os.path.join(_NVME, ctrl)
     candidates = []
     h0 = os.path.join(base, "hwmon0")
@@ -54,11 +75,30 @@ def _hwmon_temp_c(ctrl: str) -> int | None:
                 candidates.append(os.path.join(dh, name))
         except OSError:
             pass
+    picked: dict | None = None
     for hdir in candidates:
-        raw = read_file(os.path.join(hdir, "temp1_input"))
-        if raw and raw.isdigit():
-            return int(raw) // 1000
-    return None
+        try:
+            names = os.listdir(hdir)
+        except OSError:
+            continue
+        inputs = sorted(n for n in names if re.match(r"temp\d+_input$", n))
+        for inp in inputs:
+            prefix = inp[: -len("_input")]
+            temp_c = _milli_c(read_file(os.path.join(hdir, inp)))
+            if temp_c is None:
+                continue
+            label = (read_file(os.path.join(hdir, prefix + "_label")) or "").strip()
+            row = {
+                "temp_c": temp_c,
+                "temp_max_c": _milli_c(read_file(os.path.join(hdir, prefix + "_max"))),
+                "temp_crit_c": _milli_c(read_file(os.path.join(hdir, prefix + "_crit"))),
+                "temp_label": label or None,
+            }
+            if (label or "").lower() == "composite":
+                return row
+            if picked is None:
+                picked = row
+    return picked or {}
 
 
 def _namespaces(ctrl: str) -> list[dict]:
@@ -92,15 +132,21 @@ def get_nvme_info() -> list[dict]:
             continue
         base = os.path.join(_NVME, ctrl)
         link = _pci_link(base)
+        hw = _hwmon_temp(ctrl)
         out.append({
             "controller": ctrl,
             "model": (read_file(os.path.join(base, "model")) or "").strip() or None,
             "serial": (read_file(os.path.join(base, "serial")) or "").strip() or None,
             "firmware": (read_file(os.path.join(base, "firmware_rev")) or "").strip() or None,
             "state": (read_file(os.path.join(base, "state")) or "").strip() or None,
-            "temp_c": _hwmon_temp_c(ctrl),
+            "temp_c": hw.get("temp_c"),
+            "temp_max_c": hw.get("temp_max_c"),
+            "temp_crit_c": hw.get("temp_crit_c"),
+            "temp_label": hw.get("temp_label"),
             "pcie_link_speed": link.get("link_speed"),
             "pcie_link_width": link.get("link_width"),
+            "pcie_max_speed": link.get("max_speed"),
+            "pcie_max_width": link.get("max_width"),
             "pci_bdf": link.get("pci_bdf"),
             "namespaces": _namespaces(ctrl),
         })
@@ -133,24 +179,64 @@ def _state_display(state: str | None, *, color: bool) -> str:
     return s
 
 
-def _temp_display(temp_c: int | None, *, color: bool) -> str | None:
+def _temp_display(d: dict, *, color: bool) -> str | None:
+    temp_c = d.get("temp_c")
     if temp_c is None:
         return None
     text = f"{temp_c}°C"
-    if temp_c >= 90:
+    yellow_at = d.get("temp_max_c")
+    red_at = d.get("temp_crit_c")
+    if yellow_at is None and red_at is None:
+        yellow_at, red_at = _NVME_TEMP_YELLOW_C, _NVME_TEMP_RED_C
+    else:
+        if yellow_at is None:
+            yellow_at = _NVME_TEMP_YELLOW_C
+        if red_at is None:
+            red_at = _NVME_TEMP_RED_C
+    if temp_c >= red_at:
         return red(text, enabled=color)
-    if temp_c >= 80:
+    if temp_c >= yellow_at:
         return yellow(text, enabled=color)
     return text
+
+
+def _width_int(raw) -> int | None:
+    if raw is None:
+        return None
+    s = str(raw).strip().lower().lstrip("x")
+    if s.isdigit():
+        return int(s)
+    return None
 
 
 def _pcie_link_line(d: dict) -> str | None:
     speed = d.get("pcie_link_speed")
     width = d.get("pcie_link_width")
-    if not speed and not width:
+    max_speed = d.get("pcie_max_speed")
+    max_width = d.get("pcie_max_width")
+    if not speed and not width and not max_speed and not max_width:
         return None
     w = f"x{width}" if width and not str(width).startswith("x") else (width or "—")
-    return f"{w}, {speed or '—'}"
+    bits = [f"{w}, {speed or '—'}"]
+    max_bits = []
+    if max_width:
+        mw = f"x{max_width}" if not str(max_width).startswith("x") else str(max_width)
+        max_bits.append(mw)
+    if max_speed:
+        max_bits.append(max_speed.replace(" PCIe", ""))
+    if max_bits:
+        bits.append(f"(max {' '.join(max_bits)})")
+    return " ".join(bits)
+
+
+def _link_below_max(d: dict) -> bool:
+    cur_w = _width_int(d.get("pcie_link_width"))
+    max_w = _width_int(d.get("pcie_max_width"))
+    if cur_w is not None and max_w is not None and cur_w < max_w:
+        return True
+    cur_s = d.get("pcie_link_speed") or ""
+    max_s = d.get("pcie_max_speed") or ""
+    return bool(cur_s and max_s and cur_s != max_s)
 
 
 def _help_text() -> str:
@@ -172,6 +258,7 @@ How
 Usage: lsnvme [options]
   --json, -j       JSON (controllers + namespaces)
   -nc, --no-color  Disable ANSI color
+  --version, -V    Print lsStack version
   -h, --help       This help
 """
 
@@ -220,7 +307,7 @@ def print_nvme_human(info: dict | None = None, *, color: bool = False) -> None:
         _kv("Firmware", d.get("firmware"), w)
         if d.get("state"):
             _kv("State", _state_display(d.get("state"), color=color), w)
-        temp = _temp_display(d.get("temp_c"), color=color)
+        temp = _temp_display(d, color=color)
         if temp:
             _kv("Temperature", temp, w)
         if d.get("pci_bdf"):
@@ -228,6 +315,8 @@ def print_nvme_human(info: dict | None = None, *, color: bool = False) -> None:
         link = _pcie_link_line(d)
         if link:
             _kv("PCIe link", link, w)
+        if _link_below_max(d):
+            _kv("Note", f"{d.get('pci_bdf') or d.get('controller')} below device max — see lstopology", w)
         nss = d.get("namespaces") or []
         if not nss:
             _kv("Namespace", "none", w)
@@ -237,7 +326,6 @@ def print_nvme_human(info: dict | None = None, *, color: bool = False) -> None:
     _section("Notes")
     _kv("Note", "SMART / partitions → lsdisk", w)
     _kv("Note", "PCIe path / idle Gen → lstopology", w)
-    _kv("Note", "color: auto on TTY; disable with -nc, --no-color or NO_COLOR=1", w)
     print()
 
 

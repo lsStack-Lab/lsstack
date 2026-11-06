@@ -1,6 +1,9 @@
 """lsstack: full system report. Balance rules, high-impact checks, then aggregated ls* output.
 
 Supports --json for a machine-readable report with stable check IDs.
+
+FUTURE(server-profile): on rack chassis, N/A ATX PSU/ports/80% headroom and keep
+inventory + ECC + NUMA. Workstation-lab remains the product until then.
 """
 
 from __future__ import annotations
@@ -25,6 +28,7 @@ from lsstack import proc as proc_mod
 from lsstack import slots as slots_mod
 from lsstack import deps as deps_mod
 from lsstack import topology as topology_mod
+from lsstack import __version__
 from lsstack.common import load_json, read_dmi_id, read_file, sudo_full_results_note, system_binary
 
 SCHEMA_VERSION = 2
@@ -204,16 +208,6 @@ def _pcie_validity_checks() -> list[dict[str, Any]]:
                     expl,
                 ),
             ))
-        elif role == "gpu" and root_max is not None and cur_w < root_max:
-            checks.append(_check(
-                wid, "pcie", "warn",
-                f"PCIe width ({role} {bdf}): x{cur_w} on root {root} max x{root_max} (slot/root can do more)",
-                evidence=ev,
-                remedy=_remedy(
-                    "Move GPU to a full-bandwidth slot, disable bifurcation, or free shared CPU lanes.",
-                    expl,
-                ),
-            ))
         else:
             checks.append(_check(
                 wid, "pcie", "pass",
@@ -317,14 +311,21 @@ def _pcie_validity_checks() -> list[dict[str, Any]]:
             ))
         elif (
             cur_w is not None and max_w is not None and cur_w < max_w
-            and any(c.get("role") == "gpu" for c in cards)
+            and any(
+                ep.get("cpu_root") == rbdf
+                and ep.get("role") == "gpu"
+                and ep.get("current_width") is not None
+                and ep.get("max_width") is not None
+                and ep["current_width"] < ep["max_width"]
+                for ep in endpoints
+            )
         ):
             rem = r.get("remaining_width")
             checks.append(_check(
                 cid, "pcie", "warn",
                 f"PCIe root {rbdf}: link x{cur_w}/max x{max_w}"
                 + (f" ({rem} lanes free)" if rem is not None else "")
-                + f" with GPU child",
+                + f" with GPU child below device max",
                 evidence=ev,
                 remedy=remedy or "GPU root is below its max width — check bifurcation and competing devices.",
             ))
@@ -678,7 +679,7 @@ def collect_report() -> dict[str, Any]:
                 "ratio": 2.0,
                 "url": "",
                 "note": "Certified multi-GPU server BOM guidance — not a home/lab workstation floor",
-                "on_fail": "warn",
+                "on_fail": "na",
             },
         ]
     ram_vram_footnote = (rules.get("ram_vram_footnote") or "").strip() or (
@@ -1110,6 +1111,7 @@ def collect_report() -> dict[str, Any]:
     return {
         "schema_version": SCHEMA_VERSION,
         "tool": "lsstack",
+        "version": __version__,
         "host": {
             "hostname": identity["hostname"],
             "fqdn": identity["fqdn"],
@@ -1229,7 +1231,7 @@ def _print_human_from_report(report: dict[str, Any], *, color: bool = False) -> 
 
     from lsstack.expansion import print_expansion_human
 
-    print_expansion_human(report.get("expansion"))
+    print_expansion_human(report.get("expansion"), color=color)
 
     print("\n" + "=" * 60)
     print("  High-impact checks")
@@ -1360,7 +1362,7 @@ def _print_high_impact(checks: list[dict[str, Any]], *, color: bool = False) -> 
                     lanes = row.get("lanes")
                     ls = f"x{lanes}" if lanes is not None else "—"
                     gen = row.get("gen")
-                    gs = f"Gen{gen}" if gen is not None else "—"
+                    gs = f"Gen {gen}" if gen is not None else "—"
                     print(
                         f"  {'':>{w}}  {blank}  "
                         f"{str(row.get('item') or ''):<26} {ls:>6} {gs:>5}"
@@ -1375,6 +1377,7 @@ def _run_subsystem_outputs() -> None:
         sys.exit(1)
 
     commands = ["lsproc", "lsgpu", "lsram", "lsslots", "lsdisk", "lsthermal", "lstopology"]
+    notes_cmds = {"lsproc", "lsram", "lsslots", "lsdisk", "lsthermal", "lstopology"}
     for cmd in commands:
         path = os.path.join(bin_dir, cmd)
         if not os.path.isfile(path):
@@ -1387,9 +1390,12 @@ def _run_subsystem_outputs() -> None:
         print(f"\n{'=' * 60}")
         print(f"  Output: {cmd}")
         print("=" * 60)
+        argv = [path]
+        if cmd in notes_cmds:
+            argv.append("--no-notes")
         try:
             out = subprocess.run(
-                [path],
+                argv,
                 capture_output=True,
                 text=True,
                 timeout=30,
@@ -1475,8 +1481,52 @@ def _preflight_lab_and_enrichers(*, force_skip: bool = False) -> None:
     print()
 
 
+def _help_text() -> str:
+    return """lsstack — full system report for lab / workstation builds
+
+What
+  Balance (RAM:VRAM, DIMMs, slots), expansion headroom (power / lanes),
+  high-impact checks (GPU temp, PSU, PCIe, ECC, driver), then aggregated
+  ls* output (or --checks-only for the checks).
+
+Why
+  One place to see whether the box is balanced before adding a GPU, cloning
+  a lab image, or chasing a PCIe/thermal surprise in the individual commands.
+
+How
+  Read Balance first, then Expansion, then High-impact (Why/Prompt on warns).
+  Fields that need sudo are amber on that row (DMI DIMMs/slots, SMART).
+  PCIe width is judged against the card, not empty root lanes → lstopology.
+  Lean data → --json. First-run PSU prompt → --no-preflight to skip.
+
+Usage: lsstack [options]
+  --json           JSON (schema, host, summary, checks); no ls* dump
+  --checks-only    Balance + Expansion + High-impact only
+  --deps           Probe enrichers; print apt/vendor hints
+  --deps-install   apt-install missing enrichers (root; not NVIDIA/CUDA)
+  --no-preflight   Skip interactive PSU welcome
+  -nc, --no-color  Disable ANSI color
+  --version, -V    Print lsStack version
+  -h, --help       This help
+"""
+
+
 def main(argv: list[str] | None = None) -> None:
-    ap = argparse.ArgumentParser(description="lsstack full system report (balance + high-impact + ls* output).")
+    argv = argv if argv is not None else sys.argv[1:]
+    if "-h" in argv or "--help" in argv:
+        print(_help_text())
+        return
+    ap = argparse.ArgumentParser(
+        prog="lsstack",
+        description="lsstack full system report (balance + high-impact + ls* output).",
+        add_help=False,
+    )
+    ap.add_argument(
+        "-V",
+        "--version",
+        action="version",
+        version=f"lsStack {__version__}",
+    )
     ap.add_argument(
         "--json",
         action="store_true",

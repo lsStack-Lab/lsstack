@@ -154,6 +154,9 @@ _T0_BIOS_MAJOR = 20
 _T0_BIOS_MINOR = 21
 _T0_EC_MAJOR = 22
 _T0_EC_MINOR = 23
+# SMBIOS 3.1+: Extended BIOS ROM Size (WORD) when ROM Size byte is 0xFF
+_T0_EXT_ROM = 24
+_T0_EXT_ROM_MIN_LEN = 26
 
 # --- Type 4 ---
 _T4_SOCKET = 4
@@ -463,6 +466,30 @@ def system_slots() -> list[dict[str, str]]:
     return slots
 
 
+def _type0_rom_size(formatted: bytes, length: int) -> str | None:
+    """Legacy 64KiB units, or Extended BIOS ROM Size when the byte is 0xFF."""
+    if length <= _T0_ROM_SIZE:
+        return None
+    rom = formatted[_T0_ROM_SIZE]
+    if rom != 0xFF:
+        kib = 64 * (rom + 1)
+        if kib >= 1024:
+            return "%d MB" % (kib // 1024)
+        return "%d kB" % kib
+    if length < _T0_EXT_ROM_MIN_LEN:
+        return None
+    raw = formatted[_T0_EXT_ROM] | (formatted[_T0_EXT_ROM + 1] << 8)
+    unit = (raw >> 14) & 0x3
+    n = raw & 0x3FFF
+    if n == 0:
+        return None
+    if unit == 0:
+        return "%d MB" % n
+    if unit == 1:
+        return "%d GB" % n
+    return None
+
+
 def bios_extra() -> dict[str, str]:
     """Type 0 fields beyond sysfs: ROM size, BIOS revision, firmware revision."""
     data, _reason = read_table()
@@ -476,14 +503,9 @@ def bios_extra() -> dict[str, str]:
         if length < _T0_MIN_LEN:
             return {}
         out: dict[str, str] = {}
-        rom = formatted[_T0_ROM_SIZE]
-        # Size = 64K * (rom + 1) when rom != 0xFF (legacy encoding)
-        if rom != 0xFF:
-            kib = 64 * (rom + 1)
-            if kib >= 1024:
-                out["ROM Size"] = "%d MB" % (kib // 1024)
-            else:
-                out["ROM Size"] = "%d kB" % kib
+        rom = _type0_rom_size(formatted, length)
+        if rom:
+            out["ROM Size"] = rom
         if length >= 22:
             major = formatted[_T0_BIOS_MAJOR]
             minor = formatted[_T0_BIOS_MINOR]

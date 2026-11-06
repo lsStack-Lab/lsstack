@@ -214,12 +214,13 @@ Why
 
 How
   Read Summary/Status first. Green = toolkit ≤ driver CUDA. Red = toolkit newer.
-  Driver packages → lsdriver. GPU inventory → lsgpu. AMD/ROCm is separate (later).
-  Lean data → --json.
+  Driver packages → lsdriver. GPU inventory → lsgpu.
+  AMD/ROCm → lsdriver / lsgpu (not this command). Lean data → --json.
 
 Usage: lscuda [options]
   --json, -j       JSON
   -nc, --no-color  Disable ANSI color
+  --version, -V    Print lsStack version
   -h, --help       This help
 """
 
@@ -266,7 +267,7 @@ def print_cuda_human(info: dict | None = None, *, color: bool = False) -> None:
     _kv("Frameworks", info.get("frameworks_note"), w)
     _kv("Note", "GPU driver match → lsdriver", w)
     _kv("Note", "GPU inventory → lsgpu", w)
-    _kv("Note", "AMD/ROCm support planned after this cluster", w)
+    _kv("Note", "AMD/ROCm → lsdriver / lsgpu", w)
     _kv("Note", "color: auto on TTY; disable with -nc, --no-color or NO_COLOR=1", w)
     print()
 

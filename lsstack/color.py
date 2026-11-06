@@ -13,7 +13,6 @@ _WARN = {
     "width_limited",
     "root_gen_low",
     "warn",
-    "na",
 }
 _BAD = {
     "gen_mismatch",
@@ -21,6 +20,7 @@ _BAD = {
     "fail",
     "critical",
 }
+_NA = {"na"}
 
 
 def color_enabled(args: list[str] | None = None) -> bool:
@@ -63,12 +63,8 @@ def red(text: str, *, enabled: bool) -> str:
     return _wrap("31", text, enabled=enabled)
 
 
-def bold(text: str, *, enabled: bool) -> str:
-    return _wrap("1", text, enabled=enabled)
-
-
 def verdict_bracket(verdict: str | None, *, enabled: bool) -> str:
-    """Color only the [verdict] token."""
+    """Color only the [verdict] token. [na] is skip, not a warning."""
     v = (verdict or "?").strip()
     token = f"[{v}]"
     key = v.lower()
@@ -76,6 +72,8 @@ def verdict_bracket(verdict: str | None, *, enabled: bool) -> str:
         return green(token, enabled=enabled)
     if key in _BAD:
         return red(token, enabled=enabled)
+    if key in _NA:
+        return muted(token, enabled=enabled)
     if key in _WARN:
         return yellow(token, enabled=enabled)
     return yellow(token, enabled=enabled)

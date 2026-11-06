@@ -102,7 +102,12 @@ def _lane_free(topo: dict | None) -> dict[str, Any]:
     }
 
 
-def _slot_free(dmi_slots: list | None, populated: list | None = None) -> dict[str, Any]:
+def _slot_free(
+    dmi_slots: list | None,
+    populated: list | None = None,
+    *,
+    dmi_reason: str | None = None,
+) -> dict[str, Any]:
     """Classify DMI Type 9 slots: Available vs In Use / other."""
     slots = dmi_slots or []
     open_list: list[str] = []
@@ -119,6 +124,10 @@ def _slot_free(dmi_slots: list | None, populated: list | None = None) -> dict[st
             used_list.append(label)
         else:
             other_list.append(label)
+    if slots:
+        reason = None
+    else:
+        reason = dmi_reason or "omitted"
     return {
         "open": open_list,
         "used": used_list,
@@ -126,6 +135,7 @@ def _slot_free(dmi_slots: list | None, populated: list | None = None) -> dict[st
         "open_count": len(open_list),
         "used_count": len(used_list),
         "dmi_count": len(slots),
+        "dmi_reason": reason,
         "populated_endpoints": len(populated or []),
         "available": bool(slots),
     }
@@ -145,16 +155,24 @@ def compute_expansion(
     if topology is None:
         from lsstack.topology import get_topology_info
         topology = get_topology_info()
+    if populated is None:
+        from lsstack.slots import get_populated_endpoints
+        populated = get_populated_endpoints()
     if dmi_slots is None:
-        from lsstack.slots import _type9_slots, get_populated_endpoints
+        from lsstack.slots import _type9_slots
         dmi_slots = _type9_slots()
-        if populated is None:
-            populated = get_populated_endpoints()
+
+    from lsstack.dmi import probe_table
+    probe = probe_table()
+    if probe.get("ok"):
+        dmi_reason = None if dmi_slots else "omitted"
+    else:
+        dmi_reason = probe.get("reason")
 
     return {
         "power": _power_free(budget),
         "lanes": _lane_free(topology),
-        "slots": _slot_free(dmi_slots, populated),
+        "slots": _slot_free(dmi_slots, populated, dmi_reason=dmi_reason),
         "note": (
             "Report-only free resources (not a dual-GPU oracle). "
             "More detail: lspower, lstopology, lsslots."
@@ -162,14 +180,16 @@ def compute_expansion(
     }
 
 
-def print_expansion_human(exp: dict | None = None) -> None:
+def print_expansion_human(exp: dict | None = None, *, color: bool = False) -> None:
+    from lsstack.color import privilege_note
+
     exp = exp if exp is not None else compute_expansion()
     power = exp.get("power") or {}
     lanes = exp.get("lanes") or {}
     slots = exp.get("slots") or {}
 
     labels = [
-        "Power", "Lanes", "Slots", "Open", "Used", "Note", "Root",
+        "Power", "Lanes", "Slots", "Open", "Used", "Populated", "Note", "Root",
     ]
     for r in lanes.get("roots") or []:
         labels.append(str(r.get("bdf") or "root"))
@@ -224,11 +244,20 @@ def print_expansion_human(exp: dict | None = None) -> None:
         if used_s:
             _kv("Used", ", ".join(used_s[:8]) + ("…" if len(used_s) > 8 else ""), w)
     else:
-        _kv(
-            "Slots",
-            "N/A — needs sudo for DMI Type 9 (see lsslots)",
-            w,
-        )
+        reason = slots.get("dmi_reason")
+        if reason == "needs_sudo":
+            _kv(
+                "Slots",
+                privilege_note("— (needs sudo for DMI Type 9)", enabled=color),
+                w,
+            )
+        elif reason in ("no_table", "failed"):
+            _kv("Slots", "DMI table unreadable", w)
+        else:
+            _kv("Slots", "firmware omitted Type 9", w)
+        n_pop = slots.get("populated_endpoints") or 0
+        live = f"{n_pop} live endpoint(s)" if n_pop else "none"
+        _kv("Populated", f"{live}  → lsslots", w)
 
     _kv("Note", exp.get("note"), w, wrap=_NOTE_WRAP)
     print()

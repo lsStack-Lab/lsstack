@@ -31,12 +31,18 @@ PLUG_12V = "12V-2x6"
 PLUG_ORDER = (PLUG_24PIN, PLUG_CPU, PLUG_SATA, PLUG_MOLEX, PLUG_6P2, PLUG_12V)
 PLUG_LABELS = {
     # 20+4 is cable construction; modern boards use all 24 — still one 24-pin port
-    PLUG_24PIN: "24-pin motherboard (often 20+4 cable)",
-    PLUG_CPU: "CPU / EPS (4+4 or 8-pin)",
+    PLUG_24PIN: "24-pin motherboard",
+    PLUG_CPU: "CPU / EPS",
     PLUG_SATA: "SATA power",
     PLUG_MOLEX: "Molex / peripheral",
     PLUG_6P2: "GPU 6+2 PCIe",
-    PLUG_12V: "GPU 12V-2x6 (12VHPWR)",
+    PLUG_12V: "GPU 12V-2x6",
+}
+# Flavor notes after the count so they do not pad the label column
+PLUG_NOTES = {
+    PLUG_24PIN: "often 20+4 cable",
+    PLUG_CPU: "4+4 or 8-pin",
+    PLUG_12V: "12VHPWR",
 }
 
 # CSV column → canonical key
@@ -226,7 +232,11 @@ def format_plugs_lines(plugs: dict | None) -> list[tuple[str, str]]:
     for k in PLUG_ORDER:
         label = PLUG_LABELS.get(k, k)
         n = plugs.get(k, 0)
-        rows.append((label, str(n) if n else "0"))
+        val = str(n) if n else "0"
+        note = PLUG_NOTES.get(k)
+        if note:
+            val = f"{val}  ({note})"
+        rows.append((label, val))
     return rows
 
 

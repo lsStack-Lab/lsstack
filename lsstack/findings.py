@@ -10,9 +10,6 @@ _VERDICT_TO_ID = {
     "gen_mismatch": "pcie.gen_mismatch",
     "trained_low": "pcie.trained_low",
     "width_limited": "pcie.width_limited",
-    "gpu_headroom": "pcie.gpu_headroom",
-    "oversub": "pcie.oversub",
-    "root_gen_low": "pcie.root_gen_low",
     "ok": "pcie.link_ok",
 }
 

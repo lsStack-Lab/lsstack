@@ -1,8 +1,8 @@
 """lsmobo: motherboard / chassis / DMI slots / onboard / ports.
 
 Firmware deep-dive → lsbios. Populated PCIe connectors → lsslots.
-Type 9 slots via first-party dmi.py. Baseboard/chassis/ports/onboard via
-dmidecode when root; otherwise /sys/class/dmi/id (partial).
+Type 9 slots via first-party dmi.py. Board serial via sysfs (often root).
+Ports/onboard via dmidecode when root; otherwise /sys/class/dmi/id (partial).
 """
 
 from __future__ import annotations
@@ -287,7 +287,7 @@ def get_mobo_info() -> dict:
     if slots:
         info["slots"] = slots
         info["source"] = "sysfs+dmi"
-    # Ports/onboard/serials still need dmidecode when present.
+    # Ports/onboard still need dmidecode when present. Serial is sysfs.
     if not system_binary("dmidecode"):
         info["needs_sudo"] = True
     elif not _is_root():
@@ -340,13 +340,14 @@ Why
   populated endpoints (lsslots).
 
 How
-  Sysfs board/chassis without root. Type 9 slots need sudo (dmi.py).
-  Ports/onboard/serials need sudo + dmidecode (optional enricher).
+  Sysfs board/chassis without root. Board serial and Type 9 slots need sudo
+  (sysfs / dmi.py). Ports/onboard need sudo + dmidecode (optional enricher).
   Firmware detail → lsbios. Populated PCIe → lsslots. Lean data → --json.
 
 Usage: lsmobo [options]
   --json, -j       JSON
   -nc, --no-color  Disable ANSI color
+  --version, -V    Print lsStack version
   -h, --help       This help
 """
 
@@ -380,7 +381,8 @@ def print_mobo_human(info: dict | None = None, *, color: bool = False) -> None:
         _kv(
             "Note",
             privilege_note(
-                "ports/serials need sudo + dmidecode; slots need sudo for DMI",
+                "serial/slots: sudo (sysfs/DMI Type 9); "
+                "ports/onboard: sudo + dmidecode",
                 enabled=color,
             ),
             w,
@@ -417,7 +419,7 @@ def print_mobo_human(info: dict | None = None, *, color: bool = False) -> None:
         if info.get("needs_sudo") and not dmi_or_none(board.get("Serial Number")):
             _kv(
                 "Serial",
-                privilege_note("— (needs sudo + dmidecode for ports/serials)", enabled=color),
+                privilege_note("— (needs sudo)", enabled=color),
                 w,
             )
 
@@ -457,7 +459,7 @@ def print_mobo_human(info: dict | None = None, *, color: bool = False) -> None:
     else:
         _kv(
             "Note",
-            privilege_note("— (needs sudo + dmidecode)", enabled=color)
+            privilege_note("— (needs sudo for DMI Type 9)", enabled=color)
             if info.get("needs_sudo")
             else "none reported",
             w,

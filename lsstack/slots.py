@@ -12,7 +12,7 @@ import re
 import sys
 
 from lsstack.color import color_enabled, privilege_note
-from lsstack.common import load_json, lookup_gpu_specs, read_file, sudo_full_results_note
+from lsstack.common import load_json, lookup_gpu_specs, read_file, sudo_full_results_note, want_notes
 
 _SYS_PCI = "/sys/bus/pci/devices"
 
@@ -75,7 +75,10 @@ def _role_for_class(cls: int) -> str | None:
     if base == 0x01:
         if sub == 0x08:
             return "nvme"
-        return "storage"
+        if sub == 0x06:
+            # Chipset/FCH SATA AHCI is not a PCIe connector (lsdisk).
+            return None
+        return "storage"  # RAID / SAS / SCSI HBAs in a slot
     return None
 
 
@@ -215,7 +218,9 @@ How
 
 Usage: lsslots [options]
   --json, -j       JSON (dmi_slots + populated)
+  --no-notes       Hide the Notes section
   -nc, --no-color  Disable ANSI color
+  --version, -V    Print lsStack version
   -h, --help       This help
 """
 
@@ -290,7 +295,10 @@ def main(args: list[str] | None = None) -> None:
             if ep.get("designation"):
                 parts.append(ep["designation"])
             elif role == "gpu":
-                parts.append("slot unknown")
+                if dmi_probe.get("reason") == "needs_sudo":
+                    parts.append("slot name needs sudo")
+                else:
+                    parts.append("slot unknown")
             if ep.get("gpu_model"):
                 parts.append(ep["gpu_model"])
             if ep.get("detail_cmd"):
@@ -322,12 +330,13 @@ def main(args: list[str] | None = None) -> None:
                 f"max speed {ep.get('max_speed') or 'N/A'}",
                 label_w,
             )
-    _section("Notes")
-    sudo_note = sudo_full_results_note("lsslots")
-    if sudo_note:
-        _kv("Note", privilege_note(sudo_note, enabled=color), label_w)
-    _kv("Note", "lane budget / gen mismatch → lstopology", label_w)
-    _kv("Note", "SATA / drive health → lsdisk; not listed as PCIe slots", label_w)
+    if want_notes(args):
+        _section("Notes")
+        sudo_note = sudo_full_results_note("lsslots")
+        if sudo_note:
+            _kv("Note", privilege_note(sudo_note, enabled=color), label_w)
+        _kv("Note", "lane budget / gen mismatch → lstopology", label_w)
+        _kv("Note", "SATA / drive health → lsdisk; not listed as PCIe slots", label_w)
     print()
 
 

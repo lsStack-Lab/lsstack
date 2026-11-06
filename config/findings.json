@@ -1,7 +1,7 @@
 {
   "_meta": {
     "version": 1,
-    "description": "Educational findings catalog for lsstack. Detection stays in Python; this file supplies what/why/prompt templates. Structure inspired by DMTF Redfish Message Registries (Platform PCIe* messages); GPU link fields crosswalked to NVIDIA DCGM PCIE LINK/MAX gen+width; SMART seed paraphrased from Scrutiny-style attribute metadata. No learn/fix URL field."
+    "description": "Educational findings catalog for lsstack. Detection stays in Python; this file supplies what/why/prompt templates used by lstopology. Structure inspired by DMTF Redfish Message Registries (Platform PCIe* messages); GPU link fields crosswalked to NVIDIA DCGM PCIE LINK/MAX gen+width. No learn/fix URL field."
   },
   "findings": {
     "pcie.gen_mismatch": {
@@ -45,10 +45,10 @@
       "id": "pcie.width_limited",
       "subsystem": "pcie",
       "default_severity": "warn",
-      "title": "PCIe link width below CPU root max",
-      "what": "GPU width is x{cur_width} while this CPU root reports max x{root_max_w}.",
-      "why": "Fewer lanes than the root advertises. On a DIY board this is often bifurcation, a physically x8-wired \u201cx16\u201d slot, or lanes shared with NVMe/chipset\u2014not a bad GPU. Confirm against the motherboard manual before replacing parts.",
-      "prompt": "My GPU is at x{cur_width} but the CPU PCIe root reports max x{root_max_w}. Explain bifurcation, shared lanes, and motherboard slot wiring in plain language, and what to look up in my board manual.",
+      "title": "PCIe link width below this GPU's max",
+      "what": "GPU width is x{cur_width} while this card's max is x{card_max_w} (CPU root reports x{root_max_w}).",
+      "why": "The link is narrower than this GPU can do. On a DIY board that is often bifurcation, a physically thinner slot, or lanes shared with NVMe/chipset. A root that is wider than the card is not a fault. Confirm against {board_manual} before replacing parts.",
+      "prompt": "My GPU is at x{cur_width} but the card max is x{card_max_w} (CPU PCIe root reports x{root_max_w}). Explain bifurcation, shared lanes, and motherboard slot wiring in plain language, and what to look up in {board_manual}.",
       "related_commands": [
         "lstopology",
         "lsslots",
@@ -65,8 +65,8 @@
       "default_severity": "info",
       "title": "GPU attached with unused root lane headroom",
       "what": "CPU root has x{remaining} unused of x{max_w} while a GPU is linked at x{cur_w}.",
-      "why": "Unused root width with a GPU present usually means the slot is wired narrower, bifurcation took lanes, or the card trained to fewer lanes than the root advertises. Matters most for multi-GPU peer traffic and large host\u2194device copies; light inference may not care.",
-      "prompt": "My GPU is running at x{cur_w} on a CPU PCIe root that supports x{max_w} ({max_gen_label} max, currently {cur_gen_label}). Explain why a GPU might not use full x16 (bifurcation, slot wiring, chipset), what to check in the motherboard manual, and whether this usually matters for my workload.",
+      "why": "This GPU is below its own max (x{card_max_w}) and the CPU root still has unused width. That can be a thinner-wired slot, bifurcation, or a card that has not trained to its full width. A card that is already at its max leaving leftover root lanes is expected, not a wiring fault.",
+      "prompt": "My GPU is running at x{cur_w} (card max x{card_max_w}) on a CPU PCIe root that supports x{max_w} ({max_gen_label} max, currently {cur_gen_label}). The card is below its own width. Explain bifurcation, slot wiring, and chipset sharing, what to check in {board_manual}, and whether this usually matters for my workload.",
       "related_commands": [
         "lstopology",
         "lsslots",
@@ -132,66 +132,15 @@
       "subsystem": "pcie",
       "default_severity": "info",
       "title": "CPU root lane use looks consistent",
-      "what": "Root {bdf}: x{cur_w}/{max_w} at {cur_gen_label} \u2014 lane use looks consistent with this port.",
-      "why": "Available vs in-use vs remaining is the lane budget a builder should read before adding a second GPU or NVMe on the same root.",
-      "prompt": "Explain what a CPU PCIe root port is, how lane budget works for GPUs and NVMe, and how a builder should read available vs in-use vs remaining lanes.",
+      "what": "Root {bdf}: x{cur_w} of x{max_w} PCIe lanes trained at {cur_gen_label}; lane use looks consistent with this CPU port.",
+      "why": "A CPU PCIe root has a fixed lane pool. Root max is the ceiling, the live link is what is trained now, and lanes left is unused width on that same port (x0 of x16 means nothing else can take lanes here).",
+      "prompt": "Explain what a CPU PCIe root port is, how its lane pool works for GPUs and NVMe, and how a builder should read root max vs live link vs lanes left.",
       "related_commands": [
         "lstopology",
         "lsslots"
       ],
       "sources": [
         "lab-builder educational"
-      ]
-    },
-    "power.psu_undersized": {
-      "id": "power.psu_undersized",
-      "subsystem": "power",
-      "default_severity": "fail",
-      "title": "PSU below design budget",
-      "what": "Configured PSU capacity is below the design load for this build ({budget_line}).",
-      "why": "This is design headroom, not a live PSU failure alarm. Lab inventory is the shared truth for rated watts; do not chase telemetry alone when the spreadsheet already says the brick is short.",
-      "prompt": "My lab inventory says PSU {psu_watts} W but the design budget for this GPU workstation is {budget_line}. Explain how to size a PSU for a home/college GPU lab (peak vs continuous, 12V rail, GPU spikes) and what to change in inventory vs hardware.",
-      "related_commands": [
-        "lspower",
-        "lslab",
-        "lsgpu"
-      ],
-      "sources": [
-        "Redfish Power registry (severity/taxonomy seed)",
-        "lab budget educational rewrite"
-      ]
-    },
-    "power.psu_unknown": {
-      "id": "power.psu_unknown",
-      "subsystem": "power",
-      "default_severity": "info",
-      "title": "No lab PSU capacity on file",
-      "what": "Design power budget has no PSU wattage from lab inventory for this host.",
-      "why": "Without a declared PSU, headroom cannot be judged. Enroll the system with lslab so lspower can compare estimated load to capacity.",
-      "prompt": "I'm using lsstack on a GPU lab host with no PSU watts in lab_inventory.json. Explain what fields to record for a shared lab inventory and how lspower uses them for a design budget.",
-      "related_commands": [
-        "lslab",
-        "lspower"
-      ],
-      "sources": [
-        "lab-builder educational"
-      ]
-    },
-    "disk.smart_reallocated": {
-      "id": "disk.smart_reallocated",
-      "subsystem": "disk",
-      "default_severity": "warn",
-      "title": "SMART reallocated sectors rising",
-      "what": "Drive reports reallocated (or pending) sectors above a quiet baseline.",
-      "why": "Reallocated sector count means the drive remapped sectors after read/write trouble. Rising counts are a wear/failure signal; a single static remap on an old drive is less urgent than growth over days.",
-      "prompt": "My Linux workstation SMART data shows reallocated or pending sectors on a lab drive. Explain what that means for a home/college builder, when to back up and replace, and which lsstack/smartctl fields to watch next.",
-      "related_commands": [
-        "lsdisk",
-        "lsnvme"
-      ],
-      "sources": [
-        "Scrutiny SMART attribute metadata (MIT; educational paraphrase)",
-        "ATA SMART common practice"
       ]
     }
   }

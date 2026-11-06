@@ -10,7 +10,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "300GE": {
             "memory_channels": 2,
@@ -19,7 +20,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           }
         },
         "Athlon": {
@@ -30,7 +32,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "220GE": {
             "memory_channels": 2,
@@ -39,7 +42,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "240GE": {
             "memory_channels": 2,
@@ -48,7 +52,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "3000G": {
             "memory_channels": 2,
@@ -57,7 +62,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "300GE": {
             "memory_channels": 2,
@@ -66,7 +72,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 35,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "320GE": {
             "memory_channels": 2,
@@ -75,7 +82,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           }
         },
         "Ryzen 3 PRO": {
@@ -86,7 +94,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "2200GE": {
             "memory_channels": 2,
@@ -95,7 +104,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 35,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "3200G": {
             "memory_channels": 2,
@@ -104,7 +114,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "3200GE": {
             "memory_channels": 2,
@@ -113,7 +124,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "4350G": {
             "memory_channels": 2,
@@ -122,7 +134,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "4350GE": {
             "memory_channels": 2,
@@ -131,7 +144,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "4355G": {
             "memory_channels": 2,
@@ -140,7 +154,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "4355GE": {
             "memory_channels": 2,
@@ -149,7 +164,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5350G": {
             "memory_channels": 2,
@@ -158,7 +174,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5350GE": {
             "memory_channels": 2,
@@ -167,7 +184,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5355G": {
             "memory_channels": 2,
@@ -176,7 +194,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5355GE": {
             "memory_channels": 2,
@@ -185,7 +204,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "8300G": {
             "memory_channels": 2,
@@ -194,7 +214,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "8300GE": {
             "memory_channels": 2,
@@ -203,7 +224,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           }
         },
         "Ryzen 3": {
@@ -214,7 +236,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "2200GE": {
             "memory_channels": 2,
@@ -223,7 +246,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "2300X": {
             "memory_channels": 2,
@@ -232,7 +256,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "3100": {
             "memory_channels": 2,
@@ -241,7 +266,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "3200G": {
             "memory_channels": 2,
@@ -250,7 +276,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "3200GE": {
             "memory_channels": 2,
@@ -259,7 +286,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "3300X": {
             "memory_channels": 2,
@@ -268,7 +296,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "4100": {
             "memory_channels": 2,
@@ -277,7 +306,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "4300G": {
             "memory_channels": 2,
@@ -286,7 +316,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "4300GE": {
             "memory_channels": 2,
@@ -295,7 +326,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5300G": {
             "memory_channels": 2,
@@ -304,7 +336,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5300GE": {
             "memory_channels": 2,
@@ -313,7 +346,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "8300G": {
             "memory_channels": 2,
@@ -322,7 +356,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "8300GE": {
             "memory_channels": 2,
@@ -331,7 +366,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           }
         },
         "Ryzen 5 PRO": {
@@ -342,7 +378,8 @@
             "l3Cache": "8MB",
             "tdp_watts": 65,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "2400GE": {
             "memory_channels": 2,
@@ -351,7 +388,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 35,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "2600": {
             "memory_channels": 2,
@@ -360,7 +398,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "3350G": {
             "memory_channels": 2,
@@ -369,7 +408,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "3350GE": {
             "memory_channels": 2,
@@ -378,7 +418,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "3400G": {
             "memory_channels": 2,
@@ -387,7 +428,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "3400GE": {
             "memory_channels": 2,
@@ -396,7 +438,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 35,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "3600": {
             "memory_channels": 2,
@@ -405,7 +448,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "4650G": {
             "memory_channels": 2,
@@ -414,7 +458,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "4650GE": {
             "memory_channels": 2,
@@ -423,7 +468,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 35,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "4655G": {
             "memory_channels": 2,
@@ -432,7 +478,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "4655GE": {
             "memory_channels": 2,
@@ -441,7 +488,8 @@
             "l3Cache": "8MB",
             "tdp_watts": 35,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5645": {
             "memory_channels": 2,
@@ -450,7 +498,8 @@
             "l3Cache": "8MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 90
           },
           "5650G": {
             "memory_channels": 2,
@@ -459,7 +508,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5650GE": {
             "memory_channels": 2,
@@ -468,7 +518,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 35,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5655G": {
             "memory_channels": 2,
@@ -477,7 +528,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5655GE": {
             "memory_channels": 2,
@@ -486,7 +538,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 35,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "7645": {
             "memory_channels": 2,
@@ -495,7 +548,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "8500G": {
             "memory_channels": 2,
@@ -504,7 +558,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "8500GE": {
             "memory_channels": 2,
@@ -513,7 +568,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "8600G": {
             "memory_channels": 2,
@@ -522,7 +578,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "8600GE": {
             "memory_channels": 2,
@@ -531,7 +588,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           }
         },
         "Ryzen 5": {
@@ -542,7 +600,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 65,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "2400GE": {
             "memory_channels": 2,
@@ -551,7 +610,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 35,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "2500X": {
             "memory_channels": 2,
@@ -560,7 +620,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "2600": {
             "memory_channels": 2,
@@ -569,7 +630,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "2600E": {
             "memory_channels": 2,
@@ -578,7 +640,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "2600X": {
             "memory_channels": 2,
@@ -587,7 +650,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "3400G": {
             "memory_channels": 2,
@@ -596,7 +660,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "3400GE": {
             "memory_channels": 2,
@@ -605,7 +670,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 35,
             "pcie_lanes": 12,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "3500X": {
             "memory_channels": 2,
@@ -614,7 +680,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "3600": {
             "memory_channels": 2,
@@ -623,7 +690,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "3600X": {
             "memory_channels": 2,
@@ -632,7 +700,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "3600XT": {
             "memory_channels": 2,
@@ -641,7 +710,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "4500": {
             "memory_channels": 2,
@@ -650,7 +720,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "4600G": {
             "memory_channels": 2,
@@ -659,7 +730,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "4600GE": {
             "memory_channels": 2,
@@ -668,7 +740,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5500": {
             "memory_channels": 2,
@@ -677,7 +750,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 90
           },
           "5500GT": {
             "memory_channels": 2,
@@ -686,7 +760,8 @@
             "l3Cache": "8MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "5600": {
             "memory_channels": 2,
@@ -695,7 +770,8 @@
             "l3Cache": "8MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 90
           },
           "5600G": {
             "memory_channels": 2,
@@ -704,7 +780,8 @@
             "l3Cache": "8MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5600GE": {
             "memory_channels": 2,
@@ -713,7 +790,8 @@
             "l3Cache": "8MB",
             "tdp_watts": 35,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5600GT": {
             "memory_channels": 2,
@@ -722,7 +800,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "5600X": {
             "memory_channels": 2,
@@ -731,7 +810,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "5600X3D": {
             "memory_channels": 2,
@@ -740,7 +820,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 90
           },
           "7500F": {
             "memory_channels": 2,
@@ -749,7 +830,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "7600": {
             "memory_channels": 2,
@@ -758,7 +840,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "7600X": {
             "memory_channels": 2,
@@ -767,7 +850,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 105,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "7600X3D": {
             "memory_channels": 2,
@@ -776,7 +860,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 105,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 89
           },
           "8400F": {
             "memory_channels": 2,
@@ -785,7 +870,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "8500G": {
             "memory_channels": 2,
@@ -794,7 +880,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "8500GE": {
             "memory_channels": 2,
@@ -803,7 +890,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "8600G": {
             "memory_channels": 2,
@@ -812,7 +900,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "9600X": {
             "memory_channels": 2,
@@ -821,7 +910,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 105,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           }
         },
         "Ryzen 7 PRO": {
@@ -832,7 +922,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "2700X": {
             "memory_channels": 2,
@@ -841,7 +932,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "3700": {
             "memory_channels": 2,
@@ -850,7 +942,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "4750G": {
             "memory_channels": 2,
@@ -859,7 +952,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "4750GE": {
             "memory_channels": 2,
@@ -868,7 +962,8 @@
             "l3Cache": "8MB",
             "tdp_watts": 35,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5750G": {
             "memory_channels": 2,
@@ -877,7 +972,8 @@
             "l3Cache": "8MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5750GE": {
             "memory_channels": 2,
@@ -886,7 +982,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 35,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5755G": {
             "memory_channels": 2,
@@ -895,7 +992,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5755GE": {
             "memory_channels": 2,
@@ -904,7 +1002,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 35,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5845": {
             "memory_channels": 2,
@@ -913,7 +1012,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 90
           },
           "7745": {
             "memory_channels": 2,
@@ -922,7 +1022,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 65,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "8700G": {
             "memory_channels": 2,
@@ -931,7 +1032,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "8700GE": {
             "memory_channels": 2,
@@ -940,7 +1042,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           }
         },
         "Ryzen 7": {
@@ -951,7 +1054,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "2700E": {
             "memory_channels": 2,
@@ -960,7 +1064,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "2700X": {
             "memory_channels": 2,
@@ -969,7 +1074,8 @@
             "l3Cache": "40MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 85
           },
           "3700X": {
             "memory_channels": 2,
@@ -978,7 +1084,8 @@
             "l3Cache": "40MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "3800X": {
             "memory_channels": 2,
@@ -987,7 +1094,8 @@
             "l3Cache": "40MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "3800XT": {
             "memory_channels": 2,
@@ -996,7 +1104,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "4700G": {
             "memory_channels": 2,
@@ -1005,7 +1114,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "4700GE": {
             "memory_channels": 2,
@@ -1014,7 +1124,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 35,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5700": {
             "memory_channels": 2,
@@ -1023,7 +1134,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 90
           },
           "5700G": {
             "memory_channels": 2,
@@ -1032,7 +1144,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5700GE": {
             "memory_channels": 2,
@@ -1041,7 +1154,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 35,
             "pcie_lanes": 24,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           },
           "5700X": {
             "memory_channels": 2,
@@ -1050,7 +1164,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 90
           },
           "5700X3D": {
             "memory_channels": 2,
@@ -1059,7 +1174,8 @@
             "l3Cache": "8MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 90
           },
           "5800": {
             "memory_channels": 2,
@@ -1068,7 +1184,8 @@
             "l3Cache": "8MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 90
           },
           "5800X": {
             "memory_channels": 2,
@@ -1077,7 +1194,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 90
           },
           "5800X3D": {
             "memory_channels": 2,
@@ -1086,7 +1204,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 90
           },
           "5800XT": {
             "memory_channels": 2,
@@ -1095,7 +1214,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 90
           },
           "7700": {
             "memory_channels": 2,
@@ -1104,7 +1224,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "7700X": {
             "memory_channels": 2,
@@ -1113,7 +1234,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 105,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "7800X3D": {
             "memory_channels": 2,
@@ -1122,7 +1244,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 120,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 89
           },
           "8700F": {
             "memory_channels": 2,
@@ -1131,7 +1254,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "8700G": {
             "memory_channels": 2,
@@ -1140,7 +1264,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "9700X": {
             "memory_channels": 2,
@@ -1149,7 +1274,8 @@
             "l3Cache": "70MB",
             "tdp_watts": 120,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "9800X3D": {
             "memory_channels": 2,
@@ -1158,7 +1284,8 @@
             "l3Cache": "70MB",
             "tdp_watts": 120,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           }
         },
         "Ryzen 9": {
@@ -1169,7 +1296,8 @@
             "l3Cache": "64MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "3900X": {
             "memory_channels": 2,
@@ -1178,7 +1306,8 @@
             "l3Cache": "64MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "3900XT": {
             "memory_channels": 2,
@@ -1187,7 +1316,8 @@
             "l3Cache": "70MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "3950X": {
             "memory_channels": 2,
@@ -1196,7 +1326,8 @@
             "l3Cache": "64MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "5900": {
             "memory_channels": 2,
@@ -1205,7 +1336,8 @@
             "l3Cache": "64MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 90
           },
           "5900X": {
             "memory_channels": 2,
@@ -1214,7 +1346,8 @@
             "l3Cache": "70MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 90
           },
           "5900XT": {
             "memory_channels": 2,
@@ -1223,7 +1356,8 @@
             "l3Cache": "70MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 90
           },
           "5945": {
             "memory_channels": 2,
@@ -1232,7 +1366,8 @@
             "l3Cache": "70MB",
             "tdp_watts": 65,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 90
           },
           "5950X": {
             "memory_channels": 2,
@@ -1241,7 +1376,8 @@
             "l3Cache": "64MB",
             "tdp_watts": 105,
             "pcie_lanes": 24,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 90
           },
           "7900": {
             "memory_channels": 2,
@@ -1250,7 +1386,8 @@
             "l3Cache": "96MB",
             "tdp_watts": 65,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "7900X": {
             "memory_channels": 2,
@@ -1259,7 +1396,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 170,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "7900X3D": {
             "memory_channels": 2,
@@ -1268,7 +1406,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 170,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 89
           },
           "7945": {
             "memory_channels": 2,
@@ -1277,7 +1416,8 @@
             "l3Cache": "70MB",
             "tdp_watts": 65,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "7950X": {
             "memory_channels": 2,
@@ -1286,7 +1426,8 @@
             "l3Cache": "70MB",
             "tdp_watts": 170,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "7950X3D": {
             "memory_channels": 2,
@@ -1295,7 +1436,8 @@
             "l3Cache": "70MB",
             "tdp_watts": 170,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 89
           },
           "9900X": {
             "memory_channels": 2,
@@ -1304,7 +1446,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 170,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "9950X": {
             "memory_channels": 2,
@@ -1313,7 +1456,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 170,
             "pcie_lanes": 28,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           }
         },
         "Ryzen Threadripper PRO": {
@@ -1324,7 +1468,8 @@
             "l3Cache": "64MB",
             "tdp_watts": 280,
             "pcie_lanes": 128,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "3955WX": {
             "memory_channels": 8,
@@ -1333,7 +1478,8 @@
             "l3Cache": "64MB",
             "tdp_watts": 280,
             "pcie_lanes": 128,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "3975WX": {
             "memory_channels": 8,
@@ -1342,7 +1488,8 @@
             "l3Cache": "128MB",
             "tdp_watts": 280,
             "pcie_lanes": 128,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "3995WX": {
             "memory_channels": 8,
@@ -1351,7 +1498,8 @@
             "l3Cache": "256MB",
             "tdp_watts": 280,
             "pcie_lanes": 128,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "5945WX": {
             "memory_channels": 8,
@@ -1360,7 +1508,8 @@
             "l3Cache": "64MB",
             "tdp_watts": 280,
             "pcie_lanes": 128,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "5955WX": {
             "memory_channels": 8,
@@ -1369,7 +1518,8 @@
             "l3Cache": "64MB",
             "tdp_watts": 280,
             "pcie_lanes": 128,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "5965WX": {
             "memory_channels": 8,
@@ -1378,7 +1528,8 @@
             "l3Cache": "128MB",
             "tdp_watts": 280,
             "pcie_lanes": 128,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "5975WX": {
             "memory_channels": 8,
@@ -1387,7 +1538,8 @@
             "l3Cache": "128MB",
             "tdp_watts": 280,
             "pcie_lanes": 128,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "5995WX": {
             "memory_channels": 8,
@@ -1396,7 +1548,8 @@
             "l3Cache": "256MB",
             "tdp_watts": 280,
             "pcie_lanes": 128,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "7945WX": {
             "memory_channels": 8,
@@ -1405,7 +1558,8 @@
             "l3Cache": "64MB",
             "tdp_watts": 350,
             "pcie_lanes": 128,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "7955WX": {
             "memory_channels": 8,
@@ -1414,7 +1568,8 @@
             "l3Cache": "64MB",
             "tdp_watts": 350,
             "pcie_lanes": 128,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "7965WX": {
             "memory_channels": 8,
@@ -1423,7 +1578,8 @@
             "l3Cache": "128MB",
             "tdp_watts": 350,
             "pcie_lanes": 128,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "7975WX": {
             "memory_channels": 8,
@@ -1432,7 +1588,8 @@
             "l3Cache": "128MB",
             "tdp_watts": 350,
             "pcie_lanes": 128,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "7985WX": {
             "memory_channels": 8,
@@ -1441,7 +1598,8 @@
             "l3Cache": "256MB",
             "tdp_watts": 350,
             "pcie_lanes": 128,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "7995WX": {
             "memory_channels": 8,
@@ -1450,7 +1608,8 @@
             "l3Cache": "384MB",
             "tdp_watts": 350,
             "pcie_lanes": 128,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           }
         },
         "Ryzen Threadripper": {
@@ -1461,7 +1620,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 180,
             "pcie_lanes": 64,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 68
           },
           "2950X": {
             "memory_channels": 4,
@@ -1470,7 +1630,8 @@
             "l3Cache": "32MB",
             "tdp_watts": 180,
             "pcie_lanes": 64,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 68
           },
           "2970WX": {
             "memory_channels": 4,
@@ -1479,7 +1640,8 @@
             "l3Cache": "64MB",
             "tdp_watts": 250,
             "pcie_lanes": 64,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 68
           },
           "2990WX": {
             "memory_channels": 4,
@@ -1488,7 +1650,8 @@
             "l3Cache": "64MB",
             "tdp_watts": 250,
             "pcie_lanes": 64,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 68
           },
           "3960X": {
             "memory_channels": 4,
@@ -1497,7 +1660,8 @@
             "l3Cache": "128MB",
             "tdp_watts": 280,
             "pcie_lanes": 64,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "3970X": {
             "memory_channels": 4,
@@ -1506,7 +1670,8 @@
             "l3Cache": "128MB",
             "tdp_watts": 280,
             "pcie_lanes": 64,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 95
           },
           "7960X": {
             "memory_channels": 4,
@@ -1515,7 +1680,8 @@
             "l3Cache": "128MB",
             "tdp_watts": 350,
             "pcie_lanes": 48,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "7970X": {
             "memory_channels": 4,
@@ -1524,7 +1690,8 @@
             "l3Cache": "128MB",
             "tdp_watts": 350,
             "pcie_lanes": 48,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           },
           "7980X": {
             "memory_channels": 4,
@@ -1533,7 +1700,8 @@
             "l3Cache": "256MB",
             "tdp_watts": 350,
             "pcie_lanes": 48,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 95
           }
         }
       },
@@ -1546,7 +1714,8 @@
             "l3Cache": "2MB",
             "tdp_watts": 54,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G4900T": {
             "memory_channels": 2,
@@ -1555,7 +1724,8 @@
             "l3Cache": "2MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G4920": {
             "memory_channels": 2,
@@ -1564,7 +1734,8 @@
             "l3Cache": "2MB",
             "tdp_watts": 54,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G4930": {
             "memory_channels": 2,
@@ -1573,7 +1744,8 @@
             "l3Cache": "2MB",
             "tdp_watts": 54,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G4930T": {
             "memory_channels": 2,
@@ -1582,7 +1754,8 @@
             "l3Cache": "2MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G4950": {
             "memory_channels": 2,
@@ -1591,21 +1764,24 @@
             "l3Cache": "2MB",
             "tdp_watts": 54,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "J4025": {
             "memory_channels": 2,
             "cores": 2,
             "ghz": 3.7,
             "l3Cache": "4MB",
-            "tdp_watts": 10
+            "tdp_watts": 10,
+            "tjmax_c": 105
           },
           "J4125": {
             "memory_channels": 2,
             "cores": 2,
             "ghz": 3.3,
             "l3Cache": "4MB",
-            "tdp_watts": 10
+            "tdp_watts": 10,
+            "tjmax_c": 105
           }
         },
         "Core 5 Ultra": {
@@ -1615,7 +1791,8 @@
             "ghz": 3.8,
             "l3Cache": "4MB",
             "pcie_lanes": 24,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 105
           },
           "245KF": {
             "memory_channels": 2,
@@ -1623,7 +1800,8 @@
             "ghz": 3.4,
             "l3Cache": "4MB",
             "pcie_lanes": 24,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 105
           }
         },
         "Core 7 Ultra": {
@@ -1633,7 +1811,8 @@
             "ghz": 3.8,
             "l3Cache": "4MB",
             "pcie_lanes": 24,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 105
           },
           "265KF": {
             "memory_channels": 2,
@@ -1641,7 +1820,8 @@
             "ghz": 3.4,
             "l3Cache": "4MB",
             "pcie_lanes": 24,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 105
           }
         },
         "Core 9 Ultra": {
@@ -1651,7 +1831,8 @@
             "ghz": 3.9,
             "l3Cache": "4MB",
             "pcie_lanes": 24,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 105
           }
         },
         "Core i3": {
@@ -1662,7 +1843,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10100F": {
             "memory_channels": 2,
@@ -1671,7 +1853,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10100T": {
             "memory_channels": 2,
@@ -1680,7 +1863,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10105": {
             "memory_channels": 2,
@@ -1689,7 +1873,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10105F": {
             "memory_channels": 2,
@@ -1698,7 +1883,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10105T": {
             "memory_channels": 2,
@@ -1707,7 +1893,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10300": {
             "memory_channels": 2,
@@ -1716,7 +1903,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10300T": {
             "memory_channels": 2,
@@ -1725,7 +1913,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10305": {
             "memory_channels": 2,
@@ -1734,7 +1923,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10305T": {
             "memory_channels": 2,
@@ -1743,7 +1933,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10320": {
             "memory_channels": 2,
@@ -1752,7 +1943,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10325": {
             "memory_channels": 2,
@@ -1761,7 +1953,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "11100B": {
             "memory_channels": 2,
@@ -1770,7 +1963,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "12100": {
             "memory_channels": 2,
@@ -1779,7 +1973,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12100F": {
             "memory_channels": 2,
@@ -1788,7 +1983,8 @@
             "l3Cache": "6MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12100T": {
             "memory_channels": 2,
@@ -1797,7 +1993,8 @@
             "l3Cache": "6MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12300": {
             "memory_channels": 2,
@@ -1806,7 +2003,8 @@
             "l3Cache": "6MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12300T": {
             "memory_channels": 2,
@@ -1815,7 +2013,8 @@
             "l3Cache": "6MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13100": {
             "memory_channels": 2,
@@ -1824,7 +2023,8 @@
             "l3Cache": "6MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13100F": {
             "memory_channels": 2,
@@ -1833,7 +2033,8 @@
             "l3Cache": "6MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13100T": {
             "memory_channels": 2,
@@ -1842,7 +2043,8 @@
             "l3Cache": "6MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14100": {
             "memory_channels": 2,
@@ -1851,7 +2053,8 @@
             "l3Cache": "6MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14100F": {
             "memory_channels": 2,
@@ -1860,7 +2063,8 @@
             "l3Cache": "6MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14100T": {
             "memory_channels": 2,
@@ -1869,7 +2073,8 @@
             "l3Cache": "6MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "8100F": {
             "memory_channels": 2,
@@ -1878,7 +2083,8 @@
             "l3Cache": "6MB",
             "tdp_watts": 65,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "8100T": {
             "memory_channels": 2,
@@ -1887,7 +2093,8 @@
             "l3Cache": "6MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "8300": {
             "memory_channels": 2,
@@ -1896,7 +2103,8 @@
             "l3Cache": "6MB",
             "tdp_watts": 65,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "8300T": {
             "memory_channels": 2,
@@ -1905,7 +2113,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9100": {
             "memory_channels": 2,
@@ -1914,7 +2123,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9100F": {
             "memory_channels": 2,
@@ -1923,7 +2133,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9100T": {
             "memory_channels": 2,
@@ -1932,7 +2143,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9300": {
             "memory_channels": 2,
@@ -1941,7 +2153,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9300T": {
             "memory_channels": 2,
@@ -1950,7 +2163,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9320": {
             "memory_channels": 2,
@@ -1959,7 +2173,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9350K": {
             "memory_channels": 2,
@@ -1968,7 +2183,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9350KF": {
             "memory_channels": 2,
@@ -1977,7 +2193,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           }
         },
         "Core i5": {
@@ -1988,7 +2205,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10400F": {
             "memory_channels": 2,
@@ -1997,7 +2215,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10400T": {
             "memory_channels": 2,
@@ -2006,7 +2225,8 @@
             "l3Cache": "6MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10500": {
             "memory_channels": 2,
@@ -2015,7 +2235,8 @@
             "l3Cache": "6MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10500T": {
             "memory_channels": 2,
@@ -2024,7 +2245,8 @@
             "l3Cache": "8MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10505": {
             "memory_channels": 2,
@@ -2033,7 +2255,8 @@
             "l3Cache": "8MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10600": {
             "memory_channels": 2,
@@ -2042,7 +2265,8 @@
             "l3Cache": "6MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10600K": {
             "memory_channels": 2,
@@ -2051,7 +2275,8 @@
             "l3Cache": "6MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10600KF": {
             "memory_channels": 2,
@@ -2060,7 +2285,8 @@
             "l3Cache": "6MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10600T": {
             "memory_channels": 2,
@@ -2069,7 +2295,8 @@
             "l3Cache": "8MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "11400": {
             "memory_channels": 2,
@@ -2078,7 +2305,8 @@
             "l3Cache": "8MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11400F": {
             "memory_channels": 2,
@@ -2087,7 +2315,8 @@
             "l3Cache": "8MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11400T": {
             "memory_channels": 2,
@@ -2096,7 +2325,8 @@
             "l3Cache": "8MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11500": {
             "memory_channels": 2,
@@ -2105,7 +2335,8 @@
             "l3Cache": "8MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11500B": {
             "memory_channels": 2,
@@ -2114,7 +2345,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11500T": {
             "memory_channels": 2,
@@ -2123,7 +2355,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11600": {
             "memory_channels": 2,
@@ -2132,7 +2365,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11600K": {
             "memory_channels": 2,
@@ -2141,7 +2375,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11600KF": {
             "memory_channels": 2,
@@ -2150,7 +2385,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11600T": {
             "memory_channels": 2,
@@ -2159,7 +2395,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "12400": {
             "memory_channels": 2,
@@ -2168,7 +2405,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12400F": {
             "memory_channels": 2,
@@ -2177,7 +2415,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12400T": {
             "memory_channels": 2,
@@ -2186,7 +2425,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12490F": {
             "memory_channels": 2,
@@ -2195,7 +2435,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12500": {
             "memory_channels": 2,
@@ -2204,7 +2445,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12500T": {
             "memory_channels": 2,
@@ -2213,7 +2455,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12600": {
             "memory_channels": 2,
@@ -2222,7 +2465,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12600K": {
             "memory_channels": 2,
@@ -2231,7 +2475,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12600KF": {
             "memory_channels": 2,
@@ -2240,7 +2485,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12600T": {
             "memory_channels": 2,
@@ -2249,7 +2495,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13400": {
             "memory_channels": 2,
@@ -2258,7 +2505,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13400F": {
             "memory_channels": 2,
@@ -2267,7 +2515,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13400T": {
             "memory_channels": 2,
@@ -2276,7 +2525,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13490F": {
             "memory_channels": 2,
@@ -2285,7 +2535,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13500": {
             "memory_channels": 2,
@@ -2294,7 +2545,8 @@
             "l3Cache": "18MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13500T": {
             "memory_channels": 2,
@@ -2303,7 +2555,8 @@
             "l3Cache": "18MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13600": {
             "memory_channels": 2,
@@ -2312,7 +2565,8 @@
             "l3Cache": "18MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13600K": {
             "memory_channels": 2,
@@ -2321,7 +2575,8 @@
             "l3Cache": "18MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13600KF": {
             "memory_channels": 2,
@@ -2330,7 +2585,8 @@
             "l3Cache": "18MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13600T": {
             "memory_channels": 2,
@@ -2339,7 +2595,8 @@
             "l3Cache": "18MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14400": {
             "memory_channels": 2,
@@ -2348,7 +2605,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14400F": {
             "memory_channels": 2,
@@ -2357,7 +2615,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14400T": {
             "memory_channels": 2,
@@ -2366,7 +2625,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14490F": {
             "memory_channels": 2,
@@ -2375,7 +2635,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14500": {
             "memory_channels": 2,
@@ -2384,7 +2645,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14500T": {
             "memory_channels": 2,
@@ -2393,7 +2655,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14600": {
             "memory_channels": 2,
@@ -2402,7 +2665,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14600K": {
             "memory_channels": 2,
@@ -2411,7 +2675,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14600KF": {
             "memory_channels": 2,
@@ -2420,7 +2685,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14600T": {
             "memory_channels": 2,
@@ -2429,7 +2695,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "8400T": {
             "memory_channels": 2,
@@ -2438,7 +2705,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "8500": {
             "memory_channels": 2,
@@ -2447,7 +2715,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 65,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "8500T": {
             "memory_channels": 2,
@@ -2456,7 +2725,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "8600": {
             "memory_channels": 2,
@@ -2465,7 +2735,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 65,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "8600T": {
             "memory_channels": 2,
@@ -2474,7 +2745,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9400": {
             "memory_channels": 2,
@@ -2483,7 +2755,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 65,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9400F": {
             "memory_channels": 2,
@@ -2492,7 +2765,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 65,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9400T": {
             "memory_channels": 2,
@@ -2501,7 +2775,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9500": {
             "memory_channels": 2,
@@ -2510,7 +2785,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 65,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9500F": {
             "memory_channels": 2,
@@ -2519,7 +2795,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 65,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9500T": {
             "memory_channels": 2,
@@ -2528,7 +2805,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9600": {
             "memory_channels": 2,
@@ -2537,7 +2815,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 65,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9600K": {
             "memory_channels": 2,
@@ -2546,7 +2825,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 125,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9600KF": {
             "memory_channels": 2,
@@ -2555,7 +2835,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 125,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9600T": {
             "memory_channels": 2,
@@ -2564,7 +2845,8 @@
             "l3Cache": "9MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           }
         },
         "Core i7": {
@@ -2575,7 +2857,8 @@
             "l3Cache": "9MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10700F": {
             "memory_channels": 2,
@@ -2584,7 +2867,8 @@
             "l3Cache": "9MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10700K": {
             "memory_channels": 2,
@@ -2593,7 +2877,8 @@
             "l3Cache": "9MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10700KF": {
             "memory_channels": 2,
@@ -2602,7 +2887,8 @@
             "l3Cache": "9MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10700T": {
             "memory_channels": 2,
@@ -2611,7 +2897,8 @@
             "l3Cache": "9MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "11700": {
             "memory_channels": 2,
@@ -2620,7 +2907,8 @@
             "l3Cache": "9MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11700B": {
             "memory_channels": 2,
@@ -2629,7 +2917,8 @@
             "l3Cache": "9MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11700F": {
             "memory_channels": 2,
@@ -2638,7 +2927,8 @@
             "l3Cache": "9MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11700K": {
             "memory_channels": 2,
@@ -2647,7 +2937,8 @@
             "l3Cache": "9MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11700KF": {
             "memory_channels": 2,
@@ -2656,7 +2947,8 @@
             "l3Cache": "9MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11700T": {
             "memory_channels": 2,
@@ -2665,7 +2957,8 @@
             "l3Cache": "9MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "12700": {
             "memory_channels": 2,
@@ -2674,7 +2967,8 @@
             "l3Cache": "9MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12700F": {
             "memory_channels": 2,
@@ -2683,7 +2977,8 @@
             "l3Cache": "9MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12700K": {
             "memory_channels": 2,
@@ -2692,7 +2987,8 @@
             "l3Cache": "9MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12700KF": {
             "memory_channels": 2,
@@ -2701,7 +2997,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12700T": {
             "memory_channels": 2,
@@ -2710,7 +3007,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13700": {
             "memory_channels": 2,
@@ -2719,7 +3017,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13700F": {
             "memory_channels": 2,
@@ -2728,7 +3027,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13700K": {
             "memory_channels": 2,
@@ -2737,7 +3037,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13700KF": {
             "memory_channels": 2,
@@ -2746,7 +3047,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13700T": {
             "memory_channels": 2,
@@ -2755,7 +3057,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13790F": {
             "memory_channels": 2,
@@ -2764,7 +3067,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14700": {
             "memory_channels": 2,
@@ -2773,7 +3077,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14700F": {
             "memory_channels": 2,
@@ -2782,7 +3087,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14700K": {
             "memory_channels": 2,
@@ -2791,7 +3097,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14700KF": {
             "memory_channels": 2,
@@ -2800,7 +3107,8 @@
             "l3Cache": "25MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14700T": {
             "memory_channels": 2,
@@ -2809,7 +3117,8 @@
             "l3Cache": "25MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14790F": {
             "memory_channels": 2,
@@ -2818,7 +3127,8 @@
             "l3Cache": "25MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "8086K": {
             "memory_channels": 2,
@@ -2827,7 +3137,8 @@
             "l3Cache": "25MB",
             "tdp_watts": 125,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "8700T": {
             "memory_channels": 2,
@@ -2836,7 +3147,8 @@
             "l3Cache": "25MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9700": {
             "memory_channels": 2,
@@ -2845,7 +3157,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 65,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9700F": {
             "memory_channels": 2,
@@ -2854,7 +3167,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 65,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9700K": {
             "memory_channels": 2,
@@ -2863,7 +3177,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 125,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9700KF": {
             "memory_channels": 2,
@@ -2872,7 +3187,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 125,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9700T": {
             "memory_channels": 2,
@@ -2881,7 +3197,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9800X": {
             "memory_channels": 2,
@@ -2890,7 +3207,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 65,
             "pcie_lanes": 44,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 95
           }
         },
         "Core i9": {
@@ -2901,7 +3219,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10900": {
             "memory_channels": 2,
@@ -2910,7 +3229,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10900F": {
             "memory_channels": 2,
@@ -2919,7 +3239,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10900K": {
             "memory_channels": 2,
@@ -2928,7 +3249,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10900KF": {
             "memory_channels": 2,
@@ -2937,7 +3259,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10900T": {
             "memory_channels": 2,
@@ -2946,7 +3269,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10900X": {
             "memory_channels": 2,
@@ -2955,7 +3279,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 165,
             "pcie_lanes": 44,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 94
           },
           "10910": {
             "memory_channels": 2,
@@ -2964,7 +3289,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "10920X": {
             "memory_channels": 2,
@@ -2973,7 +3299,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 165,
             "pcie_lanes": 44,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 94
           },
           "10940X": {
             "memory_channels": 2,
@@ -2982,7 +3309,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 165,
             "pcie_lanes": 44,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 86
           },
           "10980XE": {
             "memory_channels": 4,
@@ -2991,7 +3319,8 @@
             "l3Cache": "24.75MB",
             "tdp_watts": 165,
             "pcie_lanes": 48,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 86
           },
           "11900": {
             "memory_channels": 2,
@@ -3000,7 +3329,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11900F": {
             "memory_channels": 2,
@@ -3009,7 +3339,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11900K": {
             "memory_channels": 2,
@@ -3018,7 +3349,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11900KB": {
             "memory_channels": 2,
@@ -3027,7 +3359,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11900KF": {
             "memory_channels": 2,
@@ -3036,7 +3369,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "11900T": {
             "memory_channels": 2,
@@ -3045,7 +3379,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 4
+            "pcie_gen": 4,
+            "tjmax_c": 100
           },
           "12900": {
             "memory_channels": 2,
@@ -3054,7 +3389,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12900F": {
             "memory_channels": 2,
@@ -3063,7 +3399,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12900K": {
             "memory_channels": 2,
@@ -3072,7 +3409,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12900KF": {
             "memory_channels": 2,
@@ -3081,7 +3419,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12900KS": {
             "memory_channels": 2,
@@ -3090,7 +3429,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "12900T": {
             "memory_channels": 2,
@@ -3099,7 +3439,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13900": {
             "memory_channels": 2,
@@ -3108,7 +3449,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13900F": {
             "memory_channels": 2,
@@ -3117,7 +3459,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13900K": {
             "memory_channels": 2,
@@ -3126,7 +3469,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13900KF": {
             "memory_channels": 2,
@@ -3135,7 +3479,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13900KS": {
             "memory_channels": 2,
@@ -3144,7 +3489,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "13900T": {
             "memory_channels": 2,
@@ -3153,7 +3499,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14900": {
             "memory_channels": 2,
@@ -3162,7 +3509,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14900F": {
             "memory_channels": 2,
@@ -3171,7 +3519,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 65,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14900K": {
             "memory_channels": 2,
@@ -3180,7 +3529,8 @@
             "l3Cache": "30MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14900KF": {
             "memory_channels": 2,
@@ -3189,7 +3539,8 @@
             "l3Cache": "30MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14900KS": {
             "memory_channels": 2,
@@ -3198,7 +3549,8 @@
             "l3Cache": "30MB",
             "tdp_watts": 125,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "14900T": {
             "memory_channels": 2,
@@ -3207,7 +3559,8 @@
             "l3Cache": "30MB",
             "tdp_watts": 35,
             "pcie_lanes": 20,
-            "pcie_gen": 5
+            "pcie_gen": 5,
+            "tjmax_c": 100
           },
           "9820X": {
             "memory_channels": 2,
@@ -3216,7 +3569,8 @@
             "l3Cache": "30MB",
             "tdp_watts": 165,
             "pcie_lanes": 44,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 92
           },
           "9900": {
             "memory_channels": 2,
@@ -3225,7 +3579,8 @@
             "l3Cache": "30MB",
             "tdp_watts": 65,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9900K": {
             "memory_channels": 2,
@@ -3234,7 +3589,8 @@
             "l3Cache": "36MB",
             "tdp_watts": 125,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9900KF": {
             "memory_channels": 2,
@@ -3243,7 +3599,8 @@
             "l3Cache": "36MB",
             "tdp_watts": 125,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9900KS": {
             "memory_channels": 2,
@@ -3252,7 +3609,8 @@
             "l3Cache": "36MB",
             "tdp_watts": 125,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9900T": {
             "memory_channels": 2,
@@ -3261,7 +3619,8 @@
             "l3Cache": "36MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "9900X": {
             "memory_channels": 2,
@@ -3270,7 +3629,8 @@
             "l3Cache": "36MB",
             "tdp_watts": 165,
             "pcie_lanes": 44,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 92
           },
           "9920X": {
             "memory_channels": 2,
@@ -3279,7 +3639,8 @@
             "l3Cache": "36MB",
             "tdp_watts": 165,
             "pcie_lanes": 44,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 92
           },
           "9940X": {
             "memory_channels": 2,
@@ -3288,7 +3649,8 @@
             "l3Cache": "36MB",
             "tdp_watts": 165,
             "pcie_lanes": 44,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 88
           },
           "9960X": {
             "memory_channels": 2,
@@ -3297,7 +3659,8 @@
             "l3Cache": "36MB",
             "tdp_watts": 165,
             "pcie_lanes": 44,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 85
           },
           "9980XE": {
             "memory_channels": 4,
@@ -3306,7 +3669,8 @@
             "l3Cache": "24.75MB",
             "tdp_watts": 165,
             "pcie_lanes": 44,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 84
           }
         },
         "Pentium": {
@@ -3317,7 +3681,8 @@
             "l3Cache": "36MB",
             "tdp_watts": 54,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G5400T": {
             "memory_channels": 2,
@@ -3326,7 +3691,8 @@
             "l3Cache": "36MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G5420": {
             "memory_channels": 2,
@@ -3335,7 +3701,8 @@
             "l3Cache": "36MB",
             "tdp_watts": 54,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G5420T": {
             "memory_channels": 2,
@@ -3344,7 +3711,8 @@
             "l3Cache": "22MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G5500": {
             "memory_channels": 2,
@@ -3353,7 +3721,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 54,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G5500T": {
             "memory_channels": 2,
@@ -3362,7 +3731,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G5600": {
             "memory_channels": 2,
@@ -3371,7 +3741,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 54,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G5600T": {
             "memory_channels": 2,
@@ -3380,7 +3751,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G5620": {
             "memory_channels": 2,
@@ -3389,7 +3761,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 54,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G6400": {
             "memory_channels": 2,
@@ -3398,7 +3771,8 @@
             "l3Cache": "20MB",
             "tdp_watts": 54,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G6400T": {
             "memory_channels": 2,
@@ -3407,7 +3781,8 @@
             "l3Cache": "22MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G6405": {
             "memory_channels": 2,
@@ -3416,7 +3791,8 @@
             "l3Cache": "19MB",
             "tdp_watts": 54,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G6405T": {
             "memory_channels": 2,
@@ -3425,7 +3801,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G6500": {
             "memory_channels": 2,
@@ -3434,7 +3811,8 @@
             "l3Cache": "24MB",
             "tdp_watts": 54,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G6500T": {
             "memory_channels": 2,
@@ -3443,7 +3821,8 @@
             "l3Cache": "2MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G6505": {
             "memory_channels": 2,
@@ -3452,7 +3831,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 54,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G6505T": {
             "memory_channels": 2,
@@ -3461,7 +3841,8 @@
             "l3Cache": "4MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G6600": {
             "memory_channels": 2,
@@ -3470,7 +3851,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 54,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G6605": {
             "memory_channels": 2,
@@ -3479,7 +3861,8 @@
             "l3Cache": "12MB",
             "tdp_watts": 54,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G7400": {
             "memory_channels": 2,
@@ -3488,7 +3871,8 @@
             "l3Cache": "16MB",
             "tdp_watts": 54,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "G7400T": {
             "memory_channels": 2,
@@ -3497,14 +3881,16 @@
             "l3Cache": "16MB",
             "tdp_watts": 35,
             "pcie_lanes": 16,
-            "pcie_gen": 3
+            "pcie_gen": 3,
+            "tjmax_c": 100
           },
           "J5040": {
             "memory_channels": 2,
             "cores": 10,
             "ghz": 4.0,
             "l3Cache": "20MB",
-            "tdp_watts": 54
+            "tdp_watts": 54,
+            "tjmax_c": 105
           }
         }
       }

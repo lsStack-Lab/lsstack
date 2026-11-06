@@ -20,22 +20,35 @@ def get_bios_info() -> dict:
         "board_vendor", "board_name",
     )
     extras = bios_extra()
+    probe = probe_table()
+    if extras:
+        type0_reason = None
+    elif probe.get("reason") == "needs_sudo":
+        type0_reason = "needs_sudo"
+    elif probe.get("ok"):
+        type0_reason = "omitted"
+    else:
+        type0_reason = probe.get("reason") or "failed"
     board_bits = [
         dmi_or_none(dmi.get("board_vendor")),
         dmi_or_none(dmi.get("board_name")),
     ]
     board = " / ".join(x for x in board_bits if x) or None
+    release = dmi_or_none(dmi.get("bios_release"))
+    type0_rev = dmi_or_none(extras.get("BIOS Revision"))
     return {
         "vendor": dmi_or_none(dmi.get("bios_vendor")),
         "version": dmi_or_none(dmi.get("bios_version")),
         "date": dmi_or_none(dmi.get("bios_date")),
-        "release": dmi_or_none(dmi.get("bios_release")),
+        "release": release,
         "rom_size": dmi_or_none(extras.get("ROM Size")),
-        "bios_revision": dmi_or_none(extras.get("BIOS Revision")),
+        # Kernel bios_release is Type 0 BIOS major.minor; table decode is the same field.
+        "bios_revision": type0_rev or release,
         "firmware_revision": dmi_or_none(extras.get("Firmware Revision")),
         "board": board,
         "source": "sysfs+dmi" if extras else "sysfs",
-        "needs_sudo_for_rom": not bool(extras) and not probe_table().get("ok"),
+        "needs_sudo_for_rom": type0_reason == "needs_sudo",
+        "type0_reason": type0_reason,
     }
 
 
@@ -57,29 +70,38 @@ def _help_text() -> str:
     return """lsbios — BIOS / firmware identity for lab / workstation builds
 
 What
-  Reports firmware vendor, version, release date, and (with sudo) ROM size /
-  BIOS revision from DMI.
+  Reports firmware vendor, version, release date, and Type 0 BIOS revision
+  (sysfs bios_release). ROM size needs sudo for the DMI table.
 
 Why
   Builders pin a known-good BIOS before GPU/PCIe experiments, and need a quick
   check that the machine is on the expected firmware train.
 
 How
-  Sysfs works without root. ROM size / revision need sudo for DMI Type 0 (amber).
-  Board / chassis / slots → lsmobo. PCIe connectors → lsslots. Lean data → --json.
+  Sysfs works without root, including BIOS revision. ROM size needs sudo for
+  DMI Type 0 (amber). Board / chassis / slots → lsmobo. Lean data → --json.
 
 Usage: lsbios [options]
   --json, -j       JSON
   -nc, --no-color  Disable ANSI color
+  --version, -V    Print lsStack version
   -h, --help       This help
 """
+
+
+def _type0_miss(info: dict, *, color: bool) -> str:
+    if info.get("needs_sudo_for_rom"):
+        return privilege_note("— (needs sudo for DMI Type 0)", enabled=color)
+    if info.get("type0_reason") in ("no_table", "failed"):
+        return "DMI table unreadable"
+    return "firmware omitted Type 0 extras"
 
 
 def print_bios_human(info: dict | None = None, *, color: bool = False) -> None:
     info = info if info is not None else get_bios_info()
     labels = [
-        "Vendor", "Version", "Release date", "BIOS release", "ROM size",
-        "BIOS revision", "FW revision", "Board", "Note",
+        "Vendor", "Version", "Release date", "BIOS revision", "ROM size",
+        "FW revision", "Board", "Note",
     ]
     w = _label_width(*labels)
 
@@ -88,25 +110,14 @@ def print_bios_human(info: dict | None = None, *, color: bool = False) -> None:
     _kv("Vendor", info.get("vendor"), w)
     _kv("Version", info.get("version"), w)
     _kv("Release date", info.get("date"), w)
-    _kv("BIOS release", info.get("release"), w)
+    rev = info.get("bios_revision") or info.get("release")
+    _kv("BIOS revision", rev, w)
     if info.get("rom_size"):
         _kv("ROM size", info["rom_size"], w)
+    elif info.get("type0_reason"):
+        _kv("ROM size", _type0_miss(info, color=color), w)
     else:
-        _kv(
-            "ROM size",
-            privilege_note("— (needs sudo for DMI Type 0)", enabled=color)
-            if info.get("needs_sudo_for_rom")
-            else None,
-            w,
-        )
-    if info.get("bios_revision"):
-        _kv("BIOS revision", info["bios_revision"], w)
-    elif info.get("needs_sudo_for_rom"):
-        _kv(
-            "BIOS revision",
-            privilege_note("— (needs sudo for DMI Type 0)", enabled=color),
-            w,
-        )
+        _kv("ROM size", "firmware omitted ROM size", w)
     if info.get("firmware_revision"):
         _kv("FW revision", info["firmware_revision"], w)
 

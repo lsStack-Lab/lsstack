@@ -6,7 +6,7 @@ import subprocess
 import sys
 
 from lsstack.color import color_enabled, privilege_note
-from lsstack.common import lookup_cpu_specs, parse_cpu_model, read_file, sudo_full_results_note, system_binary
+from lsstack.common import lookup_cpu_specs, parse_cpu_model, read_file, sudo_full_results_note, system_binary, want_notes
 
 
 def _model_name_from_cpuinfo() -> str | None:
@@ -144,6 +144,75 @@ def _run_sensors() -> tuple[dict[str, str], list[tuple[int, str]]]:
         return {}, []
 
 
+def _cpu_id_int(raw: str | None) -> int | None:
+    s = (raw or "").strip()
+    if not s or s.upper() == "N/A":
+        return None
+    try:
+        return int(s, 10)
+    except ValueError:
+        return None
+
+
+# lscpu prints CPUID family/model in decimal. Names are the microarchitecture,
+# not the marketing SKU (that is Model above).
+_AMD_UARCH = {
+    (23, 1): "Zen",
+    (23, 8): "Zen+",
+    (23, 17): "Zen",
+    (23, 24): "Zen+",
+    (23, 32): "Zen+",
+    (23, 49): "Zen 2",
+    (23, 96): "Zen 2",
+    (23, 104): "Zen 2",
+    (23, 113): "Zen 2",
+    (23, 144): "Zen 2",
+    (25, 1): "Zen 3",
+    (25, 8): "Zen 3",
+    (25, 24): "Zen 3",
+    (25, 33): "Zen 3",
+    (25, 44): "Zen 3",
+    (25, 80): "Zen 3",
+    (25, 68): "Zen 3+",
+    (25, 97): "Zen 4",
+    (25, 116): "Zen 4",
+    (25, 120): "Zen 4",
+    (26, 36): "Zen 5",
+    (26, 68): "Zen 5",
+}
+
+
+def _uarch_name(family: str | None, model: str | None) -> str | None:
+    fam = _cpu_id_int(family)
+    mod = _cpu_id_int(model)
+    if fam is None or mod is None:
+        return None
+    named = _AMD_UARCH.get((fam, mod))
+    if named:
+        return named
+    if fam == 23:
+        return "Zen-class"
+    if fam == 25:
+        return "Zen 3/4-class"
+    if fam == 26:
+        return "Zen 5-class"
+    return None
+
+
+def _cpuid_human(family: str | None, model: str | None, stepping: str | None) -> str | None:
+    fam = (family or "").strip()
+    mod = (model or "").strip()
+    step = (stepping or "").strip()
+    if not fam or fam.upper() == "N/A":
+        return None
+    bits = [f"family {fam}"]
+    if mod and mod.upper() != "N/A":
+        bits.append(f"model {mod}")
+    if step and step.upper() != "N/A":
+        bits.append(f"stepping {step}")
+    return ", ".join(bits)
+
+
 def _format_frequency(mhz_str: str) -> str:
     """Format MHz string as GHz if >= 1000, else MHz."""
     if not mhz_str or mhz_str == "N/A":
@@ -230,6 +299,10 @@ def get_cpu_info() -> dict:
         "cpu_family": lscpu_f("CPU family"),
         "model": lscpu_f("Model"),
         "stepping": lscpu_f("Stepping"),
+        "uarch": _uarch_name(lscpu_f("CPU family"), lscpu_f("Model")),
+        "cpuid": _cpuid_human(
+            lscpu_f("CPU family"), lscpu_f("Model"), lscpu_f("Stepping")
+        ),
         "cpu_max_mhz": _format_frequency(max_mhz),
         "cpu_min_mhz": _format_frequency(min_mhz),
         "bogo_mips": lscpu_f("BogoMIPS"),
@@ -263,8 +336,37 @@ def _label_width(*labels: str, minimum: int = 14) -> int:
     return max([minimum, *(len(x) for x in labels if x)])
 
 
+def _help_text() -> str:
+    return """lsproc — CPU inventory for lab / workstation builds
+
+What
+  Lists the live CPU (model, topology, caches, NUMA, sensors) plus curated
+  spec fields from cpu_specs_wkstn.json (TDP, Tjmax, base clock, package PCIe).
+
+Why
+  Builders need to confirm which SKU is in the socket, channel count, and
+  package PCIe gen/lanes before buying RAM or a GPU.
+
+How
+  /proc and lscpu need no sudo. Socket label is DMI Type 4 (amber if missing).
+  Thermal color/limits → lsthermal. Package lanes vs live link → lstopology.
+  Lean data → --json.
+
+Usage: lsproc [options]
+  --json, -j       JSON
+  --no-notes       Hide the Notes section
+  -nc, --no-color  Disable ANSI color
+  --version, -V    Print lsStack version
+  -h, --help       This help
+"""
+
+
 def main(args: list[str] | None = None) -> None:
-    args = args or []
+    args = args if args is not None else sys.argv[1:]
+    # -v/--verbose accepted as no-ops; human output is always full. Lean data → --json.
+    if "-h" in args or "--help" in args:
+        print(_help_text())
+        return
     if not read_file("/proc/cpuinfo"):
         print("Error: /proc/cpuinfo not found", file=sys.stderr)
         sys.exit(1)
@@ -281,11 +383,12 @@ def main(args: list[str] | None = None) -> None:
     notes = info.get("specs_notes") or []
 
     labels = [
-        "Model", "Vendor", "Topology", "Memory channels", "Architecture", "Virtualization",
+        "Model", "Vendor", "Topology", "Memory channels", "Architecture", "Microarch",
+        "Virtualization",
         "TDP", "Base clock (spec)", "Cores (spec)", "L3 (spec)", "Channels (spec)",
         "PCIe (CPU package)", "Match", "Note",
         "Max", "Min", "L1d", "L1i", "L2", "L3",
-        "NUMA nodes", "NUMA node0 CPUs", "Socket label", "Family / model",
+        "NUMA nodes", "NUMA node0 CPUs", "Socket label", "CPUID",
         "Temperature", "Core voltage",
         "Op-modes", "Address sizes", "Byte order", "Online CPUs", "BogoMIPS",
     ]
@@ -304,12 +407,15 @@ def main(args: list[str] | None = None) -> None:
     )
     _kv("Memory channels", info["memory_channels"], w)
     _kv("Architecture", info["architecture"], w)
+    _kv("Microarch", info.get("uarch"), w)
     _kv("Virtualization", info["virtualization"], w)
 
     _section("Spec database")
     if specs:
         if specs.get("tdp_watts") is not None:
             _kv("TDP", f"{specs['tdp_watts']} W", w)
+        if specs.get("tjmax_c") is not None:
+            _kv("Tjmax", f"{specs['tjmax_c']}°C  (spec; lsthermal color)", w)
         if specs.get("ghz") is not None:
             _kv("Base clock (spec)", f"{specs['ghz']} GHz", w)
         if specs.get("cores") is not None:
@@ -345,7 +451,6 @@ def main(args: list[str] | None = None) -> None:
         )
     else:
         _kv("Socket label", sock, w)
-    _kv("Family / model", f"{info['cpu_family']} / {info['model']} stepping {info['stepping']}", w)
 
     # Sensors: one voltage line — prefer ~0.5–2.0 V core readings over mV noise
     def _pick_volt(*cands: str | None) -> str | None:
@@ -387,17 +492,18 @@ def main(args: list[str] | None = None) -> None:
         _kv("Note", "lm-sensors not installed (sysfs thermal: lsthermal)", w)
 
     _section("Details")
+    _kv("CPUID", info.get("cpuid"), w)
     _kv("Op-modes", info["cpu_op_mode"], w)
     _kv("Address sizes", info["address_sizes"], w)
     _kv("Byte order", info["byte_order"], w)
     _kv("Online CPUs", info["on_line_cpus"], w)
     _kv("BogoMIPS", info["bogo_mips"], w)
     sudo_note = sudo_full_results_note("lsproc")
-    if sudo_note:
+    if want_notes(args) and sudo_note:
         _section("Notes")
         _kv("Note", privilege_note(sudo_note, enabled=color), w)
     print()
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:] if len(sys.argv) > 1 else [])
+    main()

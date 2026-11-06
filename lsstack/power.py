@@ -146,6 +146,33 @@ def _nvidia_power() -> tuple[list[dict], str | None]:
     return rows, None
 
 
+def _atx_rail_spec(label: str) -> dict | None:
+    """ATX DC regulation band, or None if this is not a named ATX rail.
+
+    +12V / +5V / +3.3V (3VSB) are ±5%. -12V is ±10%. CPU Core is VID/load, not ATX.
+    """
+    lab = re.sub(r"\s+", "", (label or "").strip().lower()).replace("voltage", "")
+    rules: tuple[tuple[tuple[str, ...], float, int], ...] = (
+        (("+12v", "12v", "+12v1", "+12v2"), 12.0, 5),
+        (("+5v", "5v", "+5vsb", "5vsb"), 5.0, 5),
+        (("3vsb", "+3.3v", "3.3v", "+3v3", "3v3", "+3.3vsb"), 3.3, 5),
+        (("-12v",), -12.0, 10),
+    )
+    for names, nom, pct in rules:
+        if lab not in names:
+            continue
+        a = nom * (1 - pct / 100.0)
+        b = nom * (1 + pct / 100.0)
+        vmin, vmax = (a, b) if a <= b else (b, a)
+        return {
+            "nominal": nom,
+            "tol_pct": pct,
+            "vmin": round(vmin, 3),
+            "vmax": round(vmax, 3),
+        }
+    return None
+
+
 def _mv_to_volts(raw: str) -> float | None:
     try:
         v = float(raw.strip())
@@ -176,23 +203,26 @@ def _voltage_rails() -> list[dict]:
             idx = fname.split("_")[0]
             label = (read_file(os.path.join(base, f"{idx}_label")) or idx).strip()
             volts = _mv_to_volts(read_file(os.path.join(base, fname)) or "")
-            if volts is None:
-                continue
-            # Skip implausible CPU-core-scale junk from some WMI nodes (<0.5V labeled core)
-            lab_l = label.lower()
-            if "core" in lab_l and volts < 0.5:
+            if volts is None or abs(volts) < 0.05:
                 continue
             # Collapse "CPU Core Voltage" vs "CPU Core"
+            lab_l = label.lower()
             norm = re.sub(r"\s+voltage$", "", lab_l).strip()
             pri = prefer.index(name) if name in prefer else 9
             cur = by_label.get(norm)
             if cur is None or pri < cur["priority"]:
-                by_label[norm] = {
-                    "label": label.replace(" Voltage", "").replace(" voltage", ""),
+                display = label.replace(" Voltage", "").replace(" voltage", "")
+                row: dict = {
+                    "label": display,
                     "volts": volts,
                     "hwmon": name,
                     "priority": pri,
                 }
+                spec = _atx_rail_spec(display)
+                if spec:
+                    row.update(spec)
+                    row["in_spec"] = spec["vmin"] <= volts <= spec["vmax"]
+                by_label[norm] = row
     return sorted(
         ({k: v for k, v in x.items() if k != "priority"} for x in by_label.values()),
         key=lambda r: r["label"].lower(),
@@ -273,6 +303,62 @@ def _label_width(*labels: str, minimum: int = 14) -> int:
     return max([minimum, *(len(x) for x in labels if x)])
 
 
+def _rail_line(r: dict, *, color: bool) -> str:
+    from lsstack.color import green, red
+
+    reading = f"{r['volts']:.3f} V"
+    if r.get("nominal") is None:
+        if "core" in (r.get("label") or "").lower():
+            return f"{reading}  (varies with load)"
+        return reading
+    nd = 2 if abs(float(r["nominal"])) >= 5 else 3
+    band = f"({r['vmin']:.{nd}f}-{r['vmax']:.{nd}f} V, ±{r['tol_pct']:g}%)"
+    ok = bool(r.get("in_spec"))
+    tag = "in spec" if ok else "out of spec"
+    reading = green(reading, enabled=color) if ok else red(reading, enabled=color)
+    tag = green(tag, enabled=color) if ok else red(tag, enabled=color)
+    return f"{reading}  {band}  {tag}"
+
+
+def _headroom_line(headroom: dict, *, color: bool) -> str:
+    from lsstack.color import headroom_status
+
+    used = headroom.get("used_w")
+    psu = headroom.get("psu_watts")
+    pct = headroom.get("pct_of_psu")
+    ok = bool(headroom.get("ok"))
+    status = headroom_status(
+        ok,
+        "OK" if ok else "may be undersized",
+        enabled=color,
+    )
+    bits: list[str] = []
+    if used is not None and psu is not None:
+        bits.append(f"{used} W design / {psu} W nameplate")
+    if pct is not None:
+        bits.append(f"({pct:.0f}%)")
+    bits.append(status)
+    return "  ".join(bits)
+
+
+def _gpu_draw_line(g: dict) -> str:
+    """Watts first, then model (same order as lsthermal GPU temp/fan)."""
+    draw = g.get("draw_w")
+    lim = g.get("limit_w")
+    name = (g.get("name") or "").strip()
+    if draw is None and lim is None:
+        bits = "N/A"
+    elif lim is not None and draw is not None:
+        bits = f"{draw:.1f} W / {lim:.0f} W limit"
+    elif lim is not None:
+        bits = f"— / {lim:.0f} W limit"
+    else:
+        bits = f"{draw:.1f} W"
+    if name and name.upper() != "GPU":
+        return f"{bits}  {name}"
+    return bits
+
+
 def print_power_human(
     info: dict | None = None,
     *,
@@ -280,7 +366,7 @@ def print_power_human(
     heading: bool = True,
     color: bool = False,
 ) -> None:
-    from lsstack.color import headroom_status, looks_like_privilege_note, privilege_note
+    from lsstack.color import looks_like_privilege_note, privilege_note
 
     info = info if info is not None else get_power_info()
     budget = info.get("budget") or {}
@@ -294,8 +380,8 @@ def print_power_human(
     labels = [
         "PSU", "Model", "ATX", "Eff", "Summary", "Ports", "Total", "Spec", "Est",
         "Headroom", "Note",
-        "24-pin motherboard (often 20+4 cable)", "CPU / EPS (4+4 or 8-pin)",
-        "SATA power", "Molex / peripheral", "GPU 6+2 PCIe", "GPU 12V-2x6 (12VHPWR)",
+        "24-pin motherboard", "CPU / EPS",
+        "SATA power", "Molex / peripheral", "GPU 6+2 PCIe", "GPU 12V-2x6",
         "GPU", "RAPL", "+12V", "+5V", "3VSB", "CPU Core",
     ]
     labels.extend(L.get("label") or "" for L in blines)
@@ -307,6 +393,47 @@ def print_power_human(
 
     if heading:
         print("\nPower")
+
+    if watching:
+        _section("Live")
+        psu_obj = info.get("psu") or (info.get("budget") or {}).get("psu")
+        psu = info.get("psu_watts")
+        if psu is None and psu_obj:
+            psu = psu_obj.get("watts")
+        if psu is not None:
+            model = (psu_obj or {}).get("model")
+            _kv("PSU", f"{psu} W" + (f"  {model}" if model else ""), w)
+        if headroom is not None:
+            _kv("Headroom", _headroom_line(headroom, color=color), w)
+        if gpus:
+            for g in gpus:
+                label = "GPU" if len(gpus) == 1 else f"GPU {g.get('index')}"
+                _kv(label, _gpu_draw_line(g), w)
+        else:
+            _kv("GPU", info.get("gpu_power_note") or "no NVIDIA draw", w)
+        if rapl:
+            for r in rapl:
+                name = r.get("name") or r.get("id")
+                parts = []
+                if r.get("watts") is not None:
+                    parts.append(f"{r['watts']} W")
+                elif r.get("energy_uj") is not None:
+                    parts.append("energy ok — use -w for watts")
+                elif r.get("energy_note"):
+                    note = r["energy_note"]
+                    if looks_like_privilege_note(note):
+                        note = privilege_note(note, enabled=color)
+                    parts.append(note)
+                if parts:
+                    _kv(name, "; ".join(parts), w)
+        else:
+            _kv("RAPL", "none under /sys/class/powercap", w)
+        if rails:
+            _section("Rails")
+            for r in rails:
+                _kv(r["label"], _rail_line(r, color=color), w)
+        print()
+        return
 
     _section("Design budget")
     from lsstack.psu_roster import candor_note, format_plugs_lines, format_plugs_short
@@ -327,7 +454,7 @@ def print_power_human(
                 _kv("Eff", str(psu_obj["eff"]) + " (shown only; not derated)", w)
             plugs = psu_obj.get("plugs") or {}
             if plugs:
-                _section("Ports (manufacturer / datasheet)")
+                _section("Ports               (manufacturer / datasheet)")
                 for label, val in format_plugs_lines(plugs):
                     _kv(label, val, w)
                 _kv("Summary", format_plugs_short(plugs), w)
@@ -350,7 +477,10 @@ def print_power_human(
     for L in blines:
         kind = L.get("kind") or "est"
         detail = L.get("detail")
-        val = f"{L['watts']} W  [{kind}]"
+        if L.get("watts") is None or L.get("include_in_total") is False:
+            val = f"—  [{kind}]"
+        else:
+            val = f"{L['watts']} W  [{kind}]"
         if detail:
             if looks_like_privilege_note(detail):
                 detail = privilege_note(str(detail), enabled=color)
@@ -366,17 +496,7 @@ def print_power_human(
         )
 
     if headroom is not None:
-        ok = bool(headroom.get("ok"))
-        status = headroom_status(
-            ok,
-            "OK" if ok else "may be undersized",
-            enabled=color,
-        )
-        _kv(
-            "Headroom",
-            f"{headroom['pct_of_psu']:.0f}% of PSU — {status}",
-            w,
-        )
+        _kv("Headroom", _headroom_line(headroom, color=color), w)
     elif info.get("psu_watts") is None and total:
         _kv("Note", "lslab enroll (or psu_watts=) to check headroom", w)
     _kv("Note", "spec = datasheet TDP; est = class allowance × counted devices", w)
@@ -393,17 +513,8 @@ def print_power_human(
     _section("Live")
     if gpus:
         for g in gpus:
-            draw = g.get("draw_w")
-            lim = g.get("limit_w")
-            name = g.get("name") or "GPU"
-            if draw is None and lim is None:
-                val = f"{name}: N/A"
-            elif lim is not None:
-                val = f"{name}: {draw:.1f} W / {lim:.0f} W limit" if draw is not None else f"{name}: — / {lim:.0f} W limit"
-            else:
-                val = f"{name}: {draw:.1f} W"
             label = "GPU" if len(gpus) == 1 else f"GPU {g.get('index')}"
-            _kv(label, val, w)
+            _kv(label, _gpu_draw_line(g), w)
     else:
         _kv("GPU", info.get("gpu_power_note") or "no NVIDIA draw", w)
 
@@ -424,7 +535,9 @@ def print_power_human(
                 parts.append("limits " + ", ".join(f"{x} W" for x in r["limits_w"]))
             elif not parts:
                 parts.append("no power-limit constraints on this platform")
-            if r.get("enabled") is False:
+            if r.get("enabled") is False and "AuthenticAMD" not in (
+                read_file("/proc/cpuinfo") or ""
+            ):
                 parts.append("cap disabled")
             _kv(name, "; ".join(parts), w)
     else:
@@ -433,7 +546,7 @@ def print_power_human(
     if rails:
         _section("Rails")
         for r in rails:
-            _kv(r["label"], f"{r['volts']:.3f} V", w)
+            _kv(r["label"], _rail_line(r, color=color), w)
 
     if acpi:
         _section("ACPI supplies")
@@ -457,6 +570,12 @@ def print_power_human(
             wrap=_NOTE_WRAP,
         )
         _kv("Note", "combined thermal+power live → lswatch", w, wrap=_NOTE_WRAP)
+        _kv(
+            "Note",
+            "ATX DC rails ±5% (green in spec); CPU Core is VID/load, not a 12/5/3.3 rail",
+            w,
+            wrap=_NOTE_WRAP,
+        )
         _kv("Note", "temps/fans → lsthermal", w, wrap=_NOTE_WRAP)
         _kv(
             "Note",
@@ -481,14 +600,16 @@ Why
   whether live draw looks sane, before a boot loop or a cooked 12V-2x6.
 
 How
-  Design budget matches lsstack (report). Live RAPL watts need two samples
-  (lspower -w) and sudo when energy_uj is locked. Live GPU watts are NVIDIA
-  only; AMD inventory → lsgpu. Temps → lsthermal. Lean data → --json.
+  Design budget matches lsstack (report). ATX rails show the ±5% band (green
+  in spec). Live RAPL watts need two samples (lspower -w) and sudo when
+  energy_uj is locked. Live GPU watts are NVIDIA only; AMD inventory → lsgpu.
+  Temps → lsthermal. Lean data → --json.
 
 Usage: lspower [options]
   --json, -j       JSON
   -w, --watch [N]  Refresh live (default 2s)
   -nc, --no-color  Disable ANSI color
+  --version, -V    Print lsStack version
   -h, --help       This help
 """
 

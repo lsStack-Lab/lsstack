@@ -546,6 +546,7 @@ def _offer_gap_prompts(
     nic_misses: list[dict],
     *,
     offer_psu: bool,
+    psu_gap_note: str | None = None,
 ) -> int:
     """After misses report: optionally run prompt sessions for gaps."""
     if not sys.stdin.isatty():
@@ -560,7 +561,7 @@ def _offer_gap_prompts(
     if nic_misses:
         bits.append(f"{len(nic_misses)} NIC miss(es)")
     if offer_psu:
-        bits.append("PSU [na] (not auto-detected)")
+        bits.append("PSU miss")
     print(f"Gaps: {', '.join(bits)}.")
     if not _prompt_yes("Run catalog prompts for these now?", default=True):
         print("OK — later: lscatalog prompt psu|gpu|nic")
@@ -607,8 +608,12 @@ def _offer_gap_prompts(
 
     if offer_psu:
         print(
-            "\nPSU gap: not declared in lslab yet "
-            "(kernel never sees PSUs — enroll or add a catalog SKU)."
+            "\nPSU gap: "
+            + (
+                psu_gap_note
+                or "not declared in lslab yet "
+                "(kernel never sees PSUs — enroll or add a catalog SKU)."
+            )
         )
         if _prompt_yes("Fill catalog form for a PSU SKU?", default=True):
             ident = _gather_psu_identity()
@@ -626,7 +631,7 @@ def cmd_misses(_args: argparse.Namespace) -> int:
     gpu_db = load_json("gpu_pci_id.json") or {}
     nic_db = load_json("nic_pci_id.json") or {}
     print("\nCatalog misses")
-    _kv("Scope", "GPU/NIC: live vs shipped+overlay; PSU: lslab inventory")
+    _kv("Scope", "GPU/NIC: live vs shipped+overlay; PSU: lab host vs overlay pick list")
     print()
 
     gpu_misses: list[dict] = []
@@ -655,26 +660,42 @@ def cmd_misses(_args: argparse.Namespace) -> int:
             if not hit:
                 nic_misses.append(n)
 
-    # PSU is never visible to the kernel; treat lslab enrollment as the source of truth.
+    # PSU is never in sysfs. Lab host row is not the overlay pick list.
     from lsstack import lab_inventory as lab
-    from lsstack.psu_roster import format_psu_summary
+    from lsstack.psu_roster import format_psu_summary, lookup_psu
 
     lab_power = lab.resolve_lab_power()
     psu_obj = lab_power.get("psu")
     psu_watts = lab_power.get("psu_watts")
+    src = lab_power.get("psu_source") or "lab"
+    catalog_hit = False
+    if psu_obj:
+        queries = [
+            psu_obj.get("roster_key"),
+            psu_obj.get("model"),
+            f"{psu_obj.get('brand') or ''} {psu_obj.get('model') or ''}".strip(),
+        ]
+        catalog_hit = any(q and lookup_psu(str(q)) for q in queries)
+
     offer_psu = True
-    if psu_watts is not None and psu_obj:
-        src = lab_power.get("psu_source") or "lab"
+    psu_gap_note = None
+    if psu_watts is not None and catalog_hit:
         _kv(
             "PSU",
-            f"{_status('ok')}  {format_psu_summary(psu_obj)} (from {src}; "
-            "kernel cannot see PSUs)",
+            f"{_status('ok')}  {format_psu_summary(psu_obj)} (from {src}; in overlay/roster)",
         )
         offer_psu = False
     elif psu_watts is not None:
-        src = lab_power.get("psu_source") or "lab"
-        _kv("PSU", f"{_status('ok')}  {psu_watts} W (from {src}; kernel cannot see PSUs)")
-        offer_psu = False
+        summary = format_psu_summary(psu_obj) if psu_obj else f"{psu_watts} W"
+        _kv(
+            "PSU",
+            f"{_status('miss')}  {summary} (from {src}; host-only — "
+            "not in overlay pick list)",
+        )
+        psu_gap_note = (
+            f"{summary} is on this host only. Add it to the overlay so "
+            "lslab enroll lists it on the next machine."
+        )
     elif lab_power.get("enrolled"):
         _kv(
             "PSU",
@@ -688,10 +709,28 @@ def cmd_misses(_args: argparse.Namespace) -> int:
             "lslab enroll, or lscatalog prompt psu then set-psu",
         )
     print()
-    return _offer_gap_prompts(gpu_misses, nic_misses, offer_psu=offer_psu)
+    return _offer_gap_prompts(
+        gpu_misses, nic_misses, offer_psu=offer_psu, psu_gap_note=psu_gap_note
+    )
 
 
 _PSU_PLUG_KEYS = ("24-pin", "cpu", "sata", "molex", "6+2", "12V-2x6")
+_EFF_HELP = "bronze|silver|gold|platinum|titanium|unknown"
+
+
+def _parse_eff(raw: str | None) -> str | None:
+    """Require an explicit 80 PLUS tier. Blank must not become gold."""
+    from lsstack.psu_roster import EFF_VALUES, normalize_eff
+
+    s = ("" if raw is None else str(raw)).strip()
+    if not s:
+        return None
+    eff = normalize_eff(s)
+    if eff not in EFF_VALUES:
+        return None
+    if eff == "unknown" and s.lower() not in ("unknown", "unk", "?"):
+        return None
+    return eff
 
 
 def _strip_fence(raw: str) -> str:
@@ -832,7 +871,7 @@ def _parse_import_blob(kind: str, raw: str) -> dict[str, Any]:
 
 
 def _apply_psu_json(obj: dict) -> int:
-    from lsstack.psu_roster import ATX_VALUES, EFF_VALUES, PLUG_ORDER, normalize_atx, normalize_eff
+    from lsstack.psu_roster import ATX_VALUES, PLUG_ORDER, normalize_atx
 
     brand = (obj.get("brand") or "").strip()
     model = (obj.get("model") or "").strip()
@@ -867,9 +906,9 @@ def _apply_psu_json(obj: dict) -> int:
     if plugs.get("6+2", 0) + plugs.get("12V-2x6", 0) < 1:
         print("Need at least one GPU power lead (6+2 and/or 12V-2x6).", file=sys.stderr)
         return 1
-    eff = normalize_eff(str(obj.get("eff") or "gold")) or "gold"
-    if eff not in EFF_VALUES:
-        print(f"eff must be one of {EFF_VALUES}", file=sys.stderr)
+    eff = _parse_eff(obj.get("eff"))
+    if not eff:
+        print(f"JSON needs eff: {_EFF_HELP} (blank is not gold).", file=sys.stderr)
         return 1
     row = {
         "key": key,
@@ -1037,13 +1076,11 @@ def _add_from_text(kind: str, path: str) -> int:
 def _add_psu_interactive() -> int:
     from lsstack.psu_roster import (
         ATX_VALUES,
-        EFF_VALUES,
         PLUG_LABELS,
         PLUG_ORDER,
         cable_teach_blurb,
         lookup_psu,
         normalize_atx,
-        normalize_eff,
     )
 
     brand = _prompt("Brand", "")
@@ -1094,9 +1131,9 @@ def _add_psu_interactive() -> int:
     if plugs.get("6+2", 0) + plugs.get("12V-2x6", 0) < 1:
         print("Need at least one GPU power lead (6+2 and/or 12V-2x6).", file=sys.stderr)
         return 1
-    eff = normalize_eff(_prompt("Efficiency", "gold")) or "gold"
-    if eff not in EFF_VALUES:
-        print(f"eff must be one of {EFF_VALUES}", file=sys.stderr)
+    eff = _parse_eff(_prompt(f"Efficiency ({_EFF_HELP})"))
+    if not eff:
+        print(f"eff must be {_EFF_HELP} (blank is not gold).", file=sys.stderr)
         return 1
     notes = _prompt("Notes", "lab overlay")
     row = {
@@ -1287,56 +1324,52 @@ def _add_nic_interactive(from_live: bool) -> int:
     return 0
 
 
-def _usage() -> None:
-    print(
-        """lscatalog — add a missing GPU, NIC, or PSU to your lab's local catalog.
+def _help_text() -> str:
+    return """lscatalog — local overlay for GPU, NIC, and PSU SKUs (lab / workstation)
 
-Writes under ~/.lsstack/catalog/ (see: lscatalog path). Does not edit the package
-lists; your row wins on the same key. Does not replace lslab enroll — only fills
-missing catalog rows so pick lists and reports can see the SKU. Custom enroll
-PSUs stay host-only until added here.
+What
+  Adds missing GPU/NIC/PSU rows under ~/.lsstack/catalog/. Overlay wins over
+  shipped config. Does not replace lslab enroll.
 
-Usage:
-  lscatalog path
-      Where your lab catalog files live (usually ~/.lsstack/catalog/)
+Why
+  Pick lists and reports only see SKUs in the catalog. A PSU typed at enroll
+  stays on that host until you add it here.
 
-  lscatalog list [psu|gpu|nic] [--all]
-      Show catalog rows ([lab] = overlay wins; [ship] = package). Omit kind for all.
-      GPU defaults to lab rows only (shipped set is large); --all dumps every GPU
+How
+  misses — live GPU/NIC vs catalog; lab PSU vs overlay pick list.
+  prompt KIND — fill-in form (datasheet or paste into an LLM), then import.
+  add KIND — interactive, --from-text FILE, or GPU/NIC --from-live.
+  list [psu|gpu|nic] — [lab] overlay wins. GPU defaults to lab rows
+  (full shipped dump: list gpu --all).
 
-  lscatalog misses
-      GPU/NIC unknown to catalog; PSU checked via lslab enroll. Offers fill-in
-      prompts for real gaps (skips PSU prompt if lab already has a PSU)
+Usage: lscatalog <command> [options]
+  path                    Overlay directory
+  list [psu|gpu|nic] [--all]
+  misses                  Live GPU/NIC + lab PSU vs catalog
+  prompt psu|gpu|nic [--name MODEL]
+  add psu|gpu|nic         Interactive (no form)
+  add psu|gpu|nic --from-text FILE
+  add gpu|nic --from-live
+  --version, -V           Print lsStack version
+  -h, --help              This help
 
-  lscatalog prompt psu|gpu|nic [--name MODEL]
-      Ask brand/model (or PCI ids), print a fill-in form, then import your
-      pasted answers. C&P the form into ChatGPT, Claude, Gemini, Copilot, or
-      Grok — or fill it from the datasheet yourself
-
-  lscatalog add psu|gpu|nic
-      Interactive: answer prompts to add one SKU yourself (no LLM form)
-
-  lscatalog add psu|gpu|nic --from-text FILE
-      Import a filled form (or JSON). FILE is a path, or - to paste on stdin
-
-  lscatalog add gpu|nic --from-live
-      Pick from cards PCI already sees on this machine (GPU/NIC only)
-
-Env: LSSTACK_CATALOG=/path/to/overlay
-Conf: catalog_dir=/path in ~/.lsstack.conf
+Env: LSSTACK_CATALOG=/path   Conf: catalog_dir= in ~/.lsstack.conf
 Default dir: ~/.lsstack/catalog/
-""",
-        file=sys.stderr,
-    )
+"""
+
+
+def _usage(*, error: bool = False) -> None:
+    text = _help_text()
+    print(text, file=sys.stderr if error else sys.stdout)
 
 
 def main(args: list[str] | None = None) -> None:
     args = args if args is not None else sys.argv[1:]
-    if not args or args[0] in ("-h", "--help"):
+    if "-h" in args or "--help" in args:
         _usage()
-        raise SystemExit(0 if args else 2)
-    if args[0] not in ("path", "list", "misses", "prompt", "add"):
-        _usage()
+        raise SystemExit(0)
+    if not args or args[0] not in ("path", "list", "misses", "prompt", "add"):
+        _usage(error=True)
         raise SystemExit(2)
 
     ap = argparse.ArgumentParser(prog="lscatalog", add_help=False)
@@ -1377,6 +1410,12 @@ def main(args: list[str] | None = None) -> None:
     ns = ap.parse_args(args)
     if ns.cmd == "add":
         blob = ns.from_text or ns.from_json
+        if ns.from_live and ns.kind == "psu":
+            print(
+                "Error: --from-live is GPU/NIC only (kernel cannot see PSUs)",
+                file=sys.stderr,
+            )
+            raise SystemExit(2)
         if blob:
             raise SystemExit(_add_from_text(ns.kind, blob))
         if ns.kind == "gpu":
@@ -1385,5 +1424,7 @@ def main(args: list[str] | None = None) -> None:
             raise SystemExit(_add_nic_interactive(ns.from_live))
         raise SystemExit(_add_psu_interactive())
     raise SystemExit(ns.func(ns))
+
+
 if __name__ == "__main__":
     main()
