@@ -17,7 +17,8 @@ import socket
 import stat
 import subprocess
 import sys
-from typing import Any
+from datetime import datetime
+from typing import Any, TextIO
 
 # Report is the aggregator: it may import subsystem modules for structured data.
 from lsstack import gpu as gpu_mod
@@ -29,7 +30,14 @@ from lsstack import slots as slots_mod
 from lsstack import deps as deps_mod
 from lsstack import topology as topology_mod
 from lsstack import __version__
-from lsstack.common import load_json, read_dmi_id, read_file, sudo_full_results_note, system_binary
+from lsstack.common import (
+    default_reports_dir,
+    load_json,
+    read_dmi_id,
+    read_file,
+    sudo_full_results_note,
+    system_binary,
+)
 
 SCHEMA_VERSION = 2
 _SYS_PCI = "/sys/bus/pci/devices"
@@ -1481,6 +1489,70 @@ def _preflight_lab_and_enrichers(*, force_skip: bool = False) -> None:
     print()
 
 
+def _host_slug() -> str:
+    slug = re.sub(r"[^A-Za-z0-9._-]+", "-", socket.gethostname().strip())
+    slug = slug.strip("-.") or "host"
+    return slug[:64]
+
+
+def _default_output_path(*, json_mode: bool) -> str:
+    ext = ".json" if json_mode else ".txt"
+    stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+    return os.path.join(default_reports_dir(), f"{_host_slug()}-{stamp}{ext}")
+
+
+def _unique_path(path: str) -> str:
+    if not os.path.exists(path):
+        return path
+    root, ext = os.path.splitext(path)
+    n = 2
+    while n <= 99:
+        cand = f"{root}-{n}{ext}"
+        if not os.path.exists(cand):
+            return cand
+        n += 1
+    raise FileExistsError(path)
+
+
+def _resolve_output_path(spec: str, *, json_mode: bool) -> str:
+    """Empty spec → ~/.lsstack/reports/<host>-<stamp>. Explicit path must not exist."""
+    if spec == "":
+        path = _unique_path(_default_output_path(json_mode=json_mode))
+    else:
+        path = os.path.abspath(os.path.expanduser(spec))
+        if os.path.exists(path):
+            raise FileExistsError(path)
+    parent = os.path.dirname(path)
+    if parent:
+        os.makedirs(parent, exist_ok=True)
+    return path
+
+
+class _StdoutTee:
+    """TTY keeps ANSI; file gets strip_ansi. isatty follows the TTY."""
+
+    def __init__(self, dest: TextIO, tty: TextIO) -> None:
+        self._dest = dest
+        self._tty = tty
+
+    def write(self, s: str) -> int:
+        self._tty.write(s)
+        from lsstack.color import strip_ansi
+
+        self._dest.write(strip_ansi(s))
+        return len(s)
+
+    def flush(self) -> None:
+        self._tty.flush()
+        self._dest.flush()
+
+    def isatty(self) -> bool:
+        try:
+            return self._tty.isatty()
+        except Exception:
+            return False
+
+
 def _help_text() -> str:
     return """lsstack — full system report for lab / workstation builds
 
@@ -1498,10 +1570,16 @@ How
   Fields that need sudo are amber on that row (DMI DIMMs/slots, SMART).
   PCIe width is judged against the card, not empty root lanes → lstopology.
   Lean data → --json. First-run PSU prompt → --no-preflight to skip.
+  Save a copy → -o (plain text; TTY can still be colored).
 
 Usage: lsstack [options]
   --json           JSON (schema, host, summary, checks); no ls* dump
   --checks-only    Balance + Expansion + High-impact only
+  -o, --output [FILE]
+                   Write the report to FILE. Omit FILE for
+                   ~/.lsstack/reports/<host>-<timestamp>.txt
+                   (--json default uses .json). TTY keeps color; the file does not.
+                   Existing FILE is an error.
   --deps           Probe enrichers; print apt/vendor hints
   --deps-install   apt-install missing enrichers (root; not NVIDIA/CUDA)
   --no-preflight   Skip interactive PSU welcome
@@ -1558,7 +1636,20 @@ def main(argv: list[str] | None = None) -> None:
         action="store_true",
         help="Disable ANSI color on Balance status tokens.",
     )
+    ap.add_argument(
+        "-o",
+        "--output",
+        nargs="?",
+        const="",
+        default=None,
+        metavar="FILE",
+        help="Write report to FILE (plain text). Omit FILE for ~/.lsstack/reports/<host>-<stamp>.txt",
+    )
     args = ap.parse_args(argv)
+
+    if args.output is not None and (args.deps or args.deps_install):
+        print("lsstack: -o/--output cannot be used with --deps", file=sys.stderr)
+        sys.exit(2)
 
     if args.deps or args.deps_install:
         deps = deps_mod.probe_dependencies()
@@ -1573,15 +1664,55 @@ def main(argv: list[str] | None = None) -> None:
     if not args.json:
         _preflight_lab_and_enrichers(force_skip=args.no_preflight)
 
+    out_path = None
+    if args.output is not None:
+        try:
+            out_path = _resolve_output_path(args.output, json_mode=args.json)
+        except FileExistsError as e:
+            print(f"lsstack: file exists: {e}", file=sys.stderr)
+            sys.exit(2)
+        except OSError as e:
+            print(f"lsstack: cannot write output: {e}", file=sys.stderr)
+            sys.exit(2)
+
     report = collect_report()
     if args.json:
-        print(json.dumps(report, indent=2))
+        text = json.dumps(report, indent=2)
+        print(text)
+        if out_path:
+            try:
+                with open(out_path, "x", encoding="utf-8") as fh:
+                    fh.write(text)
+                    fh.write("\n")
+            except OSError as e:
+                print(f"lsstack: cannot write {out_path}: {e}", file=sys.stderr)
+                sys.exit(2)
+            print(f"saved {out_path}", file=sys.stderr)
         return
 
     from lsstack.color import color_enabled
 
     color_args = ["--no-color"] if args.no_color else []
-    _print_human_from_report(report, color=color_enabled(color_args))
+    use_color = color_enabled(color_args)
+    if out_path:
+        try:
+            fh = open(out_path, "x", encoding="utf-8")
+        except OSError as e:
+            print(f"lsstack: cannot write {out_path}: {e}", file=sys.stderr)
+            sys.exit(2)
+        old_out = sys.stdout
+        sys.stdout = _StdoutTee(fh, old_out)
+        try:
+            _print_human_from_report(report, color=use_color)
+            if not args.checks_only:
+                _run_subsystem_outputs()
+        finally:
+            sys.stdout = old_out
+            fh.close()
+        print(f"saved {out_path}", file=sys.stderr)
+        return
+
+    _print_human_from_report(report, color=use_color)
     if not args.checks_only:
         _run_subsystem_outputs()
 

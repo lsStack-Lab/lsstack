@@ -264,6 +264,10 @@ def default_catalog_dir() -> str:
     return os.path.join(effective_home(), ".lsstack", "catalog")
 
 
+def default_reports_dir() -> str:
+    return os.path.join(effective_home(), ".lsstack", "reports")
+
+
 def conf_value(key: str) -> str | None:
     """Read key=value from ~/.lsstack.conf (first match; SUDO_USER-aware)."""
     path = conf_path()

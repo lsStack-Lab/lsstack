@@ -3,7 +3,10 @@
 from __future__ import annotations
 
 import os
+import re
 import sys
+
+_ANSI_RE = re.compile(r"\x1b\[[0-9;]*m")
 
 # Verdict / status → style
 _OK = {"ok", "pass"}
@@ -98,6 +101,13 @@ def privilege_note(text: str, *, enabled: bool) -> str:
     Yellow/amber = incomplete privilege, re-run elevated for that field only.
     """
     return yellow(text, enabled=enabled)
+
+
+def strip_ansi(text: str) -> str:
+    """Drop CSI color sequences from a string (for .txt saves)."""
+    if not text:
+        return text
+    return _ANSI_RE.sub("", text)
 
 
 def looks_like_privilege_note(text: str | None) -> bool:
