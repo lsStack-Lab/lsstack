@@ -2,7 +2,7 @@
 
 We **never** invoke external tools by name (PATH). We only run them by **explicit full path** after checking the file exists and is executable.
 
-- **Paths used:** See `lsstack/common.py` → `SYSTEM_BINARIES` (dmidecode, smartctl, lsblk, df, mdadm, nvidia-smi, lscpu, nproc, sensors, modinfo, dpkg, lspci, ip, nvcc, ethtool).
+- **Paths used:** See `lsstack/common.py` → `SYSTEM_BINARIES` (dmidecode, smartctl, lsblk, df, mdadm, nvidia-smi, lscpu, nproc, sensors, modinfo, dpkg, lspci, ip, rdma, nvcc, ethtool).
 - **SMBIOS:** Core Balance / lsram / lsslots / lsbios extras / lsproc sockets / lsnet onboard tags read `/sys/firmware/dmi/tables/DMI` via first-party `lsstack/dmi.py` (Types 0/4/9/17/41). System **dmidecode** remains optional for **lsmobo** deep fields (baseboard/chassis serials, ports, onboard).
 - **Install source:** Use your **distro only** for remaining binaries (e.g. `apt install dmidecode smartmontools util-linux mdadm`). Do **not** use pip, npm, or unknown sources for these tools. This avoids supply-chain substitution (e.g. a malicious binary on PATH named `dmidecode`).
 - **Probe / install helpers:** `lsstack --deps` lists missing tools and prints a single `apt install` line. `lsstack --deps-install` runs that apt install **only when you ask** (needs root). NVIDIA/`nvcc` are never auto-installed; `--deps` prints a vendor hint instead.

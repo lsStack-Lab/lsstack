@@ -20,24 +20,98 @@ _PCI = "/sys/bus/pci/devices"
 _ONBOARD_UNSET = object()
 
 
+def parse_ip_o_addr(stdout: str) -> list[str]:
+    """Parse ``ip -o addr show`` lines into CIDR strings (inet and inet6)."""
+    out: list[str] = []
+    seen: set[str] = set()
+    for line in (stdout or "").splitlines():
+        parts = line.split()
+        for i, token in enumerate(parts):
+            if token not in ("inet", "inet6") or i + 1 >= len(parts):
+                continue
+            cidr = parts[i + 1]
+            if cidr not in seen:
+                seen.add(cidr)
+                out.append(cidr)
+    return out
+
+
 def _iface_addrs(name: str) -> list[str]:
-    """Optional addresses via distro `ip` (iproute2); empty if unavailable."""
+    """Addresses via distro ``ip -o addr``; empty if iproute2 unavailable."""
     exe = system_binary("ip")
     if not exe:
         return []
     try:
         r = subprocess.run(
-            [exe, "-br", "addr", "show", "dev", name],
+            [exe, "-o", "addr", "show", "dev", name],
             capture_output=True,
             text=True,
             timeout=3,
         )
-        if r.returncode != 0 or not r.stdout.strip():
+        if r.returncode != 0:
             return []
-        parts = r.stdout.strip().split()
-        return [p for p in parts[2:] if "/" in p or ":" in p or "." in p]
+        return parse_ip_o_addr(r.stdout or "")
     except (FileNotFoundError, subprocess.TimeoutExpired, OSError):
         return []
+
+
+def parse_default_routes(stdout4: str, stdout6: str = "") -> list[dict]:
+    """Parse ``ip route show default`` / ``ip -6 route show default``."""
+    rows: list[dict] = []
+    for family, blob in (("4", stdout4 or ""), ("6", stdout6 or "")):
+        for line in blob.splitlines():
+            parts = line.split()
+            if not parts or parts[0] != "default":
+                continue
+            rec: dict = {"family": family, "dev": None, "via": None, "src": None}
+            if "dev" in parts:
+                rec["dev"] = parts[parts.index("dev") + 1]
+            if "via" in parts:
+                rec["via"] = parts[parts.index("via") + 1]
+            if "src" in parts:
+                rec["src"] = parts[parts.index("src") + 1]
+            rows.append(rec)
+    return rows
+
+
+def _default_routes() -> list[dict]:
+    exe = system_binary("ip")
+    if not exe:
+        return []
+    blobs = []
+    for extra in ([], ["-6"]):
+        try:
+            r = subprocess.run(
+                [exe, *extra, "route", "show", "default"],
+                capture_output=True,
+                text=True,
+                timeout=3,
+            )
+            blobs.append(r.stdout or "" if r.returncode == 0 else "")
+        except (FileNotFoundError, subprocess.TimeoutExpired, OSError):
+            blobs.append("")
+    return parse_default_routes(blobs[0] if blobs else "", blobs[1] if len(blobs) > 1 else "")
+
+
+def _iface_kind(base: str, name: str, *, pci_bdf: str | None, device: str | None) -> str:
+    if name == "lo":
+        return "loopback"
+    if os.path.isdir(os.path.join(base, "bonding")):
+        return "bond"
+    if os.path.isdir(os.path.join(base, "bridge")):
+        return "bridge"
+    if os.path.lexists(os.path.join(base, "bonding_slave")):
+        return "bond-member"
+    uevent = read_file(os.path.join(base, "uevent")) or ""
+    if "DEVTYPE=vlan" in uevent:
+        return "vlan"
+    if "DEVTYPE=wlan" in uevent or os.path.isdir(os.path.join(base, "wireless")):
+        return "wifi"
+    if device == "virtual":
+        return "virtual"
+    if pci_bdf:
+        return "ethernet"
+    return "other"
 
 
 def _permanent_mac(name: str) -> str | None:
@@ -133,10 +207,21 @@ def get_network_info() -> list[dict]:
             if v > 0:
                 speed_mbps = v
         is_lo = name == "lo"
-        addrs = _iface_addrs(name) if not is_lo else []
+        addrs = _iface_addrs(name)
         perm = _permanent_mac(name) if not is_lo else None
+        kind = _iface_kind(base, name, pci_bdf=pci_bdf, device=device)
+        master = None
+        mlink = os.path.join(base, "master")
+        if os.path.islink(mlink) or os.path.exists(mlink):
+            try:
+                master = os.path.basename(os.path.realpath(mlink))
+            except OSError:
+                master = None
+        phys_port = (read_file(os.path.join(base, "phys_port_name")) or "").strip() or None
+        dev_port = (read_file(os.path.join(base, "dev_port")) or "").strip() or None
         out.append({
             "name": name,
+            "kind": kind,
             "operstate": oper,
             "speed_mbps": speed_mbps,
             "duplex": (duplex or "").strip() or None,
@@ -147,8 +232,12 @@ def get_network_info() -> list[dict]:
             "device": device,
             "pci_bdf": pci_bdf,
             "driver": driver,
+            "phys_port_name": phys_port,
+            "dev_port": dev_port,
+            "master": master,
             "addrs": addrs,
             "is_loopback": is_lo,
+            "has_default_route": False,
         })
     return out
 
@@ -352,21 +441,22 @@ def _help_text() -> str:
     return """lsnetwork — network interfaces and PCI NICs for lab / workstation builds
 
 What
-  Reports Linux netdevs (state, speed, MAC, addresses) and PCI network
-  controllers (model, driver, PCIe link, onboard vs add-on when DMI allows).
+  Reports every Linux netdev (kind, port, state, speed, MAC, all addresses,
+  default route) and PCI network controllers (model, driver, PCIe, onboard
+  vs add-on when DMI allows). Dual-port cards show phys_port_name per netdev.
 
 Why
-  Builders need to know which physical NIC is which, whether the cable link is
-  up at the expected speed, and how the card sits on PCIe — before chasing
-  switch or firewall problems.
+  Builders need to know which physical NIC and port is which, what IPs sit
+  on it, and how the card sits on PCIe — before chasing switch or firewall
+  problems. Verbs / mlx5 map → lsrdma.
 
 How
-  Run on the host; read Interfaces first, then PCI NICs for hardware identity.
+  Run on the host; read Summary (default route), then Interfaces, then PCI NICs.
   Kernel module is on the Driver line. PCIe gen/width and idle Gen1 → lstopology.
   Lean machine output → --json. Loopback → --all.
 
 Usage: lsnetwork [options]
-  --json, -j       JSON (interfaces + nics)
+  --json, -j       JSON (interfaces + nics + default_routes)
   --all            Include loopback (lo)
   -nc, --no-color  Disable ANSI color
   --version, -V    Print lsStack version
@@ -377,10 +467,16 @@ Usage: lsnetwork [options]
 def get_network_bundle() -> dict:
     """Interfaces + PCI NICs for human/--json."""
     onboard = _dmi_onboard_ethernet_bdfs()
+    ifaces = get_network_info()
+    routes = _default_routes()
+    default_devs = {r.get("dev") for r in routes if r.get("dev")}
+    for i in ifaces:
+        i["has_default_route"] = i.get("name") in default_devs
     return {
         "hostname": socket.gethostname(),
-        "interfaces": get_network_info(),
+        "interfaces": ifaces,
         "nics": get_nic_devices(onboard_bdfs=onboard),
+        "default_routes": routes,
         "dmi_onboard_ethernet": None if onboard is None else sorted(onboard),
     }
 
@@ -398,10 +494,11 @@ def print_network_human(
     ifaces = ifaces_all if show_loopback else [i for i in ifaces_all if not i.get("is_loopback")]
 
     labels = [
-        "Host", "Note", "Interface", "State", "Speed", "Duplex", "MAC",
-        "Permanent MAC", "MTU", "PCI", "Driver", "Addresses", "Carrier",
-        "BDF", "Model", "Subclass", "Interfaces", "PCIe link",
-        "Rated", "Ports", "RDMA", "Catalog", "Device",
+        "Host", "Note", "Default", "Interface", "Kind", "Port", "State",
+        "Speed", "Duplex", "MAC", "Permanent MAC", "MTU", "PCI", "Driver",
+        "Master", "Addresses", "Carrier", "BDF", "Model", "Subclass",
+        "Interfaces", "PCIe link", "Rated", "Ports", "RDMA", "Catalog",
+        "Device",
     ]
     labels.extend(i.get("name") or "" for i in ifaces)
     labels.extend(n.get("bdf") or "" for n in nics)
@@ -426,12 +523,33 @@ def print_network_human(
     )
     if not show_loopback and lo:
         _kv("Note", f"loopback hidden ({len(lo)}); show with --all", w)
+    routes = info.get("default_routes") or []
+    if not routes:
+        _kv("Default", "— (no default route)", w)
+    for r in routes:
+        bits = [r.get("dev") or "—"]
+        if r.get("via"):
+            bits.append(f"via {r['via']}")
+        if r.get("src"):
+            bits.append(f"src {r['src']}")
+        fam = r.get("family")
+        prefix = "v6 " if fam == "6" else ""
+        _kv("Default", prefix + " ".join(bits), w)
 
     _section("Interfaces")
     if not ifaces:
         _kv("Note", "none under /sys/class/net" + ("" if show_loopback else " (besides lo)"), w)
     for i in ifaces:
         _kv("Interface", i.get("name"), w)
+        kind = i.get("kind")
+        if kind and kind not in ("ethernet", "loopback"):
+            _kv("Kind", kind, w)
+        if i.get("phys_port_name"):
+            _kv("Port", i["phys_port_name"], w)
+        elif i.get("dev_port") not in (None, "", "0"):
+            _kv("Port", str(i["dev_port"]), w)
+        if i.get("master"):
+            _kv("Master", i["master"], w)
         _kv("State", _state_display(i.get("operstate"), i.get("carrier"), color=color), w)
         if i.get("speed_mbps"):
             _kv("Speed", f"{i['speed_mbps']} Mbps", w)
@@ -455,6 +573,8 @@ def print_network_human(
             _kv("Addresses", ", ".join(i["addrs"]), w)
         elif not i.get("is_loopback"):
             _kv("Addresses", "— (none or iproute2 unavailable)", w)
+        if i.get("has_default_route"):
+            _kv("Default", "yes", w)
 
     _section("PCI NICs")
     if not nics:
@@ -518,6 +638,11 @@ def print_network_human(
             _kv("Interfaces", ", ".join(n["ifaces"]), w)
         else:
             _kv("Interfaces", "— (no netdev bound)", w)
+        for iname in n.get("ifaces") or []:
+            ibase = os.path.join(_NET, iname)
+            pport = (read_file(os.path.join(ibase, "phys_port_name")) or "").strip()
+            if pport:
+                _kv("Port", f"{pport} ({iname})", w)
         if n.get("mac"):
             _kv("MAC", n["mac"], w)
         if n.get("speed_mbps"):
@@ -533,6 +658,7 @@ def print_network_human(
     if sudo_note:
         _kv("Note", privilege_note(sudo_note, enabled=color), w)
     _kv("Note", "PCIe path / idle Gen1 → lstopology", w)
+    _kv("Note", "RDMA / mlx5 ↔ netdev → lsrdma", w)
     _kv("Note", "lab roster → lscatalog / nic_pci_id", w)
     print()
 

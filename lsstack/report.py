@@ -618,11 +618,13 @@ def _collect_components(cpu_info: dict, gpu_list: list[dict]) -> list[dict[str, 
 def _collect_interfaces() -> list[dict[str, Any]]:
     """Network interfaces (name, MAC, state, PCI, addresses)."""
     rows: list[dict[str, Any]] = []
-    for i in network_mod.get_network_info():
+    bundle = network_mod.get_network_bundle()
+    for i in bundle.get("interfaces") or []:
         if i.get("is_loopback"):
             continue
         rows.append({
             "name": i.get("name"),
+            "kind": i.get("kind"),
             "mac": i.get("mac"),
             "permanent_mac": i.get("permanent_mac"),
             "operstate": i.get("operstate"),
@@ -631,7 +633,10 @@ def _collect_interfaces() -> list[dict[str, Any]]:
             "mtu": i.get("mtu"),
             "pci_bdf": i.get("pci_bdf"),
             "driver": i.get("driver"),
+            "phys_port_name": i.get("phys_port_name"),
+            "master": i.get("master"),
             "addrs": i.get("addrs") or [],
+            "has_default_route": bool(i.get("has_default_route")),
         })
     return rows
 
@@ -1397,6 +1402,7 @@ def _run_subsystem_outputs() -> None:
         "lsdisk",
         "lsnvme",
         "lsnetwork",
+        "lsrdma",
         "lspower",
         "lsthermal",
         "lstopology",
@@ -1577,7 +1583,7 @@ What
   Balance (RAM:VRAM, DIMMs, slots), expansion headroom (power / lanes),
   high-impact checks (GPU temp, PSU, PCIe, ECC, driver), then a hardware
   dump: bios, mobo, proc, gpu, driver, cuda, ram, slots, disk, nvme,
-  network, power, thermal, topology, iommu (or --checks-only for the checks).
+  network, rdma, power, thermal, topology, iommu (or --checks-only for the checks).
 
 Why
   One place to see whether the box is balanced before adding a GPU, cloning

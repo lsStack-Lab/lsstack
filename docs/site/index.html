@@ -18,11 +18,10 @@
     </div>
   </header>
 
-  <h2>Problem this solves - Before</h2>
-  <p>Cryptic Linux tools delivering limited, poorly formatted, verbose reporting on individual system components.</p>
-  <pre><code>lspci -vv|strings|grep LnkSta|sed s/Width//|awk '{print $1}'|cut -c1-3|tr -d x</code></pre>
+  <h2>Problem this solves</h2>
+  <p>Cryptic Linux tools delivering raw, poorly formatted, verbose reporting on individual system components.</p>
 
-  <h2>Now</h2>
+  <h2>How</h2>
   <p>Collection of intuitive commands providing enhanced, cleanly formatted, concise reporting on individual components or the complete system.</p>
   <div class="cmds">
     <ul>
@@ -45,6 +44,7 @@
     </ul>
     <ul>
       <li><code>lsram</code></li>
+      <li><code>lsrdma</code></li>
       <li><code>lsslots</code></li>
       <li><code>lsthermal</code></li>
       <li><code>lstopology</code></li>
@@ -71,12 +71,19 @@
   </ul>
 
   <h2>Install</h2>
-  <pre><code>git clone https://github.com/lsStack-Lab/lsstack.git lsstack
+  <pre><code># Requires Python 3.10 or newer
+python3 --version
+# if under 3.10:
+sudo apt update && sudo apt install python3</code></pre>
+  <pre><code># Install lsStack
+git clone https://github.com/lsStack-Lab/lsstack.git lsstack
 cd lsstack
 ./scripts/install-user.sh</code></pre>
-  <p>Requires Python 3.10 or newer.</p>
-  <p class="indent">The installer links every <code>ls</code> command into <code>$HOME/.local/bin</code>, so they run from any directory. If the shell answers "command not found," that folder is not on your <code>PATH</code> yet. Add it:</p>
+  <p class="indent">The installer links every <code>ls</code> command into <code>$HOME/.local/bin</code>, so they run from any directory. If the shell answers "command not found," <code>$HOME/.local/bin</code> is not on your <code>PATH</code> yet. Add it:</p>
   <pre class="indent"><code>export PATH="$HOME/.local/bin:$PATH"</code></pre>
+  <pre><code># Update previous install to the latest version of lsStack
+cd lsstack
+git pull</code></pre>
 
   <h2>License</h2>
   <p>Scripts are <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>.</p>
@@ -87,7 +94,6 @@ cd lsstack
   <footer>
     <p><a href="https://lsstack.org">lsstack.org</a> · <a href="version.html">0.1.0</a></p>
     <p>Specs files are unverified hybrid carbon–silicon hearsay. Hallucinations and fabrications are expected; identifying them is your due diligence, not a bug. Provided strictly as-is, with no warranty express, implied, or synthesized.</p>
-    <p>If you love grep, sed, awk, cut, tr, regex, strings, and pipes.. you shoulda chose the red pill.</p>
   </footer>
 </body>
 </html>

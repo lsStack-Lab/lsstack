@@ -8,7 +8,7 @@ Machine-readable full report for this host and for scripts. Not a fleet or CMDB 
 LSSTACK_CONFIG=/path/to/config python3 -m lsstack report --json
 ```
 
-Human mode still prints Balance / High-impact and (unless `--checks-only`) the hardware dump (bios, mobo, proc, gpu, driver, cuda, ram, slots, disk, nvme, network, power, thermal, topology, iommu). `--json` skips that dump.
+Human mode still prints Balance / High-impact and (unless `--checks-only`) the hardware dump (bios, mobo, proc, gpu, driver, cuda, ram, slots, disk, nvme, network, rdma, power, thermal, topology, iommu). `--json` skips that dump.
 
 **Privileges:** unprivileged JSON is valid. Fields that need root (some identity serials/UUID, DIMM Type 17, Type 9 slots) are `null` / omitted with the same meaning as human `[na]` + note — re-run **those** enrichers with sudo if you need them filled. See `docs/SECURITY.md` (Privilege contract).
 
@@ -58,11 +58,12 @@ GPU `uuid` / `serial` / board part numbers come from `nvidia-smi`. DIMMs need ro
 
 | Field | Meaning |
 |-------|---------|
-| `name`, `mac`, `permanent_mac`, `operstate`, `speed_mbps`, `duplex`, `mtu` | Link |
-| `pci_bdf`, `driver` | Hardware binding |
-| `addrs` | CIDR strings from `ip` when present |
+| `name`, `kind`, `mac`, `permanent_mac`, `operstate`, `speed_mbps`, `duplex`, `mtu` | Link. `kind` is ethernet, bond, vlan, wifi, virtual, … |
+| `pci_bdf`, `driver`, `phys_port_name`, `master` | Hardware binding. `phys_port_name` is the dual-port label (`p0` / `p1`) when the driver exports it. |
+| `addrs` | CIDR strings from `ip -o addr` (v4 and v6) |
+| `has_default_route` | True when this netdev is the `dev` on a default route |
 
-No LLDP neighbors in v2 (optional later).
+No LLDP neighbors in v2 (optional later). Verbs / mlx5 ↔ netdev is `lsrdma --json` (`devices[].ports[].netdev`), not this aggregator object.
 
 ## Check object
 

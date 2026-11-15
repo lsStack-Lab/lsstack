@@ -4,7 +4,7 @@ import sys
 from lsstack.common import print_version
 
 _SUBSYSTEMS = (
-    "proc", "gpu", "memory", "disk", "nvme", "network", "power", "thermal",
+    "proc", "gpu", "memory", "disk", "nvme", "network", "rdma", "power", "thermal",
     "lswatch", "lslab", "catalog", "slots", "slot", "topology", "mobo", "bios",
     "driver", "cuda", "iommu", "virt", "report", "deps",
 )
@@ -31,7 +31,7 @@ def _main():
     mod = __import__("lsstack.%s" % name, fromlist=["main"])
     if name in (
         "proc", "gpu", "memory", "disk", "thermal", "power", "lswatch", "lslab",
-        "catalog", "topology", "slots", "report", "deps", "network", "nvme",
+        "catalog", "topology", "slots", "report", "deps", "network", "rdma", "nvme",
         "bios", "mobo", "driver", "cuda", "iommu", "virt",
     ):
         mod.main(rest)

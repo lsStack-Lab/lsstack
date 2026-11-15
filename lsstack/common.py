@@ -23,6 +23,7 @@ SYSTEM_BINARIES = {
     "dpkg": ("/usr/bin/dpkg",),
     "lspci": ("/usr/sbin/lspci", "/usr/bin/lspci"),
     "ip": ("/usr/sbin/ip", "/usr/bin/ip", "/bin/ip"),
+    "rdma": ("/usr/sbin/rdma", "/usr/bin/rdma"),
     "nvcc": ("/usr/local/cuda/bin/nvcc", "/usr/bin/nvcc"),
     "ethtool": ("/usr/sbin/ethtool", "/usr/bin/ethtool"),
 }
@@ -204,6 +205,7 @@ _LS_COMMANDS = {
     "disk": "lsdisk",
     "nvme": "lsnvme",
     "network": "lsnetwork",
+    "rdma": "lsrdma",
     "power": "lspower",
     "thermal": "lsthermal",
     "lswatch": "lswatch",
@@ -242,7 +244,7 @@ def sudo_full_results_note(command: str | None = None) -> str | None:
     if is_root():
         return None
     cmd = ls_command_name(command)
-    return f'sudo "$(command -v {cmd})"  for full results'
+    return f'For full results:  sudo "$(command -v {cmd})"'
 
 
 def want_notes(args: list[str] | None) -> bool:

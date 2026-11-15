@@ -39,7 +39,12 @@ _DEPENDENCY_META: dict[str, dict[str, Any]] = {
     "ip": {
         "tier": "base",
         "apt": "iproute2",
-        "provides": "interface addresses",
+        "provides": "interface addresses and routes",
+    },
+    "rdma": {
+        "tier": "enricher",
+        "apt": "iproute2",
+        "provides": "rdma link map (lsrdma); same package as ip",
     },
     "modinfo": {
         "tier": "base",
