@@ -236,6 +236,158 @@ def _parse_health(blob: str) -> str | None:
     return m.group(1).strip() if m else None
 
 
+_ATA_ATTR_RE = re.compile(
+    r"^\s*(\d+)\s+(\S+)\s+0x[0-9a-fA-F]+\s+(\d+)\s+(\d+)\s+(\d+)\s+\S+\s+\S+\s+\S+\s+(.*)$",
+    re.I,
+)
+
+
+def parse_ata_smart_table(stdout: str) -> list[dict]:
+    """Parse ``smartctl -A`` ATA attribute rows (id, name, value, raw)."""
+    rows: list[dict] = []
+    for line in (stdout or "").splitlines():
+        if "ATTRIBUTE_NAME" in line:
+            continue
+        m = _ATA_ATTR_RE.match(line)
+        if not m:
+            continue
+        raw_s = (m.group(6) or "").strip()
+        nums = re.findall(r"\d+", raw_s.replace(",", ""))
+        raw = int(nums[0]) if nums else None
+        rows.append({
+            "id": int(m.group(1)),
+            "name": m.group(2),
+            "value": int(m.group(3)),
+            "worst": int(m.group(4)),
+            "thresh": int(m.group(5)),
+            "raw": raw,
+            "raw_str": raw_s.split()[0] if raw_s else None,
+        })
+    return rows
+
+
+def _ata_named(rows: list[dict], needle: str) -> dict | None:
+    for r in rows:
+        if needle in (r.get("name") or ""):
+            return r
+    return None
+
+
+def _hours_note(hours: int) -> str:
+    years = hours / (24 * 365.25)
+    if years >= 1.0:
+        return f"~{years:.1f} years powered. Runtime, not calendar age."
+    days = hours / 24.0
+    if days >= 2:
+        return f"~{days:.0f} days powered. Runtime, not calendar age."
+    return f"{hours} hours powered. Runtime, not calendar age."
+
+
+def _row(attribute: str, value: str, note: str | None = None) -> dict:
+    rec: dict = {"attribute": attribute, "value": value, "note": note}
+    return rec
+
+
+def smart_detail_rows(
+    health: str | None,
+    wear: dict | None,
+    ata_rows: list[dict] | None = None,
+) -> list[dict]:
+    """Curated Attribute / Value / Note rows. Quiet zeros omit Note."""
+    wear = wear or {}
+    ata_rows = ata_rows or []
+    out: list[dict] = []
+
+    if health and health != "Unknown":
+        note = None
+        if "pass" not in health.lower():
+            note = "Drive reported SMART failure. Do not trust this disk."
+        out.append(_row("Overall health", health, note))
+
+    hours = wear.get("power_on_hours")
+    if not isinstance(hours, int):
+        poh = _ata_named(ata_rows, "Power_On_Hours")
+        if poh and isinstance(poh.get("raw"), int):
+            hours = poh["raw"]
+    if isinstance(hours, int):
+        out.append(_row("Power_On_Hours", f"{hours:,}", _hours_note(hours)))
+
+    proto = wear.get("protocol")
+    if proto == "nvme" or wear.get("percentage_used") is not None:
+        used = wear.get("percentage_used")
+        if isinstance(used, int):
+            note = "Fraction of rated write life used."
+            if used >= 90:
+                note = "Write life nearly spent. Plan a replacement."
+            out.append(_row("Percentage Used", f"{used}%", note))
+        spare = wear.get("available_spare_pct")
+        if isinstance(spare, int):
+            val = f"{spare}%"
+            thr = wear.get("available_spare_threshold_pct")
+            if isinstance(thr, int):
+                val = f"{spare}% (threshold {thr}%)"
+            note = None
+            if isinstance(thr, int) and spare <= thr:
+                note = "Available spare at or below the drive threshold."
+            elif spare < 100:
+                note = "Spare blocks have been consumed."
+            out.append(_row("Available Spare", val, note))
+        media = wear.get("media_errors")
+        if isinstance(media, int):
+            note = None
+            if media > 0:
+                note = "Unrecoverable NAND/media errors."
+            out.append(_row("Media and Data Integrity Errors", str(media), note))
+        cw = wear.get("critical_warning")
+        if isinstance(cw, int):
+            note = None
+            if cw != 0:
+                note = f"Controller critical warning 0x{cw:02x}."
+            out.append(_row("Critical Warning", f"0x{cw:02x}", note))
+        elif isinstance(cw, str) and cw not in ("",):
+            out.append(_row("Critical Warning", str(cw), None))
+        return out
+
+    wlc = _ata_named(ata_rows, "Wear_Leveling_Count")
+    if wlc and isinstance(wlc.get("value"), int):
+        used = max(0, 100 - wlc["value"])
+        raw = wlc.get("raw")
+        val = f"{wlc['value']}"
+        if raw is not None:
+            val = f"{wlc['value']} (raw {raw})"
+        note = (
+            f"~{used}% write life used (100 = new). "
+            "RAW is vendor, not portable PE cycles."
+        )
+        out.append(_row("Wear_Leveling_Count", val, note))
+
+    realloc = _ata_named(ata_rows, "Reallocated_Sector")
+    if realloc and realloc.get("raw") is not None:
+        n = realloc["raw"]
+        note = None
+        if isinstance(n, int) and n > 0:
+            note = "Failed blocks remapped. Growing means the drive is dying."
+        out.append(_row("Reallocated_Sector_Ct", str(n), note))
+
+    unc = _ata_named(ata_rows, "Reported_Uncorrect")
+    if unc and unc.get("raw") is not None:
+        n = unc["raw"]
+        note = None
+        if isinstance(n, int) and n > 0:
+            note = "Unrecoverable read errors."
+        out.append(_row("Reported_Uncorrect", str(n), note))
+
+    crc = _ata_named(ata_rows, "UDMA_CRC_Error_Count")
+    if crc and crc.get("raw") is not None:
+        n = crc["raw"]
+        note = None
+        if isinstance(n, int) and n > 0:
+            note = "Link/transfer glitch, not flash wear. Sticky; only growth matters."
+        out.append(_row("UDMA_CRC_Error_Count", str(n), note))
+
+    return out
+
+
 def _parse_nvme_smart_attrs(blob: str) -> dict:
     """Parse NVMe SMART/Health Information lines from smartctl -A/-x."""
     out: dict = {}
@@ -268,30 +420,13 @@ def _parse_nvme_smart_attrs(blob: str) -> dict:
     return out
 
 
-def _ata_attr_raw(blob: str, name: str) -> int | None:
-    """RAW_VALUE for an ATA SMART attribute by name (last integer on the line)."""
-    for line in blob.splitlines():
-        if name not in line:
-            continue
-        # Skip header
-        if "ATTRIBUTE_NAME" in line:
-            continue
-        nums = re.findall(r"\d+", line.replace(",", ""))
-        if not nums:
-            continue
-        try:
-            return int(nums[-1])
-        except ValueError:
-            return None
-    return None
-
-
 def _parse_ata_smart_attrs(blob: str) -> dict:
     """SATA/ATA wear siblings from smartctl -A attribute table."""
-    if "Reallocated_Sector" not in blob and "Current_Pending_Sector" not in blob:
-        # Still allow Power_On_Hours-only ATA
-        if "Power_On_Hours" not in blob or "SMART/Health Information (NVMe" in blob:
-            return {}
+    if "SMART/Health Information (NVMe" in blob:
+        return {}
+    rows = parse_ata_smart_table(blob)
+    if not rows:
+        return {}
     out: dict = {"protocol": "ata"}
     mapping = {
         "reallocated_sectors": "Reallocated_Sector",
@@ -299,12 +434,16 @@ def _parse_ata_smart_attrs(blob: str) -> dict:
         "offline_uncorrectable": "Offline_Uncorrectable",
         "reported_uncorrect": "Reported_Uncorrect",
         "power_on_hours": "Power_On_Hours",
+        "udma_crc_errors": "UDMA_CRC_Error_Count",
     }
     for key, needle in mapping.items():
-        val = _ata_attr_raw(blob, needle)
-        if val is not None:
-            out[key] = val
-    # Drop protocol-only empty
+        rec = _ata_named(rows, needle)
+        if rec and rec.get("raw") is not None:
+            out[key] = rec["raw"]
+    wlc = _ata_named(rows, "Wear_Leveling_Count")
+    if wlc:
+        out["wear_leveling_value"] = wlc.get("value")
+        out["wear_leveling_raw"] = wlc.get("raw")
     if len(out) == 1:
         return {}
     return out
@@ -391,6 +530,7 @@ def _get_smart_bundle(device: str) -> dict:
         "wear": None,
         "wear_line": None,
         "wear_note": None,
+        "smart": [],
         "note": None,
     }
     exe = system_binary("smartctl")
@@ -416,6 +556,8 @@ def _get_smart_bundle(device: str) -> dict:
         health = _parse_health(blob) or "Unknown"
         wear = _parse_nvme_smart_attrs(blob) or _parse_ata_smart_attrs(blob) or None
         wear_line = _format_wear_line(wear) if wear else None
+        ata_rows = parse_ata_smart_table(blob) if not (wear and wear.get("protocol") == "nvme") else []
+        smart = smart_detail_rows(health, wear, ata_rows)
         note = None
         health_note = None
         wear_note = None
@@ -427,6 +569,7 @@ def _get_smart_bundle(device: str) -> dict:
             "wear": wear,
             "wear_line": wear_line,
             "wear_note": wear_note,
+            "smart": smart,
             "note": note,
         }
 
@@ -596,6 +739,7 @@ def get_disk_info() -> list[dict]:
             "wear": smart.get("wear"),
             "wear_line": smart.get("wear_line"),
             "wear_note": smart.get("wear_note"),
+            "smart": smart.get("smart") or [],
             "note": smart.get("note"),
             "temperature": _get_temperature(device),
             "raid_status": _get_raid_status(device),
@@ -628,7 +772,8 @@ def _help_text() -> str:
 
 What
   Lists disks with model, size, serial, WWN, Health/Wear (SMART when permitted),
-  temperature, PCIe link (NVMe), and partitions with free space.
+  a SMART attribute table (value + meaning), temperature, PCIe link (NVMe),
+  and partitions with free space.
 
 Why
   Builders need to confirm which drive is which, whether SMART health/wear is
@@ -637,7 +782,8 @@ Why
 
 How
   Runs without root for inventory + partitions. SMART Health/Wear often need
-  sudo + smartctl (amber notes). Controller deep-dive → lsnvme. Lean data → --json.
+  sudo + smartctl (amber notes). Quiet zeros stay quiet; CRC/realloc/uncorrect
+  and high wear get a Note. Controller deep-dive → lsnvme. Lean data → --json.
 
 Usage: lsdisk [options]
   --json, -j       JSON (disks + partitions + wear attrs)
@@ -695,7 +841,8 @@ def main(args: list[str] | None = None) -> None:
 
     labels = [
         "Disks", "Model", "Type", "Transport", "Size", "Serial", "WWN", "Rotational",
-        "Discard", "Health", "Wear", "Note", "Temperature", "RAID", "PCIe link",
+        "Discard", "Health", "Wear", "Attribute", "Value", "Note", "Temperature",
+        "RAID", "PCIe link",
     ]
     for d in disks:
         labels.extend(p["name"] for p in d.get("partitions") or [])
@@ -737,6 +884,14 @@ def main(args: list[str] | None = None) -> None:
             _kv("Wear", wear_txt, w)
         elif looks_like_privilege_note(d.get("wear_note") or d.get("note")):
             _kv("Wear", privilege_note("— (needs sudo + smartctl)", enabled=color), w)
+        smart_rows = d.get("smart") or []
+        if smart_rows:
+            _section("SMART")
+            for rec in smart_rows:
+                _kv("Attribute", rec.get("attribute"), w)
+                _kv("Value", rec.get("value"), w)
+                if rec.get("note"):
+                    _kv("Note", rec["note"], w)
         note = d.get("note") or d.get("health_note") or d.get("wear_note")
         if note and not looks_like_privilege_note(note):
             _kv("Note", note, w)
